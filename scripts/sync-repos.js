@@ -30,7 +30,7 @@ const SYNC_MAPPINGS = [
 ];
 
 function runSync(direction = 'to-pro') {
-  console.log(`\n🔄 [Sync] Running cross-repo sync (Direction: ${direction})...`);
+  console.log(`\n [Sync] Running cross-repo sync (Direction: ${direction})...`);
 
   if (!fs.existsSync(PRO_REPO_DIR)) {
     console.warn(`⚠️  Pro repository not found at expected path: ${PRO_REPO_DIR}`);
@@ -79,14 +79,14 @@ function runSync(direction = 'to-pro') {
   }
 
   if (changesCount > 0) {
-    console.log(`\n🎉 Synchronized ${changesCount} file(s).`);
+    console.log(`\n Synchronized ${changesCount} file(s).`);
     // Run verification tests in destination
     try {
       if (direction === 'to-pro') {
-        console.log(`\n🧪 Running validation tests in indiana-expunge-pro...`);
+        console.log(`\n Running validation tests in indiana-expunge-pro...`);
         execSync('npm test', { cwd: PRO_REPO_DIR, stdio: 'inherit' });
       } else {
-        console.log(`\n🧪 Running validation tests in indiana-expunge...`);
+        console.log(`\n Running validation tests in indiana-expunge...`);
         execSync('npm test', { cwd: REPO_ROOT, stdio: 'inherit' });
       }
       console.log(`\n✅ Destination test suite passed successfully.`);

@@ -328,7 +328,7 @@ describe('Playwright Headless Canary Scraper & Schema Verification', () => {
 
 // ─── CLI Entrypoint (Direct Execution) ──────────────────────────────
 if (require.main === module && !process.env.JEST_WORKER_ID) {
-  console.log('🚀 Running Playwright Headless Canary Schema Script...');
+  console.log(' Running Playwright Headless Canary Schema Script...');
   runPlaywrightCanary({
     liveUrl: process.env.CANARY_LIVE === 'true' ? 'https://public.courts.in.gov/mycase' : null
   })
@@ -344,7 +344,7 @@ if (require.main === module && !process.env.JEST_WORKER_ID) {
       process.exit(0);
     })
     .catch((err) => {
-      console.error('💥 Fatal error in headless canary script:', err);
+      console.error(' Fatal error in headless canary script:', err);
       process.exit(1);
     });
 }

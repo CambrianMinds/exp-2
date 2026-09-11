@@ -14,7 +14,7 @@ const { parseCCSJson } = require('./parser.js');
 const CANARY_ERROR_FILE = path.resolve(__dirname, '../../canary-error.json');
 
 async function runCanary() {
-  console.log('🚀 Starting Indiana MyCase Canary Scraper Test...');
+  console.log(' Starting Indiana MyCase Canary Scraper Test...');
   let browser = null;
 
   try {
@@ -30,7 +30,7 @@ async function runCanary() {
 
     const page = await context.newPage();
 
-    console.log('🌐 Navigating to https://public.courts.in.gov/mycase/#/vw/Search...');
+    console.log(' Navigating to https://public.courts.in.gov/mycase/#/vw/Search...');
     await page.goto('https://public.courts.in.gov/mycase/#/vw/Search', {
       waitUntil: 'domcontentloaded',
       timeout: 30000
@@ -41,7 +41,7 @@ async function runCanary() {
     const nameTab = page.locator('#tabByParty, #searchByTabs a:has-text("Name"), a[role="tab"]:has-text("Name")').first();
     await nameTab.waitFor({ state: 'visible', timeout: 25000 });
 
-    console.log('🖱️ Clicking "Name" search tab...');
+    console.log('️ Clicking "Name" search tab...');
     await nameTab.click();
 
     // Look for last name input field and fill search criteria
@@ -61,7 +61,7 @@ async function runCanary() {
     const searchBtn = page.locator('button[type="submit"]:has-text("Search"), button.btn-primary:has-text("Search"), button:has-text("Search")').first();
     await searchBtn.waitFor({ state: 'visible', timeout: 10000 });
 
-    console.log('🔍 Submitting search...');
+    console.log(' Submitting search...');
     await searchBtn.click();
 
     // Wait for search results: either result rows in DOM or Knockout observable populated
@@ -330,11 +330,11 @@ async function runCanary() {
       };
     });
 
-    console.log(`📦 Extracted ${extractedData.cases.length} cases from MyCase search.`);
+    console.log(` Extracted ${extractedData.cases.length} cases from MyCase search.`);
 
     // If sample CCS was returned, parse and attach it
     if (extractedData.sampleCCS && extractedData.sampleCaseToken) {
-      console.log(`📑 Parsing CCS details for sample CaseToken: ${extractedData.sampleCaseToken}...`);
+      console.log(` Parsing CCS details for sample CaseToken: ${extractedData.sampleCaseToken}...`);
       const parsedCCS = parseCCSJson(extractedData.sampleCCS);
       const targetCase = extractedData.cases.find(c => c.caseToken === extractedData.sampleCaseToken);
       if (targetCase) {
@@ -356,7 +356,7 @@ async function runCanary() {
       cases: extractedData.cases
     };
 
-    console.log('🛡️ Validating extracted JSON against Zod schema...');
+    console.log('️ Validating extracted JSON against Zod schema...');
     const validation = validateMyCasePayload(payload);
 
     if (!validation.success) {
@@ -391,7 +391,7 @@ async function runCanary() {
     process.exit(0);
 
   } catch (err) {
-    console.error('💥 Fatal error during MyCase canary execution:', err);
+    console.error(' Fatal error during MyCase canary execution:', err);
     fs.writeFileSync(CANARY_ERROR_FILE, JSON.stringify({
       timestamp: new Date().toISOString(),
       message: err.message,
