@@ -167,7 +167,7 @@ test.describe('Indiana Expungement Assistant E2E', () => {
     ]);
 
     // Simulate drag and drop using DataTransfer
-    await dropZone.dispatchEvent('dragenter', { dataTransfer: {} });
+    await dropZone.evaluate(node => node.dispatchEvent(new Event('dragenter')));
     await expect(dropZone).toHaveClass(/drag-active/);
 
     await page.evaluate((payload) => {
