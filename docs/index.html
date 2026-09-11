@@ -166,8 +166,9 @@
       <div class="nav-actions">
         <!-- Pro Suite Button for Legal Aid Organizations and Law Firms -->
         <a href="https://cambrianminds.github.io/indiana-expunge-pro/" target="_blank" rel="noopener noreferrer"
-          class="nav-pro-btn" title="Legal Aid &amp; Defense Practice Pro Suite (IC § 35-38-9)">
+          class="nav-pro-btn" title="Legal Aid Organizations &amp; Law Firms (For Attorneys &amp; Paralegals)" aria-label="Pro Suite for Legal Aid and Law Firms">
           <span class="pro-text">Pro Suite</span>
+          <span class="pro-tag">Attorneys</span>
           <span class="pro-arrow" aria-hidden="true">↗</span>
         </a>
 
@@ -212,68 +213,34 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-container">
-      <h1 class="hero-title">Automated Indiana Expungement Forms</h1>
+      <h1 class="hero-title">Court-ready Indiana expungement packets, fully prepared in your browser.</h1>
 
       <p class="hero-subtitle">
-        Turn public MyCase court records into completed, court-ready expungement packets under Indiana Code § 35-38-9. Free, private, and prepared directly in your browser.
+        Turn public MyCase records into Trial Rule 10 compliant pleadings under IC § 35-38-9. Free, open-source, and entirely client-side.
       </p>
 
-      <!-- Minimalist Floating Card: Statutory Waiting Clocks Triage Ledger -->
-      <div class="hero-portal-card">
-        <div class="hero-portal-card-header">
-          <span class="portal-tag">Statutory Waiting Clocks</span>
-          <span class="portal-badge-statute">Indiana Code § 35-38-9</span>
-        </div>
+      <!-- Inline Trust Badges Pill Row directly below subtext -->
+      <div class="hero-trust-pills">
+        <span class="trust-pill"><span class="pill-icon" aria-hidden="true">🔒</span> 100% Client-Side Privacy</span>
+        <span class="trust-pill-dot" aria-hidden="true">·</span>
+        <span class="trust-pill"><span class="pill-icon" aria-hidden="true">🏛️</span> All 92 Indiana Counties</span>
+        <span class="trust-pill-dot" aria-hidden="true">·</span>
+        <span class="trust-pill"><span class="pill-icon" aria-hidden="true">📄</span> Full 10-Pleading Packet</span>
+        <span class="trust-pill-dot" aria-hidden="true">·</span>
+        <span class="trust-pill"><span class="pill-icon" aria-hidden="true">⚖️</span> $0 Cost</span>
+      </div>
 
-        <!-- 4-Tier Statutory Ledger Grid -->
-        <div class="hero-tier-grid">
-          <div class="hero-tier-card">
-            <div class="hero-tier-top">
-              <span class="hero-tier-badge">Section 1</span>
-              <span class="hero-tier-clock">1 Year Wait</span>
-            </div>
-            <div class="hero-tier-name">Arrests &amp; Dismissals</div>
-            <div class="hero-tier-status mandatory">Mandatory Seal · $0 Filing Fee</div>
-          </div>
-
-          <div class="hero-tier-card">
-            <div class="hero-tier-top">
-              <span class="hero-tier-badge">Section 2</span>
-              <span class="hero-tier-clock">5 Years Wait</span>
-            </div>
-            <div class="hero-tier-name">Misdemeanors</div>
-            <div class="hero-tier-status mandatory">Mandatory Expungement</div>
-          </div>
-
-          <div class="hero-tier-card">
-            <div class="hero-tier-top">
-              <span class="hero-tier-badge">Section 3</span>
-              <span class="hero-tier-clock">8 Years Wait</span>
-            </div>
-            <div class="hero-tier-name">Level 6 Felonies</div>
-            <div class="hero-tier-status mandatory">Mandatory Expungement</div>
-          </div>
-
-          <div class="hero-tier-card">
-            <div class="hero-tier-top">
-              <span class="hero-tier-badge">Sections 4 &amp; 5</span>
-              <span class="hero-tier-clock">8–10 Years Wait</span>
-            </div>
-            <div class="hero-tier-name">Major Felonies</div>
-            <div class="hero-tier-status discretionary">Discretionary / Prosecutor Consent</div>
-          </div>
-        </div>
-
-        <div class="hero-portal-action">
+      <!-- Action Panel with Single Clear Primary Action + Secondary Skip Link -->
+      <div class="hero-action-panel">
+        <div class="hero-cta-group">
           <a href="#assessment" class="btn btn-primary hero-btn-primary" data-i18n="btn_check_eligibility">
-            <span>Check Your Waiting Period</span>
-            <span class="btn-arrow" aria-hidden="true">↓</span>
+            <span>Check Eligibility &amp; Start Free</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
           </a>
 
-          <div class="hero-portal-sublinks">
-            <span class="extracted-style-1">Already verified your eligibility?</span>
-            <a href="app/app.html" class="portal-sublink">
-              Launch Document Generator ➔
+          <div class="hero-secondary-link-wrap">
+            <a href="app/app.html" class="hero-secondary-link">
+              Have records ready? Skip to Document Generator ➔
             </a>
           </div>
         </div>
@@ -301,26 +268,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Progressive Disclosure: Expandable Context for Grounding -->
-        <details class="hero-disclosure">
-          <summary class="hero-disclosure-summary">
-            <span>Learn more about the process &amp; statutory rules</span>
-            <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </summary>
-          <div class="hero-disclosure-body">
-            <p>
-              Indiana's Second Chance Law allows eligible citizens to seal eligible arrest, dismissal, misdemeanor, and non-violent felony records from public view.
-            </p>
-            <ul class="disclosure-list">
-              <li><strong>Lifetime One-Shot Limit (IC § 35-38-9-9(i)):</strong> You can only expunge convictions once in your lifetime. All eligible convictions in any Indiana county must be filed in a coordinated 365-day filing period.</li>
-              <li><strong>No Attorney Required:</strong> Indiana courts accept pro se (self-represented) petitions. This assistant automatically prepares all standard petitions, notices of exclusion, fee waiver forms, and proposed orders.</li>
-              <li><strong>Zero Telemetry:</strong> Records scraped from MyCase remain exclusively inside your browser's local sandbox and are never transmitted over the internet.</li>
-            </ul>
-          </div>
-        </details>
       </div>
     </div>
   </section>
@@ -330,8 +277,6 @@
     <span id="how-it-works" class="anchor-target"></span>
     <span id="workflow" class="anchor-target"></span>
     <span id="instructions" class="anchor-target"></span>
-    <span id="assessment" class="anchor-target"></span>
-    <span id="eligibility" class="anchor-target"></span>
     <div class="container">
       <div class="section-header">
         <span class="section-kicker">Self-Help Reference</span>
@@ -388,6 +333,13 @@
               <li><strong>Fee Waiver Check:</strong> Analyzes eligibility to waive standard $157 civil filing fees</li>
               <li><strong>100% Client-Side:</strong> All parsing executes locally in your browser with zero telemetry</li>
             </ul>
+
+            <!-- Inline High-Contrast Statutory Callout -->
+            <div class="audit-statutory-callout">
+              <div class="callout-badge">Statutory Prerequisite</div>
+              <strong>Strict Lifetime Limit (IC § 35-38-9-9):</strong> Indiana permits conviction expungement only once per lifetime. Check all 92 counties before generating pleadings.
+            </div>
+
             <div class="extracted-style-3">
               <button type="button" class="btn btn-secondary btn-sm open-rules-btn-alt extracted-style-2" id="openRulesModalBtn">
                 <span>Launch Interactive Rules Engine &rarr;</span>
@@ -422,10 +374,11 @@
           </div>
         </div>
 
-        <!-- Compact Alternative Import Methods Drawer -->
-        <details class="alt-methods-drawer">
+        <!-- Advanced / Developer Accordion Tray -->
+        <details class="alt-methods-drawer advanced-accordion" id="advancedAccordion">
           <summary class="alt-methods-summary">
-            <span>Prefer the Chrome Extension or Manual HTML/JSON File Upload? Click for setup options</span>
+            <span class="advanced-summary-badge">Advanced / Developer Tools</span>
+            <span class="advanced-summary-title">Offline Setup: Chrome Extension (Developer Mode) &amp; Manual File Import</span>
             <span class="alt-arrow" aria-hidden="true">▾</span>
           </summary>
           <div class="guide-container extracted-style-4">
@@ -520,8 +473,115 @@
     </div>
   </section>
 
-  <!-- Section 3: The Lifetime Limit (The One-Shot Rule) -->
-  <section class="section section-alt" id="oneshot">
+  <!-- Section: Civic Mission & Core Rationale ("The Law Belongs to You") -->
+  <section class="section" id="mission">
+    <div class="container">
+      <div class="letter-panel">
+        <div class="letter-glass-card">
+          <div class="letter-header">
+            <div>
+              <h2 class="scenic-title extracted-style-7">The Law Belongs to You</h2>
+              <p class="scenic-subtitle">Indiana's Second Chance Law exists. The $3,000 gate in front of it doesn't have to.</p>
+            </div>
+          </div>
+
+          <div class="letter-quote-callout">
+            <p>&ldquo;Empathy is just a feeling; actual care is resource allocation.&rdquo;</p>
+          </div>
+
+          <div class="letter-body">
+            <p>
+              Indiana's Second Chance Law looks great on paper, but the vocabulary we use around it is doing enormous,
+              unhelpful work. The state feels <em>empathy</em> for people with records, so it wrote a statute. But
+              empathy is just a feeling; actual care is resource allocation. Right now, the state's empathy is locked behind a
+              gate with up to a $3,000 admission fee, operated by private attorneys. It is an economic filter that locks
+              out the exact people who need a clean slate the most.
+            </p>
+            <p>
+              I built this tool because that filter is a structural choice, not an inevitability. You shouldn't have to
+              buy your way back into a system you already paid for.
+            </p>
+            <p>
+              This software is not legal counsel. It is the raw infrastructure required to do the
+              work yourself &mdash; the same work an attorney charges thousands to format on your behalf.
+              The law belongs to you. This is just the machinery to use it.
+            </p>
+
+            <div class="letter-signature">
+              <p class="signature-name">Justin Bogner</p>
+              <p class="signature-sub">Developer · CambrianMinds</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Dedicated Statutory Waiting Clocks Reference Grid (IC § 35-38-9) -->
+  <section class="section section-alt" id="assessment">
+    <span id="clocks" class="anchor-target"></span>
+    <span id="eligibility" class="anchor-target"></span>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Statutory Clocks · IC § 35-38-9</span>
+        <h2 class="section-title">Indiana Waiting Periods at a Glance</h2>
+        <p class="section-lead">
+          Eligibility is strictly governed by your offense tier and the elapsed time since sentencing. Review the statutory waiting clocks below or test your case details in the interactive engine.
+        </p>
+      </div>
+
+      <div class="statutory-clocks-container">
+        <!-- 4-Tier Statutory Ledger Grid (Relocated from Hero) -->
+        <div class="hero-tier-grid statutory-grid-expanded">
+          <div class="hero-tier-card">
+            <div class="hero-tier-top">
+              <span class="hero-tier-badge">Section 1</span>
+              <span class="hero-tier-clock">1 Year Wait</span>
+            </div>
+            <div class="hero-tier-name">Arrests &amp; Dismissals</div>
+            <div class="hero-tier-status mandatory">Mandatory Seal · $0 Filing Fee</div>
+          </div>
+
+          <div class="hero-tier-card">
+            <div class="hero-tier-top">
+              <span class="hero-tier-badge">Section 2</span>
+              <span class="hero-tier-clock">5 Years Wait</span>
+            </div>
+            <div class="hero-tier-name">Misdemeanors</div>
+            <div class="hero-tier-status mandatory">Mandatory Expungement</div>
+          </div>
+
+          <div class="hero-tier-card">
+            <div class="hero-tier-top">
+              <span class="hero-tier-badge">Section 3</span>
+              <span class="hero-tier-clock">8 Years Wait</span>
+            </div>
+            <div class="hero-tier-name">Level 6 Felonies</div>
+            <div class="hero-tier-status mandatory">Mandatory Expungement</div>
+          </div>
+
+          <div class="hero-tier-card">
+            <div class="hero-tier-top">
+              <span class="hero-tier-badge">Sections 4 &amp; 5</span>
+              <span class="hero-tier-clock">8–10 Years Wait</span>
+            </div>
+            <div class="hero-tier-name">Major Felonies</div>
+            <div class="hero-tier-status discretionary">Discretionary / Prosecutor Consent</div>
+          </div>
+        </div>
+
+        <div class="statutory-clocks-cta">
+          <button type="button" class="btn btn-primary open-rules-btn-alt" id="openRulesFromClocksBtn">
+            <span>Launch Interactive Eligibility Calculator</span>
+            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: The Lifetime Limit (The One-Shot Rule) -->
+  <section class="section" id="oneshot">
     <span id="warning" class="anchor-target"></span>
     <div class="container">
       <div class="advisory-panel">
@@ -596,187 +656,150 @@
       </div>
 
       <!-- Procedural Filing Pipeline: 3 Stages of Document Preparation -->
-      <div class="pleadings-pipeline" id="pleadings-details">
+      <div class="pleadings-workflow-grid" id="pleadings-details">
         <!-- Stage 1: Identity & Court Appearance -->
-        <div class="pleadings-stage-block">
-          <div class="pleadings-stage-header">
-            <span class="pleadings-stage-pill">Stage 1</span>
-            <div class="pleadings-stage-text">
-              <h3 class="pleadings-stage-title">Case Initiation &amp; Identity Protection</h3>
-              <p class="pleadings-stage-subtitle">Establishes formal pro se appearance and seals confidential identifiers (SSN, DOB, driver's license) from public court inspection under Access to Court Records (ACR) Rule 5.</p>
-            </div>
+        <div class="pleadings-stage-column">
+          <div class="stage-column-header">
+            <span class="stage-step-pill">Stage 1</span>
+            <h3 class="stage-col-title">Initiation &amp; Sealing</h3>
+            <p class="stage-col-desc">Formal appearance and confidential record shielding under Access to Court Records (ACR) Rule 5.</p>
           </div>
-
-          <div class="doc-list-card">
-            <div class="doc-list-header">
-              <span>Form #</span>
-              <span>Pleading Title &amp; Statutory Function</span>
-              <span class="extracted-style-5">Authority &amp; Recipient</span>
+          <div class="stage-cards-stack">
+            <!-- DOC 01 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-01" tabindex="0" role="button" aria-label="Preview DOC 01 Appearance Form">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 01</span>
+                <span class="doc-badge-tag tag-clerk">County Clerk</span>
+              </div>
+              <h4 class="doc-title">Appearance Form (Pro Se)</h4>
+              <p class="doc-desc">Mandatory formal appearance as a self-represented petitioner pursuant to Indiana Trial Rule 3.1.</p>
+              <div class="doc-rule-tag">Trial Rule 3.1</div>
             </div>
 
-            <div class="doc-list-item" data-doc-key="doc-01">
-              <span class="doc-list-badge">DOC 01</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Appearance Form (Self-Represented)</h4>
-                <p class="doc-list-desc">Mandatory formal appearance as a self-represented pro se petitioner pursuant to Indiana Trial Rule 3.1.</p>
+            <!-- DOC 02 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-02" tabindex="0" role="button" aria-label="Preview DOC 02 Notice of Exclusion">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 02</span>
+                <span class="doc-badge-tag tag-public">Public File</span>
               </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">Trial Rule 3.1</span>
-                <span class="doc-tag-dest">County Clerk</span>
-              </div>
+              <h4 class="doc-title">Notice of Exclusion</h4>
+              <p class="doc-desc">Formal notice shielding Social Security Numbers, DOB, and driver's license from public court inspection.</p>
+              <div class="doc-rule-tag">ACR Rule 5</div>
             </div>
 
-            <div class="doc-list-item" data-doc-key="doc-02">
-              <span class="doc-list-badge">DOC 02</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Notice of Exclusion of Confidential Information</h4>
-                <p class="doc-list-desc">Formal court notice under Access to Court Records (ACR) Rule 5 shielding SSN and DOB from public inspection.</p>
+            <!-- DOC 03 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-03" tabindex="0" role="button" aria-label="Preview DOC 03 Confidential Information Sheet">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 03</span>
+                <span class="doc-badge-tag tag-seal">Under Seal</span>
               </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">ACR Rule 5</span>
-                <span class="doc-tag-dest">Public File</span>
-              </div>
-            </div>
-
-            <div class="doc-list-item" data-doc-key="doc-03">
-              <span class="doc-list-badge">DOC 03</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Confidential Information Sheet</h4>
-                <p class="doc-list-desc">Official ACR Green Paper containing Social Security Number, date of birth, driver's license, and 10-year address history filed under seal.</p>
-              </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">Confidential</span>
-                <span class="doc-tag-dest">Under Seal</span>
-              </div>
+              <h4 class="doc-title">Confidential Information Sheet</h4>
+              <p class="doc-desc">Official ACR Green Paper containing SSN, DOB, driver's license, and 10-year address history filed under seal.</p>
+              <div class="doc-rule-tag">Confidential</div>
             </div>
           </div>
         </div>
 
         <!-- Stage 2: Substantive Petitions & Indigent Relief -->
-        <div class="pleadings-stage-block">
-          <div class="pleadings-stage-header">
-            <span class="pleadings-stage-pill">Stage 2</span>
-            <div class="pleadings-stage-text">
-              <h3 class="pleadings-stage-title">The Substantive Petitions &amp; Indigent Relief</h3>
-              <p class="pleadings-stage-subtitle">The sworn statutory petition itemizing all qualifying case numbers under penalty of perjury, with optional court fee waiver and master PDF assembly.</p>
-            </div>
+        <div class="pleadings-stage-column">
+          <div class="stage-column-header">
+            <span class="stage-step-pill stage-pill-gold">Stage 2</span>
+            <h3 class="stage-col-title">Petitions &amp; Relief</h3>
+            <p class="stage-col-desc">The sworn statutory petition itemizing cases and optional court filing fee waiver.</p>
           </div>
-
-          <div class="doc-list-card">
-            <div class="doc-list-header">
-              <span>Form #</span>
-              <span>Pleading Title &amp; Statutory Function</span>
-              <span class="extracted-style-5">Authority &amp; Recipient</span>
+          <div class="stage-cards-stack">
+            <!-- DOC 04 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-04" tabindex="0" role="button" aria-label="Preview DOC 04 Verified Expungement Petition">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 04</span>
+                <span class="doc-badge-tag tag-court">Trial Court</span>
+              </div>
+              <h4 class="doc-title">Verified Expungement Petition</h4>
+              <p class="doc-desc">Core court petition itemizing every cause number, statutory tier, and consolidation affirmation under penalty of perjury.</p>
+              <div class="doc-rule-tag">IC § 35-38-9</div>
             </div>
 
-            <div class="doc-list-item" data-doc-key="doc-04">
-              <span class="doc-list-badge">DOC 04</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Verified Petition for Expungement</h4>
-                <p class="doc-list-desc">The core court petition itemizing every cause number, statutory tier, and consolidation affirmation signed under penalty of perjury.</p>
+            <!-- DOC 08 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-08" tabindex="0" role="button" aria-label="Preview DOC 08 Fee Waiver Petition">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 08</span>
+                <span class="doc-badge-tag tag-fee">Fee Waiver</span>
               </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">Statutory Petition</span>
-                <span class="doc-tag-dest">Trial Court</span>
-              </div>
+              <h4 class="doc-title">Fee Waiver &amp; Proposed Order</h4>
+              <p class="doc-desc">Indigent petition under IC § 33-37-3-2 requesting the court waive the standard $157 civil filing fee.</p>
+              <div class="doc-rule-tag">IC § 33-37-3-2</div>
             </div>
 
-            <div class="doc-list-item" data-doc-key="doc-08">
-              <span class="doc-list-badge">DOC 08</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Fee Waiver Petition &amp; Proposed Order</h4>
-                <p class="doc-list-desc">Indigent petition under IC § 33-37-3-2 and proposed order requesting that the court waive the standard $157 civil filing fee.</p>
+            <!-- DOC 00-A -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-00-a" tabindex="0" role="button" aria-label="Preview DOC 00-A Master Combined Petition Bundle">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 00-A</span>
+                <span class="doc-badge-tag tag-efile">E-File Indiana</span>
               </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">IC § 33-37-3-2</span>
-                <span class="doc-tag-dest">Fee Waiver</span>
-              </div>
+              <h4 class="doc-title">Master Combined Bundle</h4>
+              <p class="doc-desc">Complete multi-pleading PDF packet containing all required filings with official per-document pagination.</p>
+              <div class="doc-rule-tag">Master Packet</div>
             </div>
 
-            <div class="doc-list-item" data-doc-key="doc-00-a">
-              <span class="doc-list-badge">DOC 00-A</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Master Combined Petition Bundle</h4>
-                <p class="doc-list-desc">Complete multi-pleading PDF packet containing all required court filings with official per-document pagination, assembled for e-filing or clerk window delivery.</p>
+            <!-- DOC 00-B -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-00-b" tabindex="0" role="button" aria-label="Preview DOC 00-B Pro Se Instruction Guide">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 00-B</span>
+                <span class="doc-badge-tag tag-guide">Petitioner Copy</span>
               </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">Master Packet</span>
-                <span class="doc-tag-dest">E-File Indiana</span>
-              </div>
-            </div>
-
-            <div class="doc-list-item" data-doc-key="doc-00-b">
-              <span class="doc-list-badge">DOC 00-B</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Pro Se Instruction &amp; Warning Guide</h4>
-                <p class="doc-list-desc">Plain-English 6-step walkthrough for self-represented petitioners with statutory one-shot alerts and court service instructions.</p>
-              </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">Filing Guide</span>
-                <span class="doc-tag-dest">Petitioner Copy</span>
-              </div>
+              <h4 class="doc-title">Pro Se Instruction Guide</h4>
+              <p class="doc-desc">Plain-English 6-step walkthrough for self-represented filers with statutory one-shot alerts and court service rules.</p>
+              <div class="doc-rule-tag">Filing Guide</div>
             </div>
           </div>
         </div>
 
         <!-- Stage 3: Formal Service & Final Judicial Orders -->
-        <div class="pleadings-stage-block">
-          <div class="pleadings-stage-header">
-            <span class="pleadings-stage-pill">Stage 3</span>
-            <div class="pleadings-stage-text">
-              <h3 class="pleadings-stage-title">Formal Service &amp; Judicial Orders</h3>
-              <p class="pleadings-stage-subtitle">Statutory service on the County Prosecuting Attorney, verified proof of delivery, and the pre-filled decree for the presiding judge's signature.</p>
-            </div>
+        <div class="pleadings-stage-column">
+          <div class="stage-column-header">
+            <span class="stage-step-pill">Stage 3</span>
+            <h3 class="stage-col-title">Service &amp; Judicial Decrees</h3>
+            <p class="stage-col-desc">Formal prosecutor service, verified delivery, and pre-filled decree for judge signature.</p>
           </div>
-
-          <div class="doc-list-card">
-            <div class="doc-list-header">
-              <span>Form #</span>
-              <span>Pleading Title &amp; Statutory Function</span>
-              <span class="extracted-style-5">Authority &amp; Recipient</span>
+          <div class="stage-cards-stack">
+            <!-- DOC 05 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-05" tabindex="0" role="button" aria-label="Preview DOC 05 Notice of Filing to Prosecutor">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 05</span>
+                <span class="doc-badge-tag tag-prosecutor">Prosecutor</span>
+              </div>
+              <h4 class="doc-title">Notice of Filing to Prosecutor</h4>
+              <p class="doc-desc">Statutory notice formally served on the County Prosecutor providing 30 days to review and consent or object.</p>
+              <div class="doc-rule-tag">30-Day Notice</div>
             </div>
 
-            <div class="doc-list-item" data-doc-key="doc-05">
-              <span class="doc-list-badge">DOC 05</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Notice of Filing to Prosecuting Attorney</h4>
-                <p class="doc-list-desc">Statutory notice formally served on the County Prosecutor providing 30 days to review the petition and file an objection or consent.</p>
+            <!-- DOC 06 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-06" tabindex="0" role="button" aria-label="Preview DOC 06 Certificate of Service">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 06</span>
+                <span class="doc-badge-tag tag-service">Court Record</span>
               </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">30-Day Notice</span>
-                <span class="doc-tag-dest">Prosecutor</span>
-              </div>
+              <h4 class="doc-title">Certificate of Service</h4>
+              <p class="doc-desc">Sworn proof pursuant to Trial Rule 5 certifying service on Prosecutor, State Police, and County Sheriff.</p>
+              <div class="doc-rule-tag">Trial Rule 5</div>
             </div>
 
-            <div class="doc-list-item" data-doc-key="doc-06">
-              <span class="doc-list-badge">DOC 06</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Certificate of Service</h4>
-                <p class="doc-list-desc">Sworn proof pursuant to Trial Rule 5 certifying service on the Prosecuting Attorney, Indiana State Police, and County Sheriff.</p>
+            <!-- DOC 07 -->
+            <div class="workflow-doc-card doc-list-item" data-doc-key="doc-07" tabindex="0" role="button" aria-label="Preview DOC 07 Proposed Order">
+              <div class="doc-card-top">
+                <span class="doc-code">DOC 07</span>
+                <span class="doc-badge-tag tag-judge">Judge Decree</span>
               </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">Trial Rule 5</span>
-                <span class="doc-tag-dest">Court Record</span>
-              </div>
-            </div>
-
-            <div class="doc-list-item" data-doc-key="doc-07">
-              <span class="doc-list-badge">DOC 07</span>
-              <div class="doc-list-main">
-                <h4 class="doc-list-title">Proposed Order Granting Expungement</h4>
-                <p class="doc-list-desc">Draft judicial order pre-filled with statutory findings directing BMV, ISP, and law enforcement agencies to redact and seal records.</p>
-              </div>
-              <div class="doc-list-meta">
-                <span class="doc-tag-rule">Statutory Order</span>
-                <span class="doc-tag-dest">For Judge's Signature</span>
-              </div>
+              <h4 class="doc-title">Proposed Expungement Order</h4>
+              <p class="doc-desc">Draft judicial decree pre-filled with findings directing BMV, ISP, and agencies to redact and seal records.</p>
+              <div class="doc-rule-tag">Statutory Order</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="extracted-style-6">
-        <span class="doc-interactive-hint">Click any pleading row to preview sample text, captions, and filing instructions</span>
+        <span class="doc-interactive-hint">Click any pleading card above to preview official caption formatting, rules &amp; practice notes</span>
       </div>
     </div>
   </section>
@@ -965,69 +988,28 @@
     </div>
   </section>
 
-  <!-- Section 6: Public Interest Mission & Creator Letter -->
-  <section class="section" id="mission">
+  <!-- Section: Mandatory Legal Disclaimers & Non-Attorney Notice -->
+  <section class="section section-disclaimers" id="disclaimers">
     <div class="container">
-      <div class="letter-panel">
-        <div class="letter-glass-card">
-          <div class="letter-header">
-            <div>
-              <h2 class="scenic-title extracted-style-7">The Law Belongs to You</h2>
-              <p class="scenic-subtitle">Indiana's Second Chance Law exists. The $3,000 gate in front of it doesn't have
-                to.</p>
-            </div>
-          </div>
-
-          <div class="letter-quote-callout">
-            <p>&ldquo;Empathy is just a feeling; actual care is resource allocation.&rdquo;</p>
-          </div>
-
-          <div class="letter-body">
-            <p>
-              Indiana's Second Chance Law looks great on paper, but the vocabulary we use around it is doing enormous,
-              unhelpful work. The state feels <em>empathy</em> for people with records, so it wrote a statute. But
-              empathy
-              is just a feeling; actual care is resource allocation. Right now, the state's empathy is locked behind a
-              gate with up to a $3,000 admission fee, operated by private attorneys. It is an economic filter that locks
-              out the exact people who need a clean slate the most.
-            </p>
-            <p>
-              I built this tool because that filter is a structural choice, not an inevitability. You shouldn't have to
-              buy your way back into a system you already paid for.
-            </p>
-            <p>
-              This software is not legal counsel. It is the raw infrastructure required to do the
-              work yourself &mdash; the same work an attorney charges thousands to format on your behalf.
-              The law belongs to you. This is just the machinery to use it.
-            </p>
-
-            <div class="letter-signature">
-              <p class="signature-name">Justin Bogner</p>
-              <p class="signature-sub">Developer · CambrianMinds</p>
-            </div>
-          </div>
-
-          <div class="letter-disclaimer">
-            <h4>Mandatory Non-Attorney Notice &amp; Pro Se Legal Disclaimers</h4>
-            <ul>
-              <li><b>Independent Public Project (NOT an Attorney):</b> The creator of this software is an independent
-                individual, NOT an attorney, not a law firm, and not affiliated with the Indiana judicial branch or any
-                state agency.</li>
-              <li><b>Clerical Automation (NOT Legal Advice):</b> This software provides automated clerical formatting of
-                standard Indiana court forms using public court records. Nothing on this website, in the Chrome
-                extension, or in generated documents constitutes legal advice, legal counsel, or legal representation.
-              </li>
-              <li><b>No Attorney-Client Relationship:</b> Using this tool or website does not create an attorney-client
-                relationship under any circumstance.</li>
-              <li><b>Pro Se Representation:</b> You are representing yourself (<i>pro se</i>). You bear 100% of the
-                legal responsibility to verify every cause number, charge, disposition date, and personal identifier
-                before signing under penalty of perjury and filing with the Court Clerk.</li>
-              <li><b>Provided &ldquo;AS IS&rdquo;:</b> This open-source software is provided without warranties of any
-                kind, express or implied. By utilizing this resource, you release the author from any and all liability
-                or claims.</li>
-            </ul>
-          </div>
-        </div>
+      <div class="letter-disclaimer">
+        <h4>Mandatory Non-Attorney Notice &amp; Pro Se Legal Disclaimers</h4>
+        <ul>
+          <li><b>Independent Public Project (NOT an Attorney):</b> The creator of this software is an independent
+            individual, NOT an attorney, not a law firm, and not affiliated with the Indiana judicial branch or any
+            state agency.</li>
+          <li><b>Clerical Automation (NOT Legal Advice):</b> This software provides automated clerical formatting of
+            standard Indiana court forms using public court records. Nothing on this website, in the Chrome
+            extension, or in generated documents constitutes legal advice, legal counsel, or legal representation.
+          </li>
+          <li><b>No Attorney-Client Relationship:</b> Using this tool or website does not create an attorney-client
+            relationship under any circumstance.</li>
+          <li><b>Pro Se Representation:</b> You are representing yourself (<i>pro se</i>). You bear 100% of the
+            legal responsibility to verify every cause number, charge, disposition date, and personal identifier
+            before signing under penalty of perjury and filing with the Court Clerk.</li>
+          <li><b>Provided &ldquo;AS IS&rdquo;:</b> This open-source software is provided without warranties of any
+            kind, express or implied. By utilizing this resource, you release the author from any and all liability
+            or claims.</li>
+        </ul>
       </div>
     </div>
   </section>

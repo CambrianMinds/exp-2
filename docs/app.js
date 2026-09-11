@@ -810,7 +810,7 @@ function initStatutoryBanner() {
   const pillBtn = document.getElementById('statutoryBannerPill');
   if (!banner || !toggleBtn || !pillBtn) return;
 
-  const isDismissed = sessionStorage.getItem('statutory_banner_minimized') === 'true';
+  const isDismissed = localStorage.getItem('statutory_banner_minimized') === 'true';
   if (isDismissed) {
     banner.classList.add('minimized');
     pillBtn.style.display = 'block';
@@ -821,14 +821,14 @@ function initStatutoryBanner() {
     banner.classList.add('minimized');
     pillBtn.style.display = 'block';
     document.body.classList.add('statutory-banner-dismissed');
-    sessionStorage.setItem('statutory_banner_minimized', 'true');
+    localStorage.setItem('statutory_banner_minimized', 'true');
   });
 
   pillBtn.addEventListener('click', () => {
     banner.classList.remove('minimized');
     pillBtn.style.display = 'none';
     document.body.classList.remove('statutory-banner-dismissed');
-    sessionStorage.setItem('statutory_banner_minimized', 'false');
+    localStorage.setItem('statutory_banner_minimized', 'false');
   });
 }
 

@@ -4091,3 +4091,433 @@ body:not(.statutory-banner-dismissed) .back-to-top {
 .extracted-style-19 { color: var(--text-primary); font-weight: 700; }
 .extracted-style-20 { width: 100%; }
 .extracted-style-21 { margin-top: 1rem; padding: 10px 12px; background: var(--color-gold-50, rgba(217, 119, 6, 0.08)); border-left: 3px solid var(--color-gold-500); border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--text-primary); line-height: 1.4; }
+
+/* ==========================================================================
+   Hero Redesign (2026 Focused Value & Zero Cognitive Overload)
+   ========================================================================== */
+.hero-trust-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: -0.85rem auto 2.25rem;
+  padding: 0.45rem 1.15rem;
+  background: var(--color-surface);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-xs);
+  max-width: fit-content;
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: var(--text-secondary);
+}
+
+.trust-pill .pill-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.trust-pill-dot {
+  color: var(--color-gold-500);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.hero-action-panel {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.hero-secondary-link-wrap {
+  margin-top: 0.25rem;
+}
+
+.hero-secondary-link {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--border-medium);
+  padding-bottom: 2px;
+  transition: all var(--transition);
+}
+
+.hero-secondary-link:hover {
+  color: var(--color-gold-700);
+  border-bottom-color: var(--color-gold-500);
+}
+
+[data-theme="dark"] .hero-secondary-link:hover {
+  color: var(--color-gold-400);
+}
+
+/* Nav Pro Tag */
+.nav-pro-btn .pro-tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(212, 175, 55, 0.22);
+  color: var(--color-gold-700);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-pill);
+  margin-left: 0.2rem;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .nav-pro-btn .pro-tag {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--color-gold-300);
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+/* Advanced / Developer Accordion */
+.advanced-accordion {
+  margin-top: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition);
+}
+
+.advanced-accordion[open] {
+  border-color: var(--border-medium);
+}
+
+.advanced-accordion .alt-methods-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-surface-subtle);
+  cursor: pointer;
+  user-select: none;
+}
+
+.advanced-summary-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(15, 41, 34, 0.08);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .advanced-summary-badge {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.advanced-summary-title {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex-grow: 1;
+}
+
+/* Step 2 Inline Statutory Callout */
+.audit-statutory-callout {
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-gold-50, rgba(212, 175, 55, 0.08));
+  border: 1px solid var(--border-gold);
+  border-left: 4px solid var(--color-gold-600);
+  border-radius: var(--radius-xs);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+[data-theme="dark"] .audit-statutory-callout {
+  background: rgba(212, 175, 55, 0.1);
+  border-left-color: var(--color-gold-500);
+}
+
+.audit-statutory-callout strong {
+  color: var(--text-primary);
+}
+
+.audit-statutory-callout .callout-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-700);
+  margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .audit-statutory-callout .callout-badge {
+  color: var(--color-gold-400);
+}
+
+/* Statutory Clocks Dedicated Reference Grid */
+.statutory-clocks-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.statutory-grid-expanded {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 960px) {
+  .statutory-grid-expanded {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .statutory-grid-expanded {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statutory-clocks-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Restructured 10 Pleadings 3-Stage Visual Timeline & Card Grid
+   ========================================================================== */
+.pleadings-workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@media (max-width: 960px) {
+  .pleadings-workflow-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.pleadings-stage-column {
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.pleadings-stage-column:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.stage-column-header {
+  padding: 1.25rem 1.25rem 1rem;
+  background: var(--color-surface-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stage-step-pill {
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--color-blue-600);
+  color: #ffffff;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-xs);
+}
+
+.stage-step-pill.stage-pill-gold {
+  background: var(--color-gold-500);
+  color: #0b1e18;
+}
+
+[data-theme="dark"] .stage-step-pill {
+  background: var(--color-blue-700);
+}
+
+[data-theme="dark"] .stage-step-pill.stage-pill-gold {
+  background: var(--color-gold-500);
+  color: #050e0b;
+}
+
+.stage-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.stage-col-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.stage-cards-stack {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex-grow: 1;
+}
+
+.workflow-doc-card {
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-spring), border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.workflow-doc-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-gold-500);
+  box-shadow: var(--shadow-sm), 0 0 12px -3px var(--color-gold-glow);
+}
+
+.workflow-doc-card .doc-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.workflow-doc-card .doc-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-blue-600);
+  background: var(--color-blue-50);
+  border: 1px solid var(--border-medium);
+  padding: 0.18rem 0.45rem;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .workflow-doc-card .doc-code {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+}
+
+.doc-badge-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.tag-clerk { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
+.tag-public { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+.tag-seal { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.tag-court { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.tag-fee { background: #fae8ff; color: #86198f; border: 1px solid #f5d0fe; }
+.tag-efile { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+.tag-guide { background: #f3f4f6; color: #1f2937; border: 1px solid #e5e7eb; }
+.tag-prosecutor { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.tag-service { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.tag-judge { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+
+[data-theme="dark"] .tag-clerk { background: rgba(99, 102, 241, 0.2); color: #c7d2fe; border-color: rgba(99, 102, 241, 0.35); }
+[data-theme="dark"] .tag-public { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border-color: rgba(148, 163, 184, 0.35); }
+[data-theme="dark"] .tag-seal { background: rgba(245, 158, 11, 0.2); color: #fde68a; border-color: rgba(245, 158, 11, 0.35); }
+[data-theme="dark"] .tag-court { background: rgba(34, 197, 94, 0.2); color: #86efac; border-color: rgba(34, 197, 94, 0.35); }
+[data-theme="dark"] .tag-fee { background: rgba(217, 70, 239, 0.2); color: #f0abfc; border-color: rgba(217, 70, 239, 0.35); }
+[data-theme="dark"] .tag-efile { background: rgba(14, 165, 233, 0.2); color: #7dd3fc; border-color: rgba(14, 165, 233, 0.35); }
+[data-theme="dark"] .tag-guide { background: rgba(156, 163, 175, 0.2); color: #d1d5db; border-color: rgba(156, 163, 175, 0.35); }
+[data-theme="dark"] .tag-prosecutor { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border-color: rgba(239, 68, 68, 0.35); }
+[data-theme="dark"] .tag-service { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.35); }
+[data-theme="dark"] .tag-judge { background: rgba(234, 179, 8, 0.2); color: #fef08a; border-color: rgba(234, 179, 8, 0.35); }
+
+.workflow-doc-card .doc-title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0.1rem 0 0;
+}
+
+.workflow-doc-card .doc-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.workflow-doc-card .doc-rule-tag {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 0.12rem 0.45rem;
+  border-radius: var(--radius-xs);
+  margin-top: auto;
+}
+
+/* Compact Statutory Banner on Desktop */
+@media (min-width: 768px) {
+  .statutory-banner {
+    padding: 0.65rem 1.5rem;
+  }
+  .statutory-banner-text {
+    font-size: 0.84rem;
+  }
+}
