@@ -651,7 +651,7 @@ function initCopyButtons() {
 
       navigator.clipboard.writeText(text).then(() => {
         const originalText = btn.textContent;
-        btn.textContent = '✓ Copied';
+        btn.textContent = 'Copied';
         btn.style.backgroundColor = 'rgba(16, 185, 129, 0.5)';
         setTimeout(() => {
           btn.textContent = originalText;
@@ -667,7 +667,7 @@ function initCopyButtons() {
       const code = btn.getAttribute('data-copy-code') || "javascript:(function(){const s=document.createElement('script');s.src='https://cambrianminds.github.io/exp-2/bookmarklet.js?v='+Date.now();document.body.appendChild(s);})();";
       navigator.clipboard.writeText(code).then(() => {
         const originalText = btn.innerHTML;
-        btn.innerHTML = '<span>✓ Copied to Clipboard!</span>';
+        btn.innerHTML = '<span>Copied to Clipboard!</span>';
         btn.classList.add('copied');
         setTimeout(() => {
           btn.innerHTML = originalText;
@@ -690,7 +690,7 @@ function initMobileNav() {
       e.stopPropagation();
       const isOpen = navLinks.classList.toggle('mobile-open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      toggle.textContent = isOpen ? '✕ Close' : 'Menu';
+      toggle.textContent = isOpen ? 'Close' : 'Menu';
     });
 
     navLinks.querySelectorAll('a').forEach(a => {

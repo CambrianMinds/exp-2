@@ -69,13 +69,13 @@ All production-ready graphic assets are generated and located in `docs/assets/we
 
 | Asset | Dimensions | Location | Status |
 |-------|------------|----------|--------|
-| **Extension Icon 16** | 16×16 PNG | `extension/icons/icon16.png` | ✅ Generated & Linked |
-| **Extension Icon 32** | 32×32 PNG | `extension/icons/icon32.png` | ✅ Generated & Linked |
-| **Extension Icon 48** | 48×48 PNG | `extension/icons/icon48.png` | ✅ Generated & Linked |
-| **Extension Icon 128** | 128×128 PNG | `extension/icons/icon128.png` | ✅ Generated & Linked |
-| **Web Store Store Icon** | 128×128 PNG | `docs/assets/webstore/store_icon_128.png` | ✅ Generated |
-| **Small Promo Tile** | 440×280 PNG | `docs/assets/webstore/small_promo_tile_440x280.png` | ✅ Generated |
-| **Marquee Promo Tile** | 1400×560 PNG | `docs/assets/webstore/marquee_promo_tile_1400x560.png` | ✅ Generated |
+| **Extension Icon 16** | 16×16 PNG | `extension/icons/icon16.png` | Generated & Linked |
+| **Extension Icon 32** | 32×32 PNG | `extension/icons/icon32.png` | Generated & Linked |
+| **Extension Icon 48** | 48×48 PNG | `extension/icons/icon48.png` | Generated & Linked |
+| **Extension Icon 128** | 128×128 PNG | `extension/icons/icon128.png` | Generated & Linked |
+| **Web Store Store Icon** | 128×128 PNG | `docs/assets/webstore/store_icon_128.png` | Generated |
+| **Small Promo Tile** | 440×280 PNG | `docs/assets/webstore/small_promo_tile_440x280.png` | Generated |
+| **Marquee Promo Tile** | 1400×560 PNG | `docs/assets/webstore/marquee_promo_tile_1400x560.png` | Generated |
 
 ---
 

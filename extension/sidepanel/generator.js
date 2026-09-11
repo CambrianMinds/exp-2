@@ -21,7 +21,7 @@ import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './count
     updateChecklist();
 
     if (showFeedback) {
-      showToast('✓ In-Browser PDF Engine is active and ready', 'success', 3000);
+      showToast('In-Browser PDF Engine is active and ready', 'success', 3000);
     }
 
     return true;
@@ -399,10 +399,10 @@ import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './count
 
       await downloadPetition(blob, filename);
       showToast(`Complete court packet generated: ${filename}`, 'success', 6000);
-      statusText.textContent = `✓ Download started: ${filename}`;
+      statusText.textContent = `Download started: ${filename}`;
     } catch (e) {
       showToast(e.message, 'error');
-      statusText.textContent = `✗ ${e.message}`;
+      statusText.textContent = `Error: ${e.message}`;
     } finally {
       btn.disabled = false;
       setTimeout(() => { statusEl.style.display = 'none'; }, 6000);
@@ -602,9 +602,9 @@ import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './count
         </div>
         <div class="service-agency-addr">${a.addr}</div>
         <div class="service-agency-meta">
-          <span>📞 ${a.phone} · <em>${a.method}</em></span>
+          <span>Phone: ${a.phone} · <em>${a.method}</em></span>
           <button type="button" class="btn-copy-addr" data-copy-idx="${idx}" title="Copy statutory service address to clipboard">
-            📋 Copy
+            Copy
           </button>
         </div>
       </div>
@@ -620,7 +620,7 @@ import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './count
         if (navigator.clipboard?.writeText) {
           navigator.clipboard.writeText(copyText).then(() => {
             const orig = btn.innerHTML;
-            btn.innerHTML = '✓ Copied!';
+            btn.innerHTML = 'Copied!';
             btn.style.borderColor = '#10b981';
             btn.style.color = '#059669';
             setTimeout(() => {

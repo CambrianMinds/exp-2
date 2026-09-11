@@ -216,7 +216,7 @@ export function updateBatchPanelUI() {
       AppState.searchBatches.forEach(b => {
         const tag = document.createElement('span');
         tag.className = 'batch-tag';
-        tag.innerHTML = `🔍 ${escapeHtml(b.query)} <span class="batch-tag-count">${b.count}</span>`;
+        tag.innerHTML = `${escapeHtml(b.query)} <span class="batch-tag-count">${b.count}</span>`;
         tagsContainer.appendChild(tag);
       });
     }
@@ -262,7 +262,7 @@ $('#btnClearScans')?.addEventListener('click', () => {
 // Jump from Results back to Scan to add another name / county
 $('#btnScanAnotherPage')?.addEventListener('click', () => {
   switchTab('scan');
-  showToast('💡 Upload another MyCase file or drag and drop to combine with existing records.', 'info', 5000);
+  showToast('Upload another MyCase file or drag and drop to combine with existing records.', 'info', 5000);
   const target = $('#dropZone') || $('#btnSelectFiles') || $('#btnScan');
   if (target) {
     target.scrollIntoView({ behavior: 'smooth' });
@@ -353,10 +353,10 @@ function checkAndSuggestAlias(query) {
     if (!currentAliases.toLowerCase().includes(normNat)) {
       if (aliasesInput && !aliasesInput.value.trim()) {
         aliasesInput.value = naturalName;
-        showToast(`💡 Suggested "${naturalName}" for Petitioner Aliases (IC § 35-38-9-8(b)(1))`, 'info', 5000);
+        showToast(`Suggested "${naturalName}" for Petitioner Aliases (IC § 35-38-9-8(b)(1))`, 'info', 5000);
       } else if (aliasesInput && !aliasesInput.value.includes(naturalName)) {
         aliasesInput.value = `${aliasesInput.value}, ${naturalName}`;
-        showToast(`💡 Added "${naturalName}" to Petitioner Aliases`, 'info', 5000);
+        showToast(`Added "${naturalName}" to Petitioner Aliases`, 'info', 5000);
       }
     }
   }
@@ -390,7 +390,7 @@ export async function checkPageStatus() {
 
     if (response?.isSearchResults) {
       statusDot.className = 'status-dot online';
-      statusText.textContent = 'MyCase search results detected ✓';
+      statusText.textContent = 'MyCase search results detected';
       return true;
     } else if (response?.isCaseSummary) {
       statusDot.className = 'status-dot checking';
@@ -996,7 +996,7 @@ $('#btnCopyAppBookmarklet')?.addEventListener('click', async () => {
   const code = "javascript:(function(){const s=document.createElement('script');s.src='https://cambrianminds.github.io/exp-2/bookmarklet.js?v='+Date.now();document.body.appendChild(s);})();";
   try {
     await navigator.clipboard.writeText(code);
-    showToast('✓ Bookmarklet code copied to clipboard!', 'success', 3000);
+    showToast('Bookmarklet code copied to clipboard!', 'success', 3000);
   } catch (_) {
     showToast('Please drag the blue button to your bookmarks bar.', 'info', 3000);
   }
@@ -1150,7 +1150,7 @@ export function renderResults() {
       const confCounties = (block.conflictingCounties || []).join(', ') || 'other counties';
       banner.innerHTML = `
         <div class="statutory-banner-header">
-          <span class="statutory-banner-badge">⚠️ IC § 35-38-9-9(d) Multi-County Rule</span>
+          <span class="statutory-banner-badge">IC § 35-38-9-9(d) Multi-County Rule</span>
         </div>
         <p class="statutory-banner-rule">
           Filing your eligible convictions today permanently forfeits convictions in ${escapeHtml(confCounties)} that are waiting on future eligibility dates.
@@ -1192,7 +1192,7 @@ export function renderResults() {
       const pendingCasesStr = (pendingBlock.pendingCases || []).join(', ');
       banner.innerHTML = `
         <div class="statutory-banner-header">
-          <span class="statutory-banner-badge" style="background:rgba(220,38,38,0.15); color:#dc2626; border-color:rgba(220,38,38,0.4);">⛔ Active Pending Criminal Charges</span>
+          <span class="statutory-banner-badge" style="background:rgba(220,38,38,0.15); color:#dc2626; border-color:rgba(220,38,38,0.4);">Active Pending Criminal Charges</span>
         </div>
         <p class="statutory-banner-rule">
           Under IC § 35-38-9, expungement petitions are strictly barred while open criminal charges (${escapeHtml(pendingCasesStr)}) remain pending in any court.
@@ -1313,7 +1313,7 @@ function createCaseCard(caseData) {
         <button type="button" class="btn-remove-case" title="Exclude this case from petition (e.g. maiden name mismatch / not you)">&times; Exclude</button>
       </div>
     </div>
-    ${searchQueriesDisplay ? `<div class="case-search-tag">🔍 Found via: ${escapeHtml(searchQueriesDisplay)}</div>` : ''}
+    ${searchQueriesDisplay ? `<div class="case-search-tag">Found via: ${escapeHtml(searchQueriesDisplay)}</div>` : ''}
     <div class="case-charges">${escapeHtml(chargesDisplay)}</div>
     <div class="case-meta">
       <span>${escapeHtml(typeCode)}</span>
@@ -1354,18 +1354,18 @@ function createCaseCard(caseData) {
       ` : ''}
       ${el?.warnings?.length ? `
         <div class="case-warnings">
-          ${el.warnings.map(w => `<span class="warning-tag">⚠ ${escapeHtml(w)}</span>`).join('')}
+          ${el.warnings.map(w => `<span class="warning-tag">${escapeHtml(w)}</span>`).join('')}
         </div>
       ` : ''}
       ${(caseData.financials?.balanceDue > 0 || caseData.ccs?.financials?.balanceDue > 0) ? `
         <div class="financial-warning-box" style="background:rgba(220,38,38,0.08); border-left:3px solid #dc2626; padding:8px 12px; margin-top:8px; border-radius:4px; font-size:0.75rem;">
-          <strong style="color:#dc2626;">⚠️ UNPAID COURT BALANCE: $${(caseData.financials?.balanceDue || caseData.ccs?.financials?.balanceDue || 0).toFixed(2)}</strong>
+          <strong style="color:#dc2626;">UNPAID COURT BALANCE: $${(caseData.financials?.balanceDue || caseData.ccs?.financials?.balanceDue || 0).toFixed(2)}</strong>
           <p style="margin:2px 0 0 0; color:var(--text-secondary);">Under Indiana Code § 35-38-9, all fines, fees, and restitution must be paid in full before an expungement petition can be granted.</p>
         </div>
       ` : ''}
       ${((caseData.financials?.restitutionOrdered && !caseData.financials?.restitutionSatisfied) || (caseData.ccs?.financials?.restitutionOrdered && !caseData.ccs?.financials?.restitutionSatisfied)) ? `
         <div class="financial-warning-box" style="background:rgba(217,119,6,0.08); border-left:3px solid #d97706; padding:8px 12px; margin-top:8px; border-radius:4px; font-size:0.75rem;">
-          <strong style="color:#d97706;">⚠️ RESTITUTION ORDER DETECTED</strong>
+          <strong style="color:#d97706;">RESTITUTION ORDER DETECTED</strong>
           <p style="margin:2px 0 0 0; color:var(--text-secondary);">Verify that a formal Satisfaction of Restitution or clerk payment receipt is on file prior to filing.</p>
         </div>
       ` : ''}

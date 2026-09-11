@@ -28,10 +28,10 @@
     </div>
     <div class="header-actions">
       <button class="guide-badge" id="btnUserGuide" title="Open Step-by-Step Instructions &amp; Guide">
-        <span class="badge-icon">📖</span> <span data-i18n="nav_guide">Guide</span>
+        <span class="badge-icon" aria-hidden="true"></span> <span data-i18n="nav_guide">Guide</span>
       </button>
       <button class="disclaimer-badge" id="btnLegalNotice" title="View Legal Disclaimer & One-Shot Warning">
-        <span class="badge-icon">⚖️</span> <span data-i18n="nav_legal">Notice</span>
+        <span class="badge-icon" aria-hidden="true"></span> <span data-i18n="nav_legal">Notice</span>
       </button>
       <div class="header-status" id="backendStatus" role="button" tabindex="0" title="In-Browser PDF Generator is active and ready">
         <span class="status-dot online"></span>
@@ -39,7 +39,7 @@
       </div>
       <!-- Language Toggle Button -->
       <button class="lang-toggle" aria-label="Toggle language" title="Change Language">
-        <span style="margin-right:4px;font-size:1rem;">🌐</span>
+        
         <span class="lang-toggle-text">EN</span>
       </button>
       <!-- Theme Toggle Button -->
@@ -105,7 +105,7 @@
     <section class="tab-panel active" id="tab-scan">
       <!-- Critical Lifetime Warning Banner -->
       <div class="warning-callout">
-        <div class="callout-icon">⚠️</div>
+        <div class="callout-icon" aria-hidden="true"></div>
         <div class="callout-content">
           <h4>CRITICAL: INDIANA'S LIFETIME ONE-SHOT RULE</h4>
           <p>Under <b>IC § 35-38-9-9(i)</b>, you can only file for conviction expungement <b>ONCE IN YOUR ENTIRE
@@ -119,7 +119,7 @@
       <div class="batch-panel" id="batchPanel" style="display:none">
         <div class="batch-header">
           <div class="batch-title-row">
-            <span class="batch-icon">📂</span>
+            <span class="batch-icon" aria-hidden="true"></span>
             <div>
               <span class="batch-badge" id="batchBadge">0 Cases Accumulated</span>
               <span class="batch-pages" id="batchPagesCount">(from 0 searches)</span>
@@ -136,7 +136,7 @@
       <!-- Quick User Guide Banner -->
       <div class="guide-banner" id="guideBanner">
         <div class="guide-banner-content">
-          <span class="guide-banner-icon">📘</span>
+          <span class="guide-banner-icon" aria-hidden="true"></span>
           <div class="guide-banner-text">
             <strong>First time using the assistant?</strong>
             <span>Review the step-by-step walkthrough on the portal</span>
@@ -196,7 +196,7 @@
       </div>
 
       <div class="scan-tip-box">
-        <span class="tip-icon">💡</span>
+        <span class="tip-icon" aria-hidden="true"></span>
         <p><b>Multi-Search Tip:</b> Search MyCase for your maiden name, previous married names, other counties, or aliases, and scan each page. They will automatically accumulate into one lifetime expungement petition.</p>
       </div>
 
@@ -234,7 +234,7 @@
             <span class="results-searches-pill" id="resultsSearchesPill">from 1 search</span>
           </div>
           <button type="button" class="btn btn-sm btn-outline" id="btnManualEntry" title="Manually add a case missing from your search results">
-            <span>➕ Add Case Manually</span>
+            <span>Add Case Manually</span>
           </button>
           <button type="button" class="btn btn-sm btn-outline" id="btnScanAnotherPage" title="Scan another MyCase name, married name, or county search">
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -307,7 +307,7 @@
           <div class="form-group">
             <div class="label-row">
               <label for="ssn">SSN <span class="req-star">*</span></label>
-              <button type="button" class="btn-toggle-mask" id="btnToggleSSN" title="Show/hide SSN">👁</button>
+              <button type="button" class="btn-toggle-mask" id="btnToggleSSN" title="Show/hide SSN">Show</button>
             </div>
             <input type="password" id="ssn" placeholder="XXX-XX-XXXX" maxlength="14" autocomplete="off" required>
             <span class="field-error" id="err-ssn"></span>
@@ -456,10 +456,10 @@
 
     <!-- ═══ Tab: Generate ═══ -->
     <section class="tab-panel" id="tab-generate">
-      <!-- 🛑 Critical Lifetime One-Shot Alert -->
+      <!-- Critical Lifetime One-Shot Alert -->
       <div class="one-shot-alert">
         <div class="one-shot-header">
-          <span class="one-shot-icon">🛑</span>
+          <span class="one-shot-icon" aria-hidden="true"></span>
           <div>
             <h4>ONE-SHOT LIFETIME EXPUNGEMENT WARNING</h4>
             <span class="statute-tag">Indiana Code § 35-38-9-9(i)</span>
@@ -479,10 +479,10 @@
         </ul>
       </div>
 
-      <!-- ⚖️ Creator Disclaimer & Mission Statement -->
+      <!-- Creator Disclaimer & Mission Statement -->
       <div class="creator-disclaimer-box">
         <div class="disclaimer-title-row">
-          <span class="disclaimer-scale-icon">⚖️</span>
+          <span class="disclaimer-scale-icon" aria-hidden="true"></span>
           <h5>Independent Self-Help Tool · NOT Legal Advice</h5>
         </div>
         <p class="disclaimer-p">
@@ -535,7 +535,7 @@
               </div>
             </div>
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; margin-bottom: 0; line-height: 1.4;">
-              ⚖️ <em>Indiana Trial Rule 6(A) &amp; Clerk File-Stamp:</em> The statutory 365-day clock (IC § 35-38-9-9(d)) only stops on the date the Court Clerk file-stamps your petition—not when this packet is generated. If the 365th day falls on a weekend, legal holiday, or day the office is closed, the filing deadline extends to the next business day.
+              <em>Indiana Trial Rule 6(A) &amp; Clerk File-Stamp:</em> The statutory 365-day clock (IC § 35-38-9-9(d)) only stops on the date the Court Clerk file-stamps your petition—not when this packet is generated. If the 365th day falls on a weekend, legal holiday, or day the office is closed, the filing deadline extends to the next business day.
             </p>
           </div>
         </div>
@@ -610,7 +610,7 @@
       <!-- Multi-County Packet Generator Notice & Selector -->
       <div class="county-select-card" id="countySelectCard" style="display:none">
         <div class="county-card-header">
-          <span class="county-card-icon">🏛️</span>
+          <span class="county-card-icon" aria-hidden="true"></span>
           <div>
             <h5>Multi-County Filing Detected</h5>
             <p>Under <b>IC § 35-38-9-9(d)</b>, petitions must be filed separately in each county court within 365 days.</p>
@@ -622,10 +622,10 @@
         </div>
       </div>
 
-      <!-- 🏛️ Filing & Service Address Directory Card -->
+      <!-- Filing & Service Address Directory Card -->
       <div class="service-dir-card" id="serviceDirCard">
         <div class="service-dir-header">
-          <span class="service-dir-icon">📍</span>
+          <span class="service-dir-icon" aria-hidden="true"></span>
           <div>
             <h5>Filing &amp; Service Address Directory</h5>
             <p>Verified statutory addresses for submitting and serving your expungement paperwork under IC § 35-38-9-8(e).</p>
@@ -696,7 +696,7 @@
   <div class="modal-overlay" id="parityModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="parityModalTitle">
     <div class="modal-dialog">
       <div class="modal-header">
-        <div class="modal-icon-alert">🔍</div>
+        <div class="modal-icon-alert" aria-hidden="true"></div>
         <h3 id="parityModalTitle">Verify Extracted Cases</h3>
       </div>
       <div class="modal-body">
@@ -724,7 +724,7 @@
           </table>
         </div>
         <div class="modal-callout-warning">
-          <b>⚠️ 92-County Rule Reminder:</b> This scan only covers the current MyCase search results. Under
+          <b>92-County Rule Reminder:</b> This scan only covers the current MyCase search results. Under
           <b>IC § 35-38-9-9(d)</b>, petitions in multiple counties must be filed within a <b>365-day window</b>. You
           must search <b>all 92 Indiana counties</b> for every name, alias, and maiden name before generating your
           petition.
@@ -865,7 +865,7 @@
       </div>
       <div class="modal-footer pdf-preview-footer">
         <div class="pdf-preview-compliance-tag">
-          <span>⚖️ <b>Trial Rule 10 Validated:</b> 8.5×11", 1" margins, Times New Roman, consecutively numbered pro se pleadings.</span>
+          <span><b>Trial Rule 10 Validated:</b> 8.5×11", 1" margins, Times New Roman, consecutively numbered pro se pleadings.</span>
         </div>
         <button type="button" class="btn btn-secondary" id="btnPreviewCloseFooter">Close Preview</button>
       </div>

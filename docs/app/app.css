@@ -1132,7 +1132,7 @@ body {
   line-height: 1.5;
 }
 
-/* 🛑 One-Shot Lifetime Alert (Generate Tab) */
+/* One-Shot Lifetime Alert (Generate Tab) */
 .one-shot-alert {
   background-color: #ffffff;
   border: 1px solid #fecaca;
@@ -1211,7 +1211,7 @@ body {
   color: var(--text-primary);
 }
 
-/* ⚠️ Warning Callout (Scan Tab) */
+/* Warning Callout (Scan Tab) */
 .warning-callout {
   background-color: var(--color-gold-50);
   border: 1px solid #fde68a;
@@ -1247,7 +1247,7 @@ body {
   color: var(--text-primary);
 }
 
-/* ⚖️ Creator Disclaimer & Mission Box */
+/* Creator Disclaimer & Mission Box */
 .creator-disclaimer-box {
   background-color: #ffffff;
   border: 1px solid #cbd5e1;
@@ -1291,7 +1291,7 @@ body {
   color: var(--text-primary);
 }
 
-/* 🛡️ Mandatory Acknowledgments Card */
+/* Mandatory Acknowledgments Card */
 .acknowledgment-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-medium);

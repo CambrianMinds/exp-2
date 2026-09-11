@@ -225,7 +225,7 @@ import { showToast, updateChecklist } from './ui.js';
       toggleSSN.addEventListener('click', () => {
         const isPass = ssnInput.type === 'password';
         ssnInput.type = isPass ? 'text' : 'password';
-        toggleSSN.textContent = isPass ? '🔒' : '👁';
+        toggleSSN.textContent = isPass ? 'Hide' : 'Show';
       });
     }
 
@@ -772,7 +772,7 @@ import { showToast, updateChecklist } from './ui.js';
       console.warn('Unable to save petitioner profile to localStorage:', e);
     }
 
-    showToast('✓ Profile validated & saved to secure local storage', 'success', 3500);
+    showToast('Profile validated & saved to secure local storage', 'success', 3500);
     updateChecklist();
   });
 

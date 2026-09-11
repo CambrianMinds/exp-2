@@ -548,7 +548,7 @@ function buildForm00(ctx, payload) {
   ctx.drawSingleSpacedParagraph('  · Indiana Bureau of Motor Vehicles, PO Box 6008, Indianapolis, IN 46206');
   ctx.drawSingleSpacedParagraph('  · All arresting agencies listed in your DOC 10 (County Service Directory enclosed in this packet)');
   ctx.drawDoubleSpacedParagraph(
-    '⚠️ CRITICAL: Your public records will NOT automatically vanish the moment the judge signs the order. ' +
+    'CRITICAL: Your public records will NOT automatically vanish the moment the judge signs the order. ' +
     'Contact the clerk\'s office to verify whether they transmit to ISP and BMV automatically or whether ' +
     'you must obtain and mail certified copies yourself. Failure to transmit means expunged records will ' +
     'continue to appear in employer and agency background checks.'
@@ -598,7 +598,7 @@ function buildForm00(ctx, payload) {
   if (!pet.phone) missingFields.push('Telephone Number');
   
   if (missingFields.length > 0) {
-    ctx.drawHeading('⚠️ MISSING INFORMATION WARNING');
+    ctx.drawHeading('MISSING INFORMATION WARNING');
     ctx.drawSingleSpacedParagraph(
       'You generated this packet without providing the following information. You MUST fill these fields in by hand or by typing them into the fillable PDF before filing, or your petition may be rejected by the court:'
     );

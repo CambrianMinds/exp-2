@@ -27,7 +27,7 @@
 
   if (!isMyCase) {
     alert(
-      '⚖️ Indiana Expungement Assistant Bookmarklet\n\n' +
+      'Indiana Expungement Assistant Bookmarklet\n\n' +
       'Please navigate to Indiana MyCase (https://public.courts.in.gov/mycase) and perform your search before clicking this bookmarklet.'
     );
     return;
@@ -113,7 +113,6 @@
       <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); padding: 20px 24px; color: #ffffff;">
         <div style="display: flex; align-items: center; justify-content: space-between;">
           <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 24px;">⚖️</span>
             <div>
               <h3 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: #ffffff;">Indiana Expungement Assistant</h3>
               <p style="margin: 2px 0 0; font-size: 12px; color: #93c5fd; opacity: 0.9;">MyCase Record & CCS Exporter</p>
@@ -131,14 +130,14 @@
           </p>
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #475569;">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font-weight: 600; color: #1e293b;">
-              <span>🔒 100% In-Browser Privacy</span>
+              <span>100% In-Browser Privacy</span>
             </div>
             Data is exported directly to a <code>.json</code> file on your computer. Zero external tracking or servers.
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 10px;">
             <button id="iea-start-deep" class="iea-btn-primary" style="width: 100%; padding: 14px;">
-              <span>⚡ Full Deep Export (Search Results + CCS Details)</span>
+              <span>Full Deep Export (Search Results + CCS Details)</span>
             </button>
             <button id="iea-start-quick" class="iea-btn-secondary" style="width: 100%;">
               <span>Quick Export (Search Results Only)</span>
@@ -160,9 +159,6 @@
         </div>
 
         <div id="iea-success-view" style="display: none; text-align: center;">
-          <div style="width: 48px; height: 48px; background: #dcfce7; color: #16a34a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 12px;">
-            ✓
-          </div>
           <h4 style="margin: 0 0 6px; font-size: 16px; font-weight: 700; color: #0f172a;">Export Completed!</h4>
           <p id="iea-success-msg" style="margin: 0 0 16px; font-size: 13px; color: #475569; line-height: 1.4;">
             Your case records and CCS details were downloaded as <b>mycase-expungement-data.json</b>.

@@ -428,7 +428,7 @@
         <!-- Multi-County Warning / Selector -->
         <div class="county-select-card" id="countySelectCard" style="display:none">
           <div class="county-card-header">
-            <span class="county-card-icon">🏛️</span>
+            <span class="county-card-icon" aria-hidden="true"></span>
             <div>
               <h5>Multi-County Records Detected</h5>
               <p>Under <b>IC § 35-38-9-9(d)</b>, petitions in multiple counties must be filed separately within a 365-day window.</p>
@@ -487,7 +487,7 @@
           <div class="form-group">
             <div class="label-row">
               <label for="ssn" data-i18n="lbl_ssn">Social Security Number *</label>
-              <button type="button" class="btn-toggle-mask" id="btnToggleSSN" title="Show/hide SSN">👁</button>
+              <button type="button" class="btn-toggle-mask" id="btnToggleSSN" title="Show/hide SSN">Show</button>
             </div>
             <input type="password" id="ssn" placeholder="XXX-XX-XXXX" maxlength="14" autocomplete="off" required>
             <span class="field-error" id="err-ssn"></span>
@@ -592,10 +592,10 @@
 
     <!-- ═══ Tab 4: Generate Pleadings ═══ -->
     <section class="tab-panel" id="tab-generate">
-      <!-- 🛑 Critical Lifetime One-Shot Alert -->
+      <!-- Critical Lifetime One-Shot Alert -->
       <div class="one-shot-alert">
         <div class="one-shot-header">
-          <span class="one-shot-icon">🛑</span>
+          <span class="one-shot-icon" aria-hidden="true"></span>
           <div>
             <h4 data-i18n="gen_warning_title">LIFETIME ONE-SHOT EXPUNGEMENT WARNING</h4>
             <span class="badge badge-danger">IC § 35-38-9-9(i)</span>
@@ -611,10 +611,10 @@
       <div class="generate-two-column-layout">
         <!-- Left Column: Packet Setup & Acknowledgment -->
         <div class="generate-col-left">
-          <!-- ⚖️ Creator Disclaimer & Mission Statement -->
+          <!-- Creator Disclaimer & Mission Statement -->
           <div class="creator-disclaimer-box">
             <div class="disclaimer-title-row">
-              <span class="disclaimer-scale-icon">⚖️</span>
+              <span class="disclaimer-scale-icon" aria-hidden="true"></span>
               <h5>Self-Help Document Assistant · Not Legal Advice</h5>
             </div>
             <p class="disclaimer-p">
@@ -783,7 +783,7 @@
         <div class="generate-col-right">
           <div class="service-dir-card" id="serviceDirCard">
             <div class="service-dir-header">
-              <span class="service-dir-icon">📍</span>
+              <span class="service-dir-icon" aria-hidden="true"></span>
               <div>
                 <h5>Filing &amp; Service Addresses</h5>
                 <p>Official clerk, prosecutor, and agency addresses required for serving your petition under IC § 35-38-9-8(e).</p>
@@ -810,7 +810,7 @@
   <div class="modal-overlay" id="parityModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="parityModalTitle">
     <div class="modal-dialog">
       <div class="modal-header">
-        <div class="modal-icon-alert">🔍</div>
+        <div class="modal-icon-alert" aria-hidden="true"></div>
         <h3 id="parityModalTitle">Verify Extracted Court Records</h3>
       </div>
       <div class="modal-body">
@@ -1025,7 +1025,7 @@
       </div>
       <div class="modal-footer pdf-preview-footer">
         <div class="pdf-preview-compliance-tag">
-          <span>⚖️ <b>Trial Rule 10 Validated:</b> 8.5×11", 1" margins, Times New Roman, consecutively numbered pro se pleadings.</span>
+          <span><b>Trial Rule 10 Validated:</b> 8.5×11", 1" margins, Times New Roman, consecutively numbered pro se pleadings.</span>
         </div>
         <button type="button" class="btn btn-secondary" id="btnPreviewCloseFooter">Close Preview</button>
       </div>
