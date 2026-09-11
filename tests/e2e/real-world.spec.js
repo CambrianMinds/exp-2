@@ -50,7 +50,30 @@ test.describe('Real-World Expungement Scenarios', () => {
       document.getElementById('ackNotLawyer').checked = true;
       document.getElementById('ackProSe').checked = true;
       document.getElementById('ackProSe').dispatchEvent(new Event('change', { bubbles: true }));
+      // Also force it explicitly if the module exposes it, or just trigger it again
+      if (window.IndianaExpungement && window.IndianaExpungement.ui) {
+        window.IndianaExpungement.ui.updateChecklist();
+      }
     });
+
+    const readyState = await page.evaluate(() => {
+      const p = window.IndianaExpungement?.AppState?.petitionerProfile || {};
+      const r = window.IndianaExpungement?.AppState?.currentReport || {};
+      return {
+        profileReady: Boolean(p.fullName?.length > 0 && (p.streetAddress || p.currentAddress)),
+        casesReady: Boolean(r && r.summary?.eligible > 0),
+        acksReady: Boolean(
+          document.getElementById('ackOneShot')?.checked &&
+          document.getElementById('ackAllCounties')?.checked &&
+          document.getElementById('ackNotLawyer')?.checked &&
+          document.getElementById('ackProSe')?.checked
+        ),
+        profileDetails: p,
+        reportSummary: r.summary,
+        btnDisabled: document.getElementById('btnGenerate')?.disabled
+      };
+    });
+    console.log('--- DEBUG READY STATE ---', readyState);
 
     const generateBtn = page.locator('#btnGenerate');
     await expect(generateBtn).toBeEnabled();
@@ -158,6 +181,9 @@ test.describe('Real-World Expungement Scenarios', () => {
       document.getElementById('ackNotLawyer').checked = true;
       document.getElementById('ackProSe').checked = true;
       document.getElementById('ackProSe').dispatchEvent(new Event('change', { bubbles: true }));
+      if (window.IndianaExpungement && window.IndianaExpungement.ui) {
+        window.IndianaExpungement.ui.updateChecklist();
+      }
     });
 
     await page.click('#btnGenerate');
