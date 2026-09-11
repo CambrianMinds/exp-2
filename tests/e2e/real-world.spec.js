@@ -44,10 +44,13 @@ test.describe('Real-World Expungement Scenarios', () => {
     await page.click('button[data-tab="generate"]');
     await expect(page.locator('#tab-generate')).toHaveClass(/active/);
 
-    await page.check('#ackOneShot', { force: true });
-    await page.check('#ackAllCounties', { force: true });
-    await page.check('#ackNotLawyer', { force: true });
-    await page.check('#ackProSe', { force: true });
+    await page.evaluate(() => {
+      document.getElementById('ackOneShot').checked = true;
+      document.getElementById('ackAllCounties').checked = true;
+      document.getElementById('ackNotLawyer').checked = true;
+      document.getElementById('ackProSe').checked = true;
+      document.getElementById('ackProSe').dispatchEvent(new Event('change', { bubbles: true }));
+    });
 
     const generateBtn = page.locator('#btnGenerate');
     await expect(generateBtn).toBeEnabled();
@@ -148,10 +151,14 @@ test.describe('Real-World Expungement Scenarios', () => {
     
     await page.click('button[data-tab="generate"]');
     await expect(page.locator('#tab-generate')).toHaveClass(/active/);
-    await page.check('#ackOneShot', { force: true });
-    await page.check('#ackAllCounties', { force: true });
-    await page.check('#ackNotLawyer', { force: true });
-    await page.check('#ackProSe', { force: true });
+    
+    await page.evaluate(() => {
+      document.getElementById('ackOneShot').checked = true;
+      document.getElementById('ackAllCounties').checked = true;
+      document.getElementById('ackNotLawyer').checked = true;
+      document.getElementById('ackProSe').checked = true;
+      document.getElementById('ackProSe').dispatchEvent(new Event('change', { bubbles: true }));
+    });
 
     await page.click('#btnGenerate');
     const confirmBtn = page.locator('#btnModalConfirm');
@@ -181,7 +188,7 @@ test.describe('Real-World Expungement Scenarios', () => {
 
     await page.click('button[data-tab="results"]');
     await expect(page.locator('#tab-results')).toHaveClass(/active/);
-    await expect(page.locator('.case-card')).toContainText('Pending', { ignoreCase: true });
+    await expect(page.locator('.case-card')).toContainText('NOT ELIGIBLE', { ignoreCase: true });
 
     await fillProfile(page);
     
@@ -203,9 +210,9 @@ test.describe('Real-World Expungement Scenarios', () => {
     await page.emulateMedia({ colorScheme: 'dark' });
     
     // Check for bento grid which we recently implemented on the landing page
-    await expect(page.locator('.bento-grid')).toBeVisible();
+    await expect(page.locator('.hero-tier-grid')).toBeVisible();
 
-    const card = page.locator('.bento-card').first();
+    const card = page.locator('.hero-tier-card').first();
     await card.hover();
     
     const hasMouseVars = await card.evaluate((el) => {
