@@ -1,0 +1,140 @@
+name: Tyler MyCase Bookmarklet Canary
+
+on:
+  schedule:
+    # Run daily at 04:00 UTC (12:00 AM EST)
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  canary:
+    name: Canary Scraper & Schema Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright Headless Canary Schema Test
+        run: node tests/canary-schema.test.js
+
+      - name: Run MyCase Canary Scraper Test
+        run: npm run test:canary
+
+      - name: Handle Failure & Create/Update Repository Issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            let errorData = null;
+            const errorFilePath = path.join(process.env.GITHUB_WORKSPACE, 'canary-error.json');
+
+            if (fs.existsSync(errorFilePath)) {
+              try {
+                errorData = JSON.parse(fs.readFileSync(errorFilePath, 'utf8'));
+              } catch (e) {
+                console.warn('Failed to parse canary-error.json:', e);
+              }
+            }
+
+            const timestamp = errorData?.timestamp || new Date().toISOString();
+            const message = errorData?.message || 'The automated MyCase canary test failed.';
+            let detailsMarkdown = '';
+
+            if (errorData?.errors && Array.isArray(errorData.errors)) {
+              detailsMarkdown += `### 🔍 Zod Schema Validation Errors (${errorData.errors.length})\n\n`;
+              detailsMarkdown += '| Field Path | Issue Code | Message |\n|---|---|---|\n';
+              errorData.errors.forEach(err => {
+                detailsMarkdown += `| \`${err.path || 'root'}\` | \`${err.code}\` | ${err.message} |\n`;
+              });
+              detailsMarkdown += '\n';
+
+              if (errorData.sampleCase) {
+                detailsMarkdown += `### 📦 First Extracted Case Preview\n\`\`\`json\n${JSON.stringify(errorData.sampleCase, null, 2)}\n\`\`\`\n\n`;
+              }
+            } else if (errorData?.stack) {
+              detailsMarkdown += `### 💥 Execution Stack Trace\n\`\`\`\n${errorData.stack}\n\`\`\`\n\n`;
+            } else {
+              detailsMarkdown += `**Summary:** ${message}\n\n`;
+            }
+
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const issueLabel = 'tyler-update';
+
+            // Check for existing open canary issues to avoid duplicate spam
+            const existingIssues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: issueLabel
+            });
+
+            if (existingIssues.data.length > 0) {
+              const targetIssue = existingIssues.data[0];
+              console.log(`Found existing open issue #${targetIssue.number}. Adding update comment.`);
+
+              const commentBody = [
+                `## ⚠️ Canary Test Failed Again (${timestamp})`,
+                '',
+                `The weekly automated canary run against [public.courts.in.gov/mycase](https://public.courts.in.gov/mycase) failed.`,
+                '',
+                detailsMarkdown,
+                `🔗 **Run Details:** [View Workflow Run](${runUrl})`
+              ].join('\n');
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: targetIssue.number,
+                body: commentBody
+              });
+
+            } else {
+              console.log('No open canary issue found. Creating new issue.');
+
+              const issueTitle = '🚨 Tyler Technologies MyCase Update Detected: Bookmarklet Canary Failed';
+              const issueBody = [
+                '## ⚠️ Automated Canary Alert: Indiana MyCase Scraping Failed',
+                '',
+                'The weekly automated canary test detected breaking changes or schema validation failures on **public.courts.in.gov/mycase**.',
+                '',
+                `> **Failure Summary:** ${message}`,
+                '',
+                detailsMarkdown,
+                '### 🛠️ Next Steps',
+                '1. Inspect [public.courts.in.gov/mycase](https://public.courts.in.gov/mycase) manually for UI or layout changes.',
+                '2. Check if Tyler Technologies altered Knockout observable models, DOM classes (`tr.result-row`), or the CaseSummary endpoint.',
+                '3. Update `docs/bookmarklet.js`, `extension/content.js`, and `docs/app/content.js` accordingly.',
+                '',
+                `🔗 **Workflow Run:** [View Execution Log](${runUrl})`,
+                `🕒 **Detected At:** ${timestamp}`
+              ].join('\n');
+
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: issueTitle,
+                body: issueBody,
+                labels: [issueLabel, 'canary-failure', 'bug']
+              });
+            }

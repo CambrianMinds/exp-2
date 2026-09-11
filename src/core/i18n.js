@@ -1,0 +1,243 @@
+(function(window) {
+  const translations = {
+  "en": {
+    "tab_profile": "Profile",
+    "tab_scanner": "Scan",
+    "tab_generate": "Generate",
+    "tab_import": "Import Records",
+    "tab_results": "Results & Eligibility",
+    "tab_profile_app": "Petitioner Profile",
+    "tab_generate_app": "Generate Pleadings",
+    "btn_generate": "Generate Complete Petition Packet",
+    "label_esign": "Electronically sign documents (/s/ format for IEFS e-Filing)",
+    "label_feewaiver": "Include Fee Waiver Request (Form 08)",
+    "label_address": "Include Confidential Information & Address Supplement (Form 03 — Required)",
+    "nav_guide": "Guide",
+    "nav_legal": "Legal Notice",
+    "status_ready": "Engine Ready",
+    "ack_one_shot": "I understand the lifetime one-shot rule",
+    "ack_all_counties": "I have searched all counties and aliases",
+    "ack_not_lawyer": "I understand this is not legal advice",
+    "ack_pro_se": "I accept full pro se responsibility",
+    "import_title": "Upload Indiana MyCase Records",
+    "import_desc": "Drag and drop your saved MyCase HTML or JSON files here, or select files from your device.",
+    "import_paste_title": "Paste MyCase Source Code or JSON",
+    "import_paste_desc": "Paste the HTML source code (Ctrl+U / Cmd+Option+U on MyCase) or the exported JSON text below:",
+    "prof_title": "Petitioner Information",
+    "prof_desc": "Required for your verified court petition and confidential case information sheet (ACR Form). All info is stored only in your browser.",
+    "lbl_full_name": "Full Legal Name *",
+    "lbl_other_names": "Other Legal Names / Maiden Names / Aliases",
+    "lbl_dob": "Date of Birth *",
+    "lbl_ssn": "Social Security Number *",
+    "lbl_dln": "Indiana Driver's License / ID #",
+    "lbl_street": "Current Street Address *",
+    "lbl_city": "City *",
+    "lbl_state": "State *",
+    "lbl_zip": "ZIP Code *",
+    "lbl_phone": "Phone Number",
+    "lbl_email": "Email Address",
+    "lbl_address_history": "Residential Address History",
+    "desc_address_history": "Indiana Code § 35-38-9-8(b)(3) requires listing all addresses where you have lived from the date of your first offense to the present.",
+    "gen_warning_title": "LIFETIME ONE-SHOT EXPUNGEMENT WARNING",
+    "gen_warning_desc_1": "Omitting any conviction is permanent: Any conviction omitted from your petition can never be expunged in the future.",
+    "gen_warning_desc_2": "365-Day Window for Multiple Counties (IC § 35-38-9-9(d)): If you have cases in multiple Indiana counties, all petitions must be filed within 365 days. Filing your first petition starts this clock.",
+    "gen_warning_desc_3": "Verify All Names and Counties: Confirm you searched MyCase in all 92 counties under your current legal name, maiden names, prior names, and aliases.",
+    "ack_all_counties_desc": "All Charges & Aliases Included: I have searched MyCase for all names/aliases across all Indiana counties and verified all eligible cases are included.",
+    "ack_not_lawyer_desc": "Not a Lawyer / Not Legal Advice: I understand the creator is an independent person, NOT an attorney, and this software is a self-help formatting tool, not legal advice.",
+    "ack_pro_se_desc": "Pro Se Responsibility and Liability Release: I accept full responsibility for verifying, signing, and filing my documents, and release the tool creator from all liability.",
+    "nav_eligibility": "Eligibility",
+    "nav_lifetime_limit": "Lifetime Limit",
+    "nav_pleadings": "Pleadings",
+    "nav_how_to_file": "How to File",
+    "nav_faq": "FAQ",
+    "nav_mission": "Mission",
+    "feat_2_desc": "A Free Public Initiative",
+    "btn_check_eligibility": "Are You Eligible Yet?",
+    "btn_how_to_prepare": "How to Prepare Your Petition",
+    "feat_1_title": "100% Private",
+    "feat_1_desc": "All processing executes locally in your browser — zero tracking, zero logs.",
+    "feat_3_title": "10 Court Pleadings",
+    "feat_3_desc": "Complete formatted petition packet",
+    "hero_title": "Indiana Expungement Assistant",
+    "hero_subtitle": "Free Pro Se Document Generator",
+    "hero_description": "Your second chance starts here. No attorney required to file.",
+    "label_fee_waiver": "Include Fee Waiver Request (Form 08)",
+    "label_address_supp": "Include Confidential Information & Address Supplement (Form 03 — Required)"
+  },
+  "es": {
+    "btn_upload_another": "Subir otro archivo",
+    "btn_verify_cases": "Verificar Casos Extraídos",
+    "btn_cancel": "Cancelar",
+    "lbl_cases_match": "Los Casos Coinciden — Continuar",
+    "lbl_confirm_all": "Confirmo Que Todos Los Cargos Están Incluidos",
+    "lbl_go_back": "Volver y Verificar",
+    "lbl_generating": "Generando escritos judiciales...",
+    "tab_import": "Importar Registros",
+    "tab_results": "Resultados y Elegibilidad",
+    "tab_profile": "Perfil del Peticionario",
+    "tab_generate": "Generar Escritos",
+    "nav_eligibility": "Elegibilidad",
+    "nav_lifetime_limit": "Límite de Por Vida",
+    "nav_pleadings": "Escritos",
+    "nav_how_to_file": "Cómo Presentar",
+    "nav_faq": "Preguntas Frecuentes",
+    "nav_mission": "Misión",
+    "hero_title": "Asistente de Eliminación de Antecedentes de Indiana",
+    "hero_subtitle": "Generador Gratuito de Documentos Pro Se",
+    "hero_description": "Su segunda oportunidad comienza aquí. No se requiere abogado para presentar.",
+    "btn_check_eligibility": "¿Ya Es Elegible?",
+    "btn_how_to_prepare": "Cómo Preparar su Petición",
+    "btn_launch_app": "Iniciar Aplicación Web (Sin Instalación)",
+    "feat_1_title": "100% Privado",
+    "feat_1_desc": "Todo el procesamiento se ejecuta localmente en su navegador — cero rastreo, cero registros.",
+    "feat_2_title": "Uso Gratuito ()",
+    "feat_2_desc": "Una Iniciativa Pública Gratuita",
+    "feat_3_title": "10 Escritos Judiciales",
+    "feat_3_desc": "Paquete completo de petición formateado",
+    "calc_title": "Verificación de Elegibilidad",
+    "calc_subtitle": "Código de Indiana § 35-38-9",
+    "opt_arrests": "Arrestos, Desestimaciones y No Condenas",
+    "opt_misdemeanors": "Delitos Menores y Delitos Graves Reducidos",
+    "opt_d_felonies": "Delitos Graves Clase D y Nivel 6",
+    "opt_major_felonies": "Delitos Graves Mayores (No Violentos Niveles 1-5)",
+    "opt_violent_felonies": "Delitos Graves Violentos y Graves",
+    "lbl_date_conviction": "Fecha de Condena / Sentencia",
+    "lbl_statutory_reqs": "Requisitos Legales Previos a la Presentación",
+    "req_1": "Todos los costos judiciales, honorarios de libertad condicional, multas y restitución a las víctimas están completamente satisfechos.",
+    "req_2": "NO hay cargos criminales pendientes en su contra en ningún tribunal.",
+    "req_3": "Sin nuevas condenas penales dentro del período de espera legal aplicable.",
+    "lbl_progress": "Progreso de Espera Legal",
+    "lbl_statutory_basis": "Base Legal:",
+    "lbl_waiting_period": "Período de Espera Legal:",
+    "lbl_time_elapsed": "Tiempo Transcurrido:",
+    "lbl_judicial_standard": "Estándar Judicial:",
+    "warn_title": "ADVERTENCIA LEGAL CRÍTICA",
+    "warn_subtitle": "Lea Esto Primero.",
+    "warn_desc_1": "La ley de Indiana le permite eliminar condenas penales solo una vez en su vida.",
+    "warn_desc_2": "Cualquier condena omitida ahora nunca podrá ser eliminada después.",
+    "warn_audit_title": "Antes de presentar:",
+    "audit_1": "Buscó en MyCase bajo todos los nombres legales, nombres de soltera y alias anteriores.",
+    "audit_2": "Buscó en los 92 condados de Indiana, no solo en su residencia actual.",
+    "audit_3": "Auditó su historial de manejo (BMV) por condenas de tráfico penal (OWI, conducir con licencia suspendida, conducción imprudente).",
+    "audit_4": "Solicitó el historial de antecedentes penales oficial de la Policía Estatal de Indiana (ISP) para verificación completa.",
+    "import_title": "Subir Registros de Indiana MyCase",
+    "import_desc": "Arrastre y suelte sus archivos HTML o JSON guardados de MyCase aquí, o seleccione archivos de su dispositivo.",
+    "import_drag_drop": "Arrastre y suelte los archivos aquí",
+    "import_paste_title": "Pegar Código Fuente o JSON de MyCase",
+    "import_paste_desc": "Pegue el código fuente HTML (Ctrl+U / Cmd+Option+U en MyCase) o el texto JSON exportado a continuación:",
+    "btn_import_pasted": "Importar Datos Pegados",
+    "import_merge_note": "Fusionar múltiples subidas: Conserve y combine casos de todos los archivos (recomendado al buscar en varios condados o variaciones de nombre).",
+    "prof_title": "Información del Peticionario",
+    "prof_desc": "Requerido para su petición judicial verificada y la hoja de información confidencial del caso (Formulario ACR). Toda la información se almacena solo en su navegador.",
+    "lbl_full_name": "Nombre Legal Completo *",
+    "lbl_other_names": "Otros Nombres Legales / Nombres de Soltera / Alias",
+    "lbl_dob": "Fecha de Nacimiento *",
+    "lbl_ssn": "Número de Seguro Social *",
+    "lbl_dln": "Licencia de Conducir de Indiana / Identificación #",
+    "lbl_street": "Dirección de Calle Actual *",
+    "lbl_city": "Ciudad *",
+    "lbl_state": "Estado *",
+    "lbl_zip": "Código Postal *",
+    "lbl_phone": "Número de Teléfono",
+    "lbl_email": "Correo Electrónico",
+    "lbl_address_history": "Historial de Direcciones Residenciales",
+    "desc_address_history": "El Código de Indiana § 35-38-9-8(b)(3) requiere listar todas las direcciones donde ha vivido desde la fecha de su primer delito hasta el presente.",
+    "gen_warning_title": "ADVERTENCIA DE ELIMINACIÓN DE POR VIDA (UNA SOLA VEZ)",
+    "gen_warning_desc_1": "Omitir cualquier condena es permanente: Cualquier condena omitida en su petición nunca podrá ser eliminada en el futuro.",
+    "gen_warning_desc_2": "Plazo de 365 días para Múltiples Condados (IC § 35-38-9-9(d)): Si tiene casos en múltiples condados de Indiana, todas las peticiones deben presentarse dentro de los 365 días. La presentación de su primera petición inicia este plazo.",
+    "gen_warning_desc_3": "Verifique Todos los Nombres y Condados: Confirme que buscó en MyCase en los 92 condados bajo su nombre legal actual, nombres de soltera, nombres anteriores y alias.",
+    "lbl_mandatory_acks": "Reconocimientos Legales Obligatorios",
+    "ack_one_shot_desc": "Regla de Una Sola Vez de Por Vida (IC § 35-38-9-9(i)): Entiendo que Indiana permite la eliminación de condenas solo una vez en toda mi vida. Cualquier condena que omita NUNCA podrá ser eliminada después.",
+    "ack_all_counties_desc": "Todos los Cargos y Alias Incluidos: He buscado en MyCase todos los nombres/alias en todos los condados de Indiana y he verificado que todos los casos elegibles estén incluidos.",
+    "ack_not_lawyer_desc": "No Soy Abogado / No es Asesoramiento Legal: Entiendo que el creador es una persona independiente, NO un abogado, y este software es una herramienta de formato de autoayuda, no asesoramiento legal.",
+    "ack_pro_se_desc": "Responsabilidad Pro Se y Liberación de Responsabilidad: Acepto toda la responsabilidad por verificar, firmar y presentar mis documentos, y libero al creador de la herramienta de toda responsabilidad.",
+    "pdf_form00_title": "Formulario 00 - Hoja de Portada",
+    "pdf_form00_subtitle": "Instrucciones para el Peticionario Pro Se",
+    "pdf_form00_warning_title": "ADVERTENCIA CRÍTICA",
+    "pdf_form00_warning_text": "REGLA DE UNA SOLA VEZ: Bajo IC § 35-38-9-9(i), usted solo puede presentar una petición para eliminar condenas una vez en su vida. Si tiene condenas en múltiples condados, DEBEN presentarse por separado, pero todas dentro de un período de 365 días. Omitir una condena resulta en la pérdida permanente del derecho a eliminarla.",
+    "pdf_form00_guide_title": "Guía Rápida de Presentación",
+    "pdf_form00_step1": "Paso 1: Imprima todos los documentos generados. Asegúrese de que el Formulario 03 (Información Confidencial) se mantenga separado y se presente bajo sello.",
+    "pdf_form00_step2": "Paso 2: Firme la Petición y la Apariencia. (O use /s/ si se le permite la presentación electrónica).",
+    "pdf_form00_step3": "Paso 3: Notifique al Fiscal (Formulario 05) y firme el Certificado de Notificación (Formulario 06) testificando que lo hizo.",
+    "pdf_form00_step4": "Paso 4: Presente el paquete ante el Secretario del Tribunal del condado respectivo.",
+    "pdf_form00_step5": "Paso 5: Si está solicitando una exención de tarifas, incluya el Formulario 08. De lo contrario, prepárese para pagar la tarifa de presentación de .",
+    "pdf_form00_step6": "Paso 6: Espere la respuesta de la corte o un aviso de audiencia (el fiscal tiene 30 días para objetar).",
+    "pdf_form00_missing_info_title": "ADVERTENCIA DE INFORMACIÓN FALTANTE",
+    "pdf_form00_missing_info_text": "Usted generó este paquete sin proporcionar toda la información del peticionario requerida (como SSN, fecha de nacimiento o historial de direcciones completo). DEBE escribir a mano de forma clara la información faltante en las líneas en blanco antes de presentarlo ante la corte, de lo contrario su petición será rechazada.",
+    "nav_guide": "Guía",
+    "nav_legal": "Aviso Legal",
+    "status_ready": "Motor Listo",
+    "tab_profile_app": "Perfil del Peticionario",
+    "tab_generate_app": "Generar Escritos",
+    "label_feewaiver": "Incluir Solicitud de Exención de Tarifas (Formulario 08)",
+    "label_address": "Incluir Información Confidencial y Suplemento de Dirección (Formulario 03 — Requerido)",
+    "label_esign": "Firmar electrónicamente los documentos (formato /s/ para IEFS)",
+    "btn_generate": "Generar Paquete de Petición Completo",
+    "tab_scanner": "Escanear",
+    "ack_one_shot": "Entiendo la regla de una sola vez de por vida",
+    "ack_all_counties": "He buscado en todos los condados y alias",
+    "ack_not_lawyer": "Entiendo que esto no es asesoramiento legal",
+    "ack_pro_se": "Acepto toda la responsabilidad pro se",
+    "label_fee_waiver": "Incluir Solicitud de Exención de Tarifas (Formulario 08)",
+    "label_address_supp": "Incluir Información Confidencial y Suplemento de Dirección (Formulario 03 — Requerido)"
+  }
+};
+
+  function translateDOM(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        if (el.tagName === 'INPUT' && (el.type === 'text' || el.type === 'email' || el.type === 'tel')) {
+          el.placeholder = translations[lang][key];
+        } else {
+          let textNodeFound = false;
+          el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
+              node.nodeValue = translations[lang][key];
+              textNodeFound = true;
+            }
+          });
+          if (!textNodeFound) {
+            el.textContent = translations[lang][key];
+          }
+        }
+      }
+    });
+  }
+
+  function toggleLanguage() {
+    let lang = localStorage.getItem('user_lang') || 'en';
+    lang = lang === 'en' ? 'es' : 'en';
+    localStorage.setItem('user_lang', lang);
+    translateDOM(lang);
+    updateToggleUI(lang);
+  }
+
+  function updateToggleUI(lang) {
+    const toggles = document.querySelectorAll('.lang-toggle-text');
+    toggles.forEach(t => {
+      t.textContent = lang === 'en' ? 'EN' : 'ES';
+    });
+    document.documentElement.lang = lang;
+  }
+
+  function initLanguage() {
+    const lang = localStorage.getItem('user_lang') || 'en';
+    translateDOM(lang);
+    updateToggleUI(lang);
+    
+    const toggles = document.querySelectorAll('.lang-toggle');
+    toggles.forEach(t => {
+      t.addEventListener('click', toggleLanguage);
+    });
+  }
+
+  window.IndianaI18n = {
+    translations,
+    translateDOM,
+    toggleLanguage,
+    initLanguage
+  };
+
+})(window);

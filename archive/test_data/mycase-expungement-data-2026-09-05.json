@@ -1,0 +1,208 @@
+{
+  "source": "Indiana Expungement Assistant Bookmarklet",
+  "version": "1.0",
+  "exportedAt": "2026-09-05T19:54:30.356Z",
+  "searchContext": "MyCase Search",
+  "totalCases": 11,
+  "hasCCS": true,
+  "cases": [
+    {
+      "index": 1,
+      "case_number": "01D01-0406-FD-000072",
+      "title": "State Vs Gregory A Bogner",
+      "court": "Adams Superior Court",
+      "case_type": "FD - Class D Felony",
+      "filed": "06/11/2004",
+      "status": "07/22/2004, Decided",
+      "charges": "BATTERY RESULTING IN BODILY INJURY, BATTERY RESULTING IN BODILY INJURY- When Def. Has Prior Conviction For Battery Related To Domestic",
+      "parties": "State of Indiana, Adams Co. Victims Advocate, Bogner",
+      "attorneys": "Kenney",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 2,
+      "case_number": "01C01-0407-FD-000017",
+      "title": "State Vs Gregory A Bogner",
+      "court": "Adams Circuit Court",
+      "case_type": "FD - Class D Felony",
+      "filed": "06/11/2004",
+      "status": "04/11/2005, Decided",
+      "charges": "BATTERY RESULTING IN BODILY INJURY, BATTERY RESULTING IN BODILY INJURY- When Def. Has Prior Conviction For Battery Related To Domestic",
+      "parties": "State of Indiana, Adams County Probation Department, Adams Co. Victims Advocate, Bogner",
+      "attorneys": "Kenney",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 3,
+      "case_number": "02D04-0210-IF-015969",
+      "title": "State of Indiana vs. Gregory A Bogner",
+      "court": "Allen Superior Court 4",
+      "case_type": "IF - Infraction",
+      "filed": "10/07/2002",
+      "status": "10/22/2002, Decided",
+      "charges": "OPERATE WHILE SUSP (INF), DISREGARD RR CROSSING",
+      "parties": "State of Indiana, Bogner",
+      "attorneys": "",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 4,
+      "case_number": "01C01-0207-CM-000008",
+      "title": "St V Gregory A Bogner",
+      "court": "Adams Circuit Court",
+      "case_type": "CM - Criminal Misdemeanor",
+      "filed": "07/09/2002",
+      "status": "02/20/2003, Decided",
+      "charges": "OPERATING A VEH W/INTOX ENDANGERING A PERSON, OPERATING WITH AN ACE OF .08, NO TAILLIGHTS/NO PLATE LIGHTS",
+      "parties": "State of Indiana, Eguia, Adams County Probation Department, Bogner",
+      "attorneys": "Kenney, Miller",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 5,
+      "case_number": "01D01-0207-CM-000293",
+      "title": "St V Gregory A Bogner",
+      "court": "Adams Superior Court",
+      "case_type": "CM - Criminal Misdemeanor",
+      "filed": "07/09/2002",
+      "status": "07/12/2002, Decided",
+      "charges": "OPERATING A VEH W/INTOX ENDANGERING A PERSON, OPERATING WITH AN ACE OF .08, NO TAILLIGHTS/NO PLATE LIGHTS",
+      "parties": "State of Indiana, Bogner",
+      "attorneys": "Kenney",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 6,
+      "case_number": "01C01-0112-DF-000032",
+      "title": "State V Gregory A Bogner",
+      "court": "Adams Circuit Court",
+      "case_type": "FD - Class D Felony",
+      "filed": "10/18/2001",
+      "status": "04/12/2002, Decided",
+      "charges": "BATTERY RESULTING IN BODILY INJURY- Use This When VIctim Is Under 14 Years Of Age And Defendant Is",
+      "parties": "State of Indiana, Adams County Probation Department, Adams Co. Victims Advocate, Bogner",
+      "attorneys": "Kenney, Miller",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 7,
+      "case_number": "01D01-0110-DF-000109",
+      "title": "State V Gregory A Bogner",
+      "court": "Adams Superior Court",
+      "case_type": "FD - Class D Felony",
+      "filed": "10/18/2001",
+      "status": "12/17/2001, Decided",
+      "charges": "BATTERY RESULTING IN BODILY INJURY- Use This When VIctim Is Under 14 Years Of Age And Defendant Is",
+      "parties": "State of Indiana, Adams Co. Victims Advocate, Bogner",
+      "attorneys": "Kenney, Miller",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 8,
+      "case_number": "01D01-9804-IF-000971",
+      "title": "St V Gregory A Bogner",
+      "court": "Adams Superior Court",
+      "case_type": "IF - Infraction",
+      "filed": "04/23/1998",
+      "status": "05/21/1998, Decided",
+      "charges": "SAFETY BELT VIOLATION (DRIVER)",
+      "parties": "State of Indiana, Bogner",
+      "attorneys": "Kenney",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 9,
+      "case_number": "01D01-9611-IF-002363",
+      "title": "St V Gregory Bogner",
+      "court": "Adams Superior Court",
+      "case_type": "IF - Infraction",
+      "filed": "11/21/1996",
+      "status": "12/18/1996, Decided",
+      "charges": "SEE CCS ENTRY FOR OFFENSE DESCRIPTION",
+      "parties": "State of Indiana, Adams County, Bogner",
+      "attorneys": "Miller",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 10,
+      "case_number": "90D01-9606-SC-000202",
+      "title": "Credit Bureau Of Laporte v. Gregory A Bogner",
+      "court": "Wells Superior Court",
+      "case_type": "SC - Small Claims",
+      "filed": "06/27/1996",
+      "status": "04/01/1998, Decided",
+      "charges": "",
+      "parties": "Credit Bureau Of Laporte, Bogner",
+      "attorneys": "",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    },
+    {
+      "index": 11,
+      "case_number": "01D01-9411-IF-002639",
+      "title": "St V Gregory Bogner",
+      "court": "Adams Superior Court",
+      "case_type": "IF - Infraction",
+      "filed": "11/29/1994",
+      "status": "12/27/1994, Decided",
+      "charges": "SEE CCS ENTRY FOR OFFENSE DESCRIPTION",
+      "parties": "State of Indiana, Adams County, Bogner",
+      "attorneys": "Scott",
+      "caseToken": "",
+      "_source": "dom",
+      "searchContext": "MyCase Search",
+      "searchQueries": [
+        "MyCase Search"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# Robots.txt for Indiana Expungement Assistant (Expunger)
+# https://cambrianminds.github.io/expunger/
+
+User-agent: *
+Allow: /
+
+# Disallow scraping test fixtures or private dumps
+Disallow: /assets/test_data/
+
+# XML Sitemap
+Sitemap: https://cambrianminds.github.io/expunger/sitemap.xml

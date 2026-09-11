@@ -1,0 +1,57 @@
+{
+  "name": "indiana-expunge",
+  "version": "1.0.0",
+  "description": "**Automated in-browser MyCase scraper and court-ready expungement packet generator for Indiana's Second Chance Law (Indiana Code § 35-38-9).**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "npm run build:core && npm run i18n",
+    "build:core": "node scripts/build-core.js",
+    "i18n": "node scripts/build-i18n.js",
+    "test:i18n": "node scripts/check-i18n.js",
+    "test:disclaimers": "node scripts/check-disclaimers.js",
+    "test:canary": "node scripts/canary/run-canary.js",
+    "test:canary:schema": "node tests/canary-schema.test.js",
+    "sync:pro": "node scripts/sync-repos.js",
+    "sync:from-pro": "node scripts/sync-repos.js --from-pro",
+    "test": "npm run build:core && npm run i18n && node --experimental-vm-modules node_modules/jest/bin/jest.js && npm run test:i18n && npm run test:disclaimers",
+    "test:e2e": "playwright test"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=10.0.0"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CambrianMinds/expunger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CambrianMinds/expunger/issues"
+  },
+  "homepage": "https://github.com/CambrianMinds/expunger#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "jest": "^30.5.1",
+    "pdf-parse": "^2.4.5",
+    "playwright": "^1.63.0",
+    "serve": "^14.2.6",
+    "zod": "^4.5.4"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

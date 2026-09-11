@@ -1,0 +1,61 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Generated packets & test outputs
+*.zip
+*.tar.gz
+test_output*
+*.pdf
+*.docx
+
+# OS metadata & local editor config
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment variables & secrets
+.env
+.env.*
+*.local
+node_modules/
+
+# Playwright test reports & artifacts
+playwright-report/
+test-results/
+.temp_*
+
+# Agent & Assistant local config
+.agents/
+.cline/
+.claude/
+.codex/
+.gemini/
+.instructions
+.instruction-files/
+skills/
+.kilo/
+
+# User data exports & local test dumps
+mycase-expungement-data*.json
+!archive/test_data/mycase-expungement-data-2026-09-05.json
+
+# Local workspace scratch & independent repo mirrors
+legal-help-suite/
+docs/pro/
+temp/
+canary-error.json
+
+

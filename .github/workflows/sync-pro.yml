@@ -1,0 +1,56 @@
+name: Sync Core to Pro Suite
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'extension/eligibility.js'
+      - 'extension/sidepanel/county-directory.js'
+      - 'extension/pdf-lib.min.js'
+  workflow_dispatch:
+
+jobs:
+  sync-to-pro:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout indiana-expungement-assistant
+        uses: actions/checkout@v4
+        with:
+          path: upstream
+
+      - name: Checkout indiana-expunge-pro
+        uses: actions/checkout@v4
+        with:
+          repository: 'CambrianMinds/indiana-expunge-pro'
+          token: ${{ secrets['SYNC_PAT'] || github.token }}
+          path: pro
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Copy updated shared core files
+        run: |
+          cp upstream/extension/eligibility.js pro/eligibility.js
+          cp upstream/extension/sidepanel/county-directory.js pro/county-directory.js
+          cp upstream/extension/pdf-lib.min.js pro/pdf-lib.min.js
+
+      - name: Run verification tests in indiana-expunge-pro
+        working-directory: pro
+        run: |
+          npm ci || npm install
+          npm test
+
+      - name: Commit and push changes to indiana-expunge-pro
+        working-directory: pro
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add eligibility.js county-directory.js pdf-lib.min.js
+            git commit -m "sync: automated statutory core update from indiana-expungement-assistant (${{ github.sha }})"
+            git push origin main || echo "::warning::Push to indiana-expunge-pro failed. Add a GitHub Personal Access Token (with repo scope) as secret 'SYNC_PAT' in Repository Settings -> Secrets and variables -> Actions."
+          else
+            echo "No statutory core changes to push to indiana-expunge-pro."
+          fi

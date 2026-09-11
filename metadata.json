@@ -1,0 +1,6 @@
+{
+  "name": "Indiana Expungement Assistant",
+  "description": "A free, independent public legal self-help portal helping Indiana citizens navigate criminal record expungement under Indiana Code § 35-38-9.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

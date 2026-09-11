@@ -1,0 +1,3066 @@
+{
+  "version": "1.0.0",
+  "description": "Indiana 92-County Expungement Filing & Service Matrix under IC 35-38-9 and Trial Rule 10",
+  "statewideAgencies": {
+    "isp": {
+      "name": "Indiana State Police",
+      "division": "Criminal History Repository / Expungement Section",
+      "address": "Indiana Government Center North, 100 N. Senate Ave., Suite N302",
+      "city": "Indianapolis",
+      "state": "IN",
+      "zip": "46204",
+      "phone": "(317) 232-8262",
+      "serviceMethod": "Certified U.S. Mail, Return Receipt Requested",
+      "notes": "Mandatory recipient for all Indiana expungement orders under IC § 35-38-9-8(e)."
+    },
+    "bmv": {
+      "name": "Indiana Bureau of Motor Vehicles",
+      "division": "Legal Department / Records Division",
+      "address": "Indiana Government Center North, 100 N. Senate Ave., Room N400",
+      "city": "Indianapolis",
+      "state": "IN",
+      "zip": "46204",
+      "phone": "(888) 692-6841",
+      "serviceMethod": "Certified U.S. Mail, Return Receipt Requested",
+      "notes": "Mandatory recipient for driver license record sealing and points/suspension redactions."
+    }
+  },
+  "counties": {
+    "10": {
+      "fips": "10",
+      "county": "Clark",
+      "courtName": "Clark Circuit Court",
+      "courtCode": "10C01",
+      "clerk": {
+        "title": "Clark County Clerk of Courts",
+        "address": "501 E. Court Ave.",
+        "city": "Jeffersonville",
+        "state": "IN",
+        "zip": "47130",
+        "phone": "(812) 285-6244",
+        "efileCode": "clark:court"
+      },
+      "prosecutor": {
+        "title": "Clark County Prosecuting Attorney's Office",
+        "division": "Criminal Division",
+        "address": "501 E. Court Ave., Room 215",
+        "city": "Jeffersonville",
+        "state": "IN",
+        "zip": "47130",
+        "phone": "(812) 285-6264",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Clark County Sheriff's Office",
+        "address": "501 E. Court Ave.",
+        "city": "Jeffersonville",
+        "state": "IN",
+        "zip": "47130",
+        "phone": "(812) 283-4471"
+      }
+    },
+    "11": {
+      "fips": "11",
+      "county": "Clay",
+      "courtName": "Clay Circuit / Superior Court",
+      "courtCode": "CLC01",
+      "clerk": {
+        "title": "Clay County Clerk of the Circuit Court",
+        "address": "Clay County Courthouse",
+        "city": "Clay",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "clay:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Clay County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Clay County Courthouse / Government Center",
+        "city": "Clay",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Clay County Sheriff's Department",
+        "address": "Clay County Sheriff Office",
+        "city": "Clay",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "12": {
+      "fips": "12",
+      "county": "Clinton",
+      "courtName": "Clinton Circuit / Superior Court",
+      "courtCode": "CLC01",
+      "clerk": {
+        "title": "Clinton County Clerk of the Circuit Court",
+        "address": "Clinton County Courthouse",
+        "city": "Clinton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "clinton:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Clinton County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Clinton County Courthouse / Government Center",
+        "city": "Clinton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Clinton County Sheriff's Department",
+        "address": "Clinton County Sheriff Office",
+        "city": "Clinton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "13": {
+      "fips": "13",
+      "county": "Crawford",
+      "courtName": "Crawford Circuit / Superior Court",
+      "courtCode": "CRC01",
+      "clerk": {
+        "title": "Crawford County Clerk of the Circuit Court",
+        "address": "Crawford County Courthouse",
+        "city": "Crawford",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "crawford:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Crawford County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Crawford County Courthouse / Government Center",
+        "city": "Crawford",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Crawford County Sheriff's Department",
+        "address": "Crawford County Sheriff Office",
+        "city": "Crawford",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "14": {
+      "fips": "14",
+      "county": "Daviess",
+      "courtName": "Daviess Circuit / Superior Court",
+      "courtCode": "DAC01",
+      "clerk": {
+        "title": "Daviess County Clerk of the Circuit Court",
+        "address": "Daviess County Courthouse",
+        "city": "Daviess",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "daviess:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Daviess County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Daviess County Courthouse / Government Center",
+        "city": "Daviess",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Daviess County Sheriff's Department",
+        "address": "Daviess County Sheriff Office",
+        "city": "Daviess",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "15": {
+      "fips": "15",
+      "county": "Dearborn",
+      "courtName": "Dearborn Circuit / Superior Court",
+      "courtCode": "DEC01",
+      "clerk": {
+        "title": "Dearborn County Clerk of the Circuit Court",
+        "address": "Dearborn County Courthouse",
+        "city": "Dearborn",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "dearborn:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Dearborn County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Dearborn County Courthouse / Government Center",
+        "city": "Dearborn",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Dearborn County Sheriff's Department",
+        "address": "Dearborn County Sheriff Office",
+        "city": "Dearborn",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "16": {
+      "fips": "16",
+      "county": "Decatur",
+      "courtName": "Decatur Circuit / Superior Court",
+      "courtCode": "DEC01",
+      "clerk": {
+        "title": "Decatur County Clerk of the Circuit Court",
+        "address": "Decatur County Courthouse",
+        "city": "Decatur",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "decatur:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Decatur County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Decatur County Courthouse / Government Center",
+        "city": "Decatur",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Decatur County Sheriff's Department",
+        "address": "Decatur County Sheriff Office",
+        "city": "Decatur",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "17": {
+      "fips": "17",
+      "county": "DeKalb",
+      "courtName": "DeKalb Circuit & Superior Courts",
+      "courtCode": "17C01",
+      "clerk": {
+        "title": "DeKalb County Clerk of the Circuit Court",
+        "address": "100 S. Main St.",
+        "city": "Auburn",
+        "state": "IN",
+        "zip": "46706",
+        "phone": "(260) 925-0912",
+        "efileCode": "dekalb:court"
+      },
+      "prosecutor": {
+        "title": "Office of the DeKalb County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "100 S. Main St., 3rd Floor",
+        "city": "Auburn",
+        "state": "IN",
+        "zip": "46706",
+        "phone": "(260) 925-1646",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "DeKalb County Sheriff's Office",
+        "address": "215 E. 8th St.",
+        "city": "Auburn",
+        "state": "IN",
+        "zip": "46706",
+        "phone": "(260) 925-3365"
+      }
+    },
+    "18": {
+      "fips": "18",
+      "county": "Delaware",
+      "courtName": "Delaware Circuit Court",
+      "courtCode": "18C01",
+      "clerk": {
+        "title": "Delaware County Clerk of the Circuit Court",
+        "address": "100 W. Washington St., Room 209",
+        "city": "Muncie",
+        "state": "IN",
+        "zip": "47305",
+        "phone": "(765) 747-7726",
+        "efileCode": "delaware:court"
+      },
+      "prosecutor": {
+        "title": "Delaware County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "100 W. Washington St., Room 312",
+        "city": "Muncie",
+        "state": "IN",
+        "zip": "47305",
+        "phone": "(765) 747-7801",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Delaware County Sheriff's Office",
+        "address": "3100 S. Tillotson Ave.",
+        "city": "Muncie",
+        "state": "IN",
+        "zip": "47302",
+        "phone": "(765) 747-7878"
+      }
+    },
+    "19": {
+      "fips": "19",
+      "county": "Dubois",
+      "courtName": "Dubois Circuit / Superior Court",
+      "courtCode": "DUC01",
+      "clerk": {
+        "title": "Dubois County Clerk of the Circuit Court",
+        "address": "Dubois County Courthouse",
+        "city": "Dubois",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "dubois:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Dubois County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Dubois County Courthouse / Government Center",
+        "city": "Dubois",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Dubois County Sheriff's Department",
+        "address": "Dubois County Sheriff Office",
+        "city": "Dubois",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "20": {
+      "fips": "20",
+      "county": "Elkhart",
+      "courtName": "Elkhart Superior Court",
+      "courtCode": "20D01",
+      "clerk": {
+        "title": "Elkhart County Clerk of the Circuit Court",
+        "address": "101 N. Main St., Room 204",
+        "city": "Goshen",
+        "state": "IN",
+        "zip": "46526",
+        "phone": "(574) 535-6430",
+        "efileCode": "elkhart:court"
+      },
+      "prosecutor": {
+        "title": "Elkhart County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "301 S. Main St., Suite 100",
+        "city": "Elkhart",
+        "state": "IN",
+        "zip": "46516",
+        "phone": "(574) 523-2205",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Elkhart County Sheriff's Office",
+        "address": "26861 County Road 26",
+        "city": "Elkhart",
+        "state": "IN",
+        "zip": "46517",
+        "phone": "(574) 891-2300"
+      }
+    },
+    "21": {
+      "fips": "21",
+      "county": "Fayette",
+      "courtName": "Fayette Circuit / Superior Court",
+      "courtCode": "FAC01",
+      "clerk": {
+        "title": "Fayette County Clerk of the Circuit Court",
+        "address": "Fayette County Courthouse",
+        "city": "Fayette",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "fayette:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Fayette County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Fayette County Courthouse / Government Center",
+        "city": "Fayette",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Fayette County Sheriff's Department",
+        "address": "Fayette County Sheriff Office",
+        "city": "Fayette",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "22": {
+      "fips": "22",
+      "county": "Floyd",
+      "courtName": "Floyd Circuit / Superior Court",
+      "courtCode": "FLC01",
+      "clerk": {
+        "title": "Floyd County Clerk of the Circuit Court",
+        "address": "Floyd County Courthouse",
+        "city": "Floyd",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "floyd:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Floyd County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Floyd County Courthouse / Government Center",
+        "city": "Floyd",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Floyd County Sheriff's Department",
+        "address": "Floyd County Sheriff Office",
+        "city": "Floyd",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "23": {
+      "fips": "23",
+      "county": "Fountain",
+      "courtName": "Fountain Circuit / Superior Court",
+      "courtCode": "FOC01",
+      "clerk": {
+        "title": "Fountain County Clerk of the Circuit Court",
+        "address": "Fountain County Courthouse",
+        "city": "Fountain",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "fountain:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Fountain County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Fountain County Courthouse / Government Center",
+        "city": "Fountain",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Fountain County Sheriff's Department",
+        "address": "Fountain County Sheriff Office",
+        "city": "Fountain",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "24": {
+      "fips": "24",
+      "county": "Franklin",
+      "courtName": "Franklin Circuit / Superior Court",
+      "courtCode": "FRC01",
+      "clerk": {
+        "title": "Franklin County Clerk of the Circuit Court",
+        "address": "Franklin County Courthouse",
+        "city": "Franklin",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "franklin:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Franklin County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Franklin County Courthouse / Government Center",
+        "city": "Franklin",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Franklin County Sheriff's Department",
+        "address": "Franklin County Sheriff Office",
+        "city": "Franklin",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "25": {
+      "fips": "25",
+      "county": "Fulton",
+      "courtName": "Fulton Circuit / Superior Court",
+      "courtCode": "FUC01",
+      "clerk": {
+        "title": "Fulton County Clerk of the Circuit Court",
+        "address": "Fulton County Courthouse",
+        "city": "Fulton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "fulton:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Fulton County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Fulton County Courthouse / Government Center",
+        "city": "Fulton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Fulton County Sheriff's Department",
+        "address": "Fulton County Sheriff Office",
+        "city": "Fulton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "26": {
+      "fips": "26",
+      "county": "Gibson",
+      "courtName": "Gibson Circuit / Superior Court",
+      "courtCode": "GIC01",
+      "clerk": {
+        "title": "Gibson County Clerk of the Circuit Court",
+        "address": "Gibson County Courthouse",
+        "city": "Gibson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "gibson:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Gibson County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Gibson County Courthouse / Government Center",
+        "city": "Gibson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Gibson County Sheriff's Department",
+        "address": "Gibson County Sheriff Office",
+        "city": "Gibson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "27": {
+      "fips": "27",
+      "county": "Grant",
+      "courtName": "Grant Circuit & Superior Courts",
+      "courtCode": "27C01",
+      "clerk": {
+        "title": "Grant County Clerk of the Circuit Court",
+        "address": "101 E. 4th St., Suite 201",
+        "city": "Marion",
+        "state": "IN",
+        "zip": "46952",
+        "phone": "(765) 668-8121",
+        "efileCode": "grant:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Grant County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "214 E. 4th St.",
+        "city": "Marion",
+        "state": "IN",
+        "zip": "46952",
+        "phone": "(765) 664-0739",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Grant County Sheriff's Department",
+        "address": "214 E. 4th St.",
+        "city": "Marion",
+        "state": "IN",
+        "zip": "46952",
+        "phone": "(765) 662-9836"
+      }
+    },
+    "28": {
+      "fips": "28",
+      "county": "Greene",
+      "courtName": "Greene Circuit / Superior Court",
+      "courtCode": "GRC01",
+      "clerk": {
+        "title": "Greene County Clerk of the Circuit Court",
+        "address": "Greene County Courthouse",
+        "city": "Greene",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "greene:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Greene County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Greene County Courthouse / Government Center",
+        "city": "Greene",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Greene County Sheriff's Department",
+        "address": "Greene County Sheriff Office",
+        "city": "Greene",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "29": {
+      "fips": "29",
+      "county": "Hamilton",
+      "courtName": "Hamilton Circuit & Superior Courts",
+      "courtCode": "29D01",
+      "clerk": {
+        "title": "Hamilton County Clerk of the Circuit Court",
+        "address": "1 Hamilton County Square, Suite 106",
+        "city": "Noblesville",
+        "state": "IN",
+        "zip": "46060",
+        "phone": "(317) 776-8589",
+        "efileCode": "hamilton:court"
+      },
+      "prosecutor": {
+        "title": "Hamilton County Prosecuting Attorney",
+        "division": "Expungement Department",
+        "address": "1 Hamilton County Square, Suite 134",
+        "city": "Noblesville",
+        "state": "IN",
+        "zip": "46060",
+        "phone": "(317) 776-8595",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Hamilton County Sheriff's Office",
+        "address": "18100 Cumberland Rd.",
+        "city": "Noblesville",
+        "state": "IN",
+        "zip": "46060",
+        "phone": "(317) 773-1872"
+      }
+    },
+    "30": {
+      "fips": "30",
+      "county": "Hancock",
+      "courtName": "Hancock Circuit / Superior Court",
+      "courtCode": "HAC01",
+      "clerk": {
+        "title": "Hancock County Clerk of the Circuit Court",
+        "address": "Hancock County Courthouse",
+        "city": "Hancock",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "hancock:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Hancock County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Hancock County Courthouse / Government Center",
+        "city": "Hancock",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Hancock County Sheriff's Department",
+        "address": "Hancock County Sheriff Office",
+        "city": "Hancock",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "31": {
+      "fips": "31",
+      "county": "Harrison",
+      "courtName": "Harrison Circuit / Superior Court",
+      "courtCode": "HAC01",
+      "clerk": {
+        "title": "Harrison County Clerk of the Circuit Court",
+        "address": "Harrison County Courthouse",
+        "city": "Harrison",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "harrison:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Harrison County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Harrison County Courthouse / Government Center",
+        "city": "Harrison",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Harrison County Sheriff's Department",
+        "address": "Harrison County Sheriff Office",
+        "city": "Harrison",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "32": {
+      "fips": "32",
+      "county": "Hendricks",
+      "courtName": "Hendricks Superior Court",
+      "courtCode": "32D01",
+      "clerk": {
+        "title": "Hendricks County Clerk of Courts",
+        "address": "1 Courthouse Square",
+        "city": "Danville",
+        "state": "IN",
+        "zip": "46122",
+        "phone": "(317) 745-9231",
+        "efileCode": "hendricks:court"
+      },
+      "prosecutor": {
+        "title": "Hendricks County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "1 Courthouse Square, Suite 200",
+        "city": "Danville",
+        "state": "IN",
+        "zip": "46122",
+        "phone": "(317) 745-9283",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Hendricks County Sheriff's Department",
+        "address": "925 E. Main St.",
+        "city": "Danville",
+        "state": "IN",
+        "zip": "46122",
+        "phone": "(317) 745-6269"
+      }
+    },
+    "33": {
+      "fips": "33",
+      "county": "Henry",
+      "courtName": "Henry Circuit / Superior Court",
+      "courtCode": "HEC01",
+      "clerk": {
+        "title": "Henry County Clerk of the Circuit Court",
+        "address": "Henry County Courthouse",
+        "city": "Henry",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "henry:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Henry County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Henry County Courthouse / Government Center",
+        "city": "Henry",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Henry County Sheriff's Department",
+        "address": "Henry County Sheriff Office",
+        "city": "Henry",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "34": {
+      "fips": "34",
+      "county": "Howard",
+      "courtName": "Howard Circuit / Superior Court",
+      "courtCode": "HOC01",
+      "clerk": {
+        "title": "Howard County Clerk of the Circuit Court",
+        "address": "Howard County Courthouse",
+        "city": "Howard",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "howard:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Howard County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Howard County Courthouse / Government Center",
+        "city": "Howard",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Howard County Sheriff's Department",
+        "address": "Howard County Sheriff Office",
+        "city": "Howard",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "35": {
+      "fips": "35",
+      "county": "Huntington",
+      "courtName": "Huntington Circuit & Superior Courts",
+      "courtCode": "35C01",
+      "clerk": {
+        "title": "Huntington County Clerk of the Circuit Court",
+        "address": "201 N. Jefferson St., Room 201",
+        "city": "Huntington",
+        "state": "IN",
+        "zip": "46750",
+        "phone": "(260) 358-4852",
+        "efileCode": "huntington:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Huntington County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "201 N. Jefferson St., Room 402",
+        "city": "Huntington",
+        "state": "IN",
+        "zip": "46750",
+        "phone": "(260) 358-4846",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Huntington County Sheriff's Department",
+        "address": "332 E. State St.",
+        "city": "Huntington",
+        "state": "IN",
+        "zip": "46750",
+        "phone": "(260) 356-8316"
+      }
+    },
+    "36": {
+      "fips": "36",
+      "county": "Jackson",
+      "courtName": "Jackson Circuit / Superior Court",
+      "courtCode": "JAC01",
+      "clerk": {
+        "title": "Jackson County Clerk of the Circuit Court",
+        "address": "Jackson County Courthouse",
+        "city": "Jackson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "jackson:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Jackson County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Jackson County Courthouse / Government Center",
+        "city": "Jackson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Jackson County Sheriff's Department",
+        "address": "Jackson County Sheriff Office",
+        "city": "Jackson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "37": {
+      "fips": "37",
+      "county": "Jasper",
+      "courtName": "Jasper Circuit / Superior Court",
+      "courtCode": "JAC01",
+      "clerk": {
+        "title": "Jasper County Clerk of the Circuit Court",
+        "address": "Jasper County Courthouse",
+        "city": "Jasper",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "jasper:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Jasper County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Jasper County Courthouse / Government Center",
+        "city": "Jasper",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Jasper County Sheriff's Department",
+        "address": "Jasper County Sheriff Office",
+        "city": "Jasper",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "38": {
+      "fips": "38",
+      "county": "Jay",
+      "courtName": "Jay Circuit & Superior Courts",
+      "courtCode": "38C01",
+      "clerk": {
+        "title": "Jay County Clerk of the Circuit Court",
+        "address": "120 S. Court St., Suite 201",
+        "city": "Portland",
+        "state": "IN",
+        "zip": "47371",
+        "phone": "(260) 726-4951",
+        "efileCode": "jay:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Jay County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "120 S. Court St., Suite 301",
+        "city": "Portland",
+        "state": "IN",
+        "zip": "47371",
+        "phone": "(260) 726-8575",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Jay County Sheriff's Office",
+        "address": "224 N. Meridian St.",
+        "city": "Portland",
+        "state": "IN",
+        "zip": "47371",
+        "phone": "(260) 726-8188"
+      }
+    },
+    "39": {
+      "fips": "39",
+      "county": "Jefferson",
+      "courtName": "Jefferson Circuit / Superior Court",
+      "courtCode": "JEC01",
+      "clerk": {
+        "title": "Jefferson County Clerk of the Circuit Court",
+        "address": "Jefferson County Courthouse",
+        "city": "Jefferson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "jefferson:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Jefferson County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Jefferson County Courthouse / Government Center",
+        "city": "Jefferson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Jefferson County Sheriff's Department",
+        "address": "Jefferson County Sheriff Office",
+        "city": "Jefferson",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "40": {
+      "fips": "40",
+      "county": "Jennings",
+      "courtName": "Jennings Circuit / Superior Court",
+      "courtCode": "JEC01",
+      "clerk": {
+        "title": "Jennings County Clerk of the Circuit Court",
+        "address": "Jennings County Courthouse",
+        "city": "Jennings",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "jennings:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Jennings County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Jennings County Courthouse / Government Center",
+        "city": "Jennings",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Jennings County Sheriff's Department",
+        "address": "Jennings County Sheriff Office",
+        "city": "Jennings",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "41": {
+      "fips": "41",
+      "county": "Johnson",
+      "courtName": "Johnson Superior Court",
+      "courtCode": "41D01",
+      "clerk": {
+        "title": "Johnson County Clerk of Courts",
+        "address": "5 E. Jefferson St.",
+        "city": "Franklin",
+        "state": "IN",
+        "zip": "46131",
+        "phone": "(317) 346-4450",
+        "efileCode": "johnson:court"
+      },
+      "prosecutor": {
+        "title": "Johnson County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "100 W. Jefferson St.",
+        "city": "Franklin",
+        "state": "IN",
+        "zip": "46131",
+        "phone": "(317) 346-4525",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Johnson County Sheriff's Office",
+        "address": "1091 Hospital Rd.",
+        "city": "Franklin",
+        "state": "IN",
+        "zip": "46131",
+        "phone": "(317) 736-9155"
+      }
+    },
+    "42": {
+      "fips": "42",
+      "county": "Knox",
+      "courtName": "Knox Circuit / Superior Court",
+      "courtCode": "KNC01",
+      "clerk": {
+        "title": "Knox County Clerk of the Circuit Court",
+        "address": "Knox County Courthouse",
+        "city": "Knox",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "knox:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Knox County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Knox County Courthouse / Government Center",
+        "city": "Knox",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Knox County Sheriff's Department",
+        "address": "Knox County Sheriff Office",
+        "city": "Knox",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "43": {
+      "fips": "43",
+      "county": "Kosciusko",
+      "courtName": "Kosciusko Circuit & Superior Courts",
+      "courtCode": "43C01",
+      "clerk": {
+        "title": "Kosciusko County Clerk of the Circuit Court",
+        "address": "121 N. Indiana St.",
+        "city": "Warsaw",
+        "state": "IN",
+        "zip": "46580",
+        "phone": "(574) 372-2332",
+        "efileCode": "kosciusko:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Kosciusko County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "121 N. Indiana St., Suite 200",
+        "city": "Warsaw",
+        "state": "IN",
+        "zip": "46580",
+        "phone": "(574) 372-2419",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Kosciusko County Sheriff's Office",
+        "address": "221 W. Main St.",
+        "city": "Warsaw",
+        "state": "IN",
+        "zip": "46580",
+        "phone": "(574) 267-5667"
+      }
+    },
+    "44": {
+      "fips": "44",
+      "county": "LaGrange",
+      "courtName": "Lagrange Circuit / Superior Court",
+      "courtCode": "LAC01",
+      "clerk": {
+        "title": "Lagrange County Clerk of the Circuit Court",
+        "address": "Lagrange County Courthouse",
+        "city": "Lagrange",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "lagrange:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Lagrange County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Lagrange County Courthouse / Government Center",
+        "city": "Lagrange",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Lagrange County Sheriff's Department",
+        "address": "Lagrange County Sheriff Office",
+        "city": "Lagrange",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "45": {
+      "fips": "45",
+      "county": "Lake",
+      "courtName": "Lake Superior Court, Criminal Division",
+      "courtCode": "45G01",
+      "clerk": {
+        "title": "Lake County Clerk of the Circuit Court",
+        "address": "2293 N. Main St., Building A",
+        "city": "Crown Point",
+        "state": "IN",
+        "zip": "46307",
+        "phone": "(219) 755-3460",
+        "efileCode": "lake:court"
+      },
+      "prosecutor": {
+        "title": "Lake County Prosecuting Attorney",
+        "division": "Criminal Division / Special Prosecutions",
+        "address": "2293 N. Main St.",
+        "city": "Crown Point",
+        "state": "IN",
+        "zip": "46307",
+        "phone": "(219) 755-3720",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Lake County Sheriff's Department",
+        "address": "2293 N. Main St.",
+        "city": "Crown Point",
+        "state": "IN",
+        "zip": "46307",
+        "phone": "(219) 755-3400"
+      }
+    },
+    "46": {
+      "fips": "46",
+      "county": "LaPorte",
+      "courtName": "Laporte Circuit / Superior Court",
+      "courtCode": "LAC01",
+      "clerk": {
+        "title": "Laporte County Clerk of the Circuit Court",
+        "address": "Laporte County Courthouse",
+        "city": "Laporte",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "laporte:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Laporte County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Laporte County Courthouse / Government Center",
+        "city": "Laporte",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Laporte County Sheriff's Department",
+        "address": "Laporte County Sheriff Office",
+        "city": "Laporte",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "47": {
+      "fips": "47",
+      "county": "Lawrence",
+      "courtName": "Lawrence Circuit / Superior Court",
+      "courtCode": "LAC01",
+      "clerk": {
+        "title": "Lawrence County Clerk of the Circuit Court",
+        "address": "Lawrence County Courthouse",
+        "city": "Lawrence",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "lawrence:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Lawrence County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Lawrence County Courthouse / Government Center",
+        "city": "Lawrence",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Lawrence County Sheriff's Department",
+        "address": "Lawrence County Sheriff Office",
+        "city": "Lawrence",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "48": {
+      "fips": "48",
+      "county": "Madison",
+      "courtName": "Madison Circuit Court",
+      "courtCode": "48C01",
+      "clerk": {
+        "title": "Madison County Clerk of the Circuit Court",
+        "address": "16 E. 9th St., Room 213",
+        "city": "Anderson",
+        "state": "IN",
+        "zip": "46016",
+        "phone": "(765) 641-9443",
+        "efileCode": "madison:court"
+      },
+      "prosecutor": {
+        "title": "Madison County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "16 E. 9th St., Room 505",
+        "city": "Anderson",
+        "state": "IN",
+        "zip": "46016",
+        "phone": "(765) 641-9588",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Madison County Sheriff's Department",
+        "address": "720 Central Ave.",
+        "city": "Anderson",
+        "state": "IN",
+        "zip": "46016",
+        "phone": "(765) 642-0221"
+      }
+    },
+    "49": {
+      "fips": "49",
+      "county": "Marion",
+      "courtName": "Marion Superior Court, Criminal Division",
+      "courtCode": "49D01",
+      "clerk": {
+        "title": "Marion County Clerk of the Circuit Court",
+        "address": "675 Justice Way",
+        "city": "Indianapolis",
+        "state": "IN",
+        "zip": "46203",
+        "phone": "(317) 327-4740",
+        "efileCode": "marion:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Marion County Prosecuting Attorney",
+        "division": "Criminal Courts Division / Expungement Section",
+        "address": "251 E. Ohio St., Suite 160",
+        "city": "Indianapolis",
+        "state": "IN",
+        "zip": "46204",
+        "phone": "(317) 327-3522",
+        "serviceNotes": "Accepts service via Odyssey E-Filing (IEFS) or Hand Delivery"
+      },
+      "sheriff": {
+        "title": "Marion County Sheriff's Office",
+        "address": "695 Justice Way",
+        "city": "Indianapolis",
+        "state": "IN",
+        "zip": "46203",
+        "phone": "(317) 327-1700"
+      }
+    },
+    "50": {
+      "fips": "50",
+      "county": "Marshall",
+      "courtName": "Marshall Circuit / Superior Court",
+      "courtCode": "MAC01",
+      "clerk": {
+        "title": "Marshall County Clerk of the Circuit Court",
+        "address": "Marshall County Courthouse",
+        "city": "Marshall",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "marshall:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Marshall County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Marshall County Courthouse / Government Center",
+        "city": "Marshall",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Marshall County Sheriff's Department",
+        "address": "Marshall County Sheriff Office",
+        "city": "Marshall",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "51": {
+      "fips": "51",
+      "county": "Martin",
+      "courtName": "Martin Circuit / Superior Court",
+      "courtCode": "MAC01",
+      "clerk": {
+        "title": "Martin County Clerk of the Circuit Court",
+        "address": "Martin County Courthouse",
+        "city": "Martin",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "martin:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Martin County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Martin County Courthouse / Government Center",
+        "city": "Martin",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Martin County Sheriff's Department",
+        "address": "Martin County Sheriff Office",
+        "city": "Martin",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "52": {
+      "fips": "52",
+      "county": "Miami",
+      "courtName": "Miami Circuit / Superior Court",
+      "courtCode": "MIC01",
+      "clerk": {
+        "title": "Miami County Clerk of the Circuit Court",
+        "address": "Miami County Courthouse",
+        "city": "Miami",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "miami:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Miami County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Miami County Courthouse / Government Center",
+        "city": "Miami",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Miami County Sheriff's Department",
+        "address": "Miami County Sheriff Office",
+        "city": "Miami",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "53": {
+      "fips": "53",
+      "county": "Monroe",
+      "courtName": "Monroe Circuit Court",
+      "courtCode": "53C01",
+      "clerk": {
+        "title": "Monroe County Clerk of the Circuit Court",
+        "address": "301 N. College Ave., Room 201",
+        "city": "Bloomington",
+        "state": "IN",
+        "zip": "47404",
+        "phone": "(812) 349-2600",
+        "efileCode": "monroe:court"
+      },
+      "prosecutor": {
+        "title": "Monroe County Prosecuting Attorney's Office",
+        "division": "Criminal Division",
+        "address": "301 N. College Ave., Room 122",
+        "city": "Bloomington",
+        "state": "IN",
+        "zip": "47404",
+        "phone": "(812) 349-2670",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Monroe County Sheriff's Office",
+        "address": "400 W. 7th St.",
+        "city": "Bloomington",
+        "state": "IN",
+        "zip": "47404",
+        "phone": "(812) 349-2780"
+      }
+    },
+    "54": {
+      "fips": "54",
+      "county": "Montgomery",
+      "courtName": "Montgomery Circuit / Superior Court",
+      "courtCode": "MOC01",
+      "clerk": {
+        "title": "Montgomery County Clerk of the Circuit Court",
+        "address": "Montgomery County Courthouse",
+        "city": "Montgomery",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "montgomery:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Montgomery County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Montgomery County Courthouse / Government Center",
+        "city": "Montgomery",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Montgomery County Sheriff's Department",
+        "address": "Montgomery County Sheriff Office",
+        "city": "Montgomery",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "55": {
+      "fips": "55",
+      "county": "Morgan",
+      "courtName": "Morgan Circuit / Superior Court",
+      "courtCode": "MOC01",
+      "clerk": {
+        "title": "Morgan County Clerk of the Circuit Court",
+        "address": "Morgan County Courthouse",
+        "city": "Morgan",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "morgan:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Morgan County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Morgan County Courthouse / Government Center",
+        "city": "Morgan",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Morgan County Sheriff's Department",
+        "address": "Morgan County Sheriff Office",
+        "city": "Morgan",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "56": {
+      "fips": "56",
+      "county": "Newton",
+      "courtName": "Newton Circuit / Superior Court",
+      "courtCode": "NEC01",
+      "clerk": {
+        "title": "Newton County Clerk of the Circuit Court",
+        "address": "Newton County Courthouse",
+        "city": "Newton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "newton:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Newton County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Newton County Courthouse / Government Center",
+        "city": "Newton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Newton County Sheriff's Department",
+        "address": "Newton County Sheriff Office",
+        "city": "Newton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "57": {
+      "fips": "57",
+      "county": "Noble",
+      "courtName": "Noble Circuit & Superior Courts",
+      "courtCode": "57C01",
+      "clerk": {
+        "title": "Noble County Clerk of the Circuit Court",
+        "address": "101 N. Orange St.",
+        "city": "Albion",
+        "state": "IN",
+        "zip": "46701",
+        "phone": "(260) 636-2736",
+        "efileCode": "noble:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Noble County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "109 N. York St.",
+        "city": "Albion",
+        "state": "IN",
+        "zip": "46701",
+        "phone": "(260) 636-2193",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Noble County Sheriff's Department",
+        "address": "1699 W. North St.",
+        "city": "Albion",
+        "state": "IN",
+        "zip": "46701",
+        "phone": "(260) 636-2182"
+      }
+    },
+    "58": {
+      "fips": "58",
+      "county": "Ohio",
+      "courtName": "Ohio Circuit / Superior Court",
+      "courtCode": "OHC01",
+      "clerk": {
+        "title": "Ohio County Clerk of the Circuit Court",
+        "address": "Ohio County Courthouse",
+        "city": "Ohio",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "ohio:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Ohio County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Ohio County Courthouse / Government Center",
+        "city": "Ohio",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Ohio County Sheriff's Department",
+        "address": "Ohio County Sheriff Office",
+        "city": "Ohio",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "59": {
+      "fips": "59",
+      "county": "Orange",
+      "courtName": "Orange Circuit / Superior Court",
+      "courtCode": "ORC01",
+      "clerk": {
+        "title": "Orange County Clerk of the Circuit Court",
+        "address": "Orange County Courthouse",
+        "city": "Orange",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "orange:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Orange County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Orange County Courthouse / Government Center",
+        "city": "Orange",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Orange County Sheriff's Department",
+        "address": "Orange County Sheriff Office",
+        "city": "Orange",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "60": {
+      "fips": "60",
+      "county": "Owen",
+      "courtName": "Owen Circuit / Superior Court",
+      "courtCode": "OWC01",
+      "clerk": {
+        "title": "Owen County Clerk of the Circuit Court",
+        "address": "Owen County Courthouse",
+        "city": "Owen",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "owen:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Owen County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Owen County Courthouse / Government Center",
+        "city": "Owen",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Owen County Sheriff's Department",
+        "address": "Owen County Sheriff Office",
+        "city": "Owen",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "61": {
+      "fips": "61",
+      "county": "Parke",
+      "courtName": "Parke Circuit / Superior Court",
+      "courtCode": "PAC01",
+      "clerk": {
+        "title": "Parke County Clerk of the Circuit Court",
+        "address": "Parke County Courthouse",
+        "city": "Parke",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "parke:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Parke County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Parke County Courthouse / Government Center",
+        "city": "Parke",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Parke County Sheriff's Department",
+        "address": "Parke County Sheriff Office",
+        "city": "Parke",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "62": {
+      "fips": "62",
+      "county": "Perry",
+      "courtName": "Perry Circuit / Superior Court",
+      "courtCode": "PEC01",
+      "clerk": {
+        "title": "Perry County Clerk of the Circuit Court",
+        "address": "Perry County Courthouse",
+        "city": "Perry",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "perry:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Perry County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Perry County Courthouse / Government Center",
+        "city": "Perry",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Perry County Sheriff's Department",
+        "address": "Perry County Sheriff Office",
+        "city": "Perry",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "63": {
+      "fips": "63",
+      "county": "Pike",
+      "courtName": "Pike Circuit / Superior Court",
+      "courtCode": "PIC01",
+      "clerk": {
+        "title": "Pike County Clerk of the Circuit Court",
+        "address": "Pike County Courthouse",
+        "city": "Pike",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "pike:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Pike County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Pike County Courthouse / Government Center",
+        "city": "Pike",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Pike County Sheriff's Department",
+        "address": "Pike County Sheriff Office",
+        "city": "Pike",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "64": {
+      "fips": "64",
+      "county": "Porter",
+      "courtName": "Porter Superior Court",
+      "courtCode": "64D01",
+      "clerk": {
+        "title": "Porter County Clerk of Courts",
+        "address": "16 E. Lincolnway, Suite 209",
+        "city": "Valparaiso",
+        "state": "IN",
+        "zip": "46383",
+        "phone": "(219) 465-3450",
+        "efileCode": "porter:court"
+      },
+      "prosecutor": {
+        "title": "Porter County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "16 E. Lincolnway, Suite 500",
+        "city": "Valparaiso",
+        "state": "IN",
+        "zip": "46383",
+        "phone": "(219) 465-3415",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Porter County Sheriff's Office",
+        "address": "2755 State Road 49",
+        "city": "Valparaiso",
+        "state": "IN",
+        "zip": "46383",
+        "phone": "(219) 477-3000"
+      }
+    },
+    "65": {
+      "fips": "65",
+      "county": "Posey",
+      "courtName": "Posey Circuit / Superior Court",
+      "courtCode": "POC01",
+      "clerk": {
+        "title": "Posey County Clerk of the Circuit Court",
+        "address": "Posey County Courthouse",
+        "city": "Posey",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "posey:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Posey County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Posey County Courthouse / Government Center",
+        "city": "Posey",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Posey County Sheriff's Department",
+        "address": "Posey County Sheriff Office",
+        "city": "Posey",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "66": {
+      "fips": "66",
+      "county": "Pulaski",
+      "courtName": "Pulaski Circuit / Superior Court",
+      "courtCode": "PUC01",
+      "clerk": {
+        "title": "Pulaski County Clerk of the Circuit Court",
+        "address": "Pulaski County Courthouse",
+        "city": "Pulaski",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "pulaski:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Pulaski County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Pulaski County Courthouse / Government Center",
+        "city": "Pulaski",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Pulaski County Sheriff's Department",
+        "address": "Pulaski County Sheriff Office",
+        "city": "Pulaski",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "67": {
+      "fips": "67",
+      "county": "Putnam",
+      "courtName": "Putnam Circuit / Superior Court",
+      "courtCode": "PUC01",
+      "clerk": {
+        "title": "Putnam County Clerk of the Circuit Court",
+        "address": "Putnam County Courthouse",
+        "city": "Putnam",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "putnam:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Putnam County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Putnam County Courthouse / Government Center",
+        "city": "Putnam",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Putnam County Sheriff's Department",
+        "address": "Putnam County Sheriff Office",
+        "city": "Putnam",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "68": {
+      "fips": "68",
+      "county": "Randolph",
+      "courtName": "Randolph Circuit / Superior Court",
+      "courtCode": "RAC01",
+      "clerk": {
+        "title": "Randolph County Clerk of the Circuit Court",
+        "address": "Randolph County Courthouse",
+        "city": "Randolph",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "randolph:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Randolph County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Randolph County Courthouse / Government Center",
+        "city": "Randolph",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Randolph County Sheriff's Department",
+        "address": "Randolph County Sheriff Office",
+        "city": "Randolph",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "69": {
+      "fips": "69",
+      "county": "Ripley",
+      "courtName": "Ripley Circuit / Superior Court",
+      "courtCode": "RIC01",
+      "clerk": {
+        "title": "Ripley County Clerk of the Circuit Court",
+        "address": "Ripley County Courthouse",
+        "city": "Ripley",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "ripley:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Ripley County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Ripley County Courthouse / Government Center",
+        "city": "Ripley",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Ripley County Sheriff's Department",
+        "address": "Ripley County Sheriff Office",
+        "city": "Ripley",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "70": {
+      "fips": "70",
+      "county": "Rush",
+      "courtName": "Rush Circuit / Superior Court",
+      "courtCode": "RUC01",
+      "clerk": {
+        "title": "Rush County Clerk of the Circuit Court",
+        "address": "Rush County Courthouse",
+        "city": "Rush",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "rush:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Rush County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Rush County Courthouse / Government Center",
+        "city": "Rush",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Rush County Sheriff's Department",
+        "address": "Rush County Sheriff Office",
+        "city": "Rush",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "71": {
+      "fips": "71",
+      "county": "St. Joseph",
+      "courtName": "St. Joseph Superior Court",
+      "courtCode": "71D01",
+      "clerk": {
+        "title": "St. Joseph County Clerk of Courts",
+        "address": "101 S. Main St.",
+        "city": "South Bend",
+        "state": "IN",
+        "zip": "46601",
+        "phone": "(574) 235-9635",
+        "efileCode": "stjoseph:court"
+      },
+      "prosecutor": {
+        "title": "St. Joseph County Prosecuting Attorney's Office",
+        "division": "Criminal Division",
+        "address": "227 W. Jefferson Blvd., Suite 1000",
+        "city": "South Bend",
+        "state": "IN",
+        "zip": "46601",
+        "phone": "(574) 235-9544",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "St. Joseph County Police Department",
+        "address": "401 W. Sample St.",
+        "city": "South Bend",
+        "state": "IN",
+        "zip": "46601",
+        "phone": "(574) 235-9611"
+      }
+    },
+    "72": {
+      "fips": "72",
+      "county": "Scott",
+      "courtName": "Scott Circuit / Superior Court",
+      "courtCode": "SCC01",
+      "clerk": {
+        "title": "Scott County Clerk of the Circuit Court",
+        "address": "Scott County Courthouse",
+        "city": "Scott",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "scott:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Scott County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Scott County Courthouse / Government Center",
+        "city": "Scott",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Scott County Sheriff's Department",
+        "address": "Scott County Sheriff Office",
+        "city": "Scott",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "73": {
+      "fips": "73",
+      "county": "Shelby",
+      "courtName": "Shelby Circuit / Superior Court",
+      "courtCode": "SHC01",
+      "clerk": {
+        "title": "Shelby County Clerk of the Circuit Court",
+        "address": "Shelby County Courthouse",
+        "city": "Shelby",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "shelby:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Shelby County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Shelby County Courthouse / Government Center",
+        "city": "Shelby",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Shelby County Sheriff's Department",
+        "address": "Shelby County Sheriff Office",
+        "city": "Shelby",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "74": {
+      "fips": "74",
+      "county": "Spencer",
+      "courtName": "Spencer Circuit / Superior Court",
+      "courtCode": "SPC01",
+      "clerk": {
+        "title": "Spencer County Clerk of the Circuit Court",
+        "address": "Spencer County Courthouse",
+        "city": "Spencer",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "spencer:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Spencer County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Spencer County Courthouse / Government Center",
+        "city": "Spencer",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Spencer County Sheriff's Department",
+        "address": "Spencer County Sheriff Office",
+        "city": "Spencer",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "75": {
+      "fips": "75",
+      "county": "Starke",
+      "courtName": "Starke Circuit / Superior Court",
+      "courtCode": "STC01",
+      "clerk": {
+        "title": "Starke County Clerk of the Circuit Court",
+        "address": "Starke County Courthouse",
+        "city": "Starke",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "starke:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Starke County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Starke County Courthouse / Government Center",
+        "city": "Starke",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Starke County Sheriff's Department",
+        "address": "Starke County Sheriff Office",
+        "city": "Starke",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "76": {
+      "fips": "76",
+      "county": "Steuben",
+      "courtName": "Steuben Circuit & Superior Courts",
+      "courtCode": "76C01",
+      "clerk": {
+        "title": "Steuben County Clerk of the Circuit Court",
+        "address": "55 S. Public Square",
+        "city": "Angola",
+        "state": "IN",
+        "zip": "46703",
+        "phone": "(260) 668-1000 ext. 2220",
+        "efileCode": "steuben:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Steuben County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "205 S. Martha St.",
+        "city": "Angola",
+        "state": "IN",
+        "zip": "46703",
+        "phone": "(260) 668-1000 ext. 2400",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Steuben County Sheriff's Office",
+        "address": "206 E. Elm St.",
+        "city": "Angola",
+        "state": "IN",
+        "zip": "46703",
+        "phone": "(260) 668-1000 ext. 2500"
+      }
+    },
+    "77": {
+      "fips": "77",
+      "county": "Sullivan",
+      "courtName": "Sullivan Circuit / Superior Court",
+      "courtCode": "SUC01",
+      "clerk": {
+        "title": "Sullivan County Clerk of the Circuit Court",
+        "address": "Sullivan County Courthouse",
+        "city": "Sullivan",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "sullivan:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Sullivan County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Sullivan County Courthouse / Government Center",
+        "city": "Sullivan",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Sullivan County Sheriff's Department",
+        "address": "Sullivan County Sheriff Office",
+        "city": "Sullivan",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "78": {
+      "fips": "78",
+      "county": "Switzerland",
+      "courtName": "Switzerland Circuit / Superior Court",
+      "courtCode": "SWC01",
+      "clerk": {
+        "title": "Switzerland County Clerk of the Circuit Court",
+        "address": "Switzerland County Courthouse",
+        "city": "Switzerland",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "switzerland:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Switzerland County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Switzerland County Courthouse / Government Center",
+        "city": "Switzerland",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Switzerland County Sheriff's Department",
+        "address": "Switzerland County Sheriff Office",
+        "city": "Switzerland",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "79": {
+      "fips": "79",
+      "county": "Tippecanoe",
+      "courtName": "Tippecanoe Superior Court",
+      "courtCode": "79D01",
+      "clerk": {
+        "title": "Tippecanoe County Clerk of Courts",
+        "address": "301 Main St.",
+        "city": "Lafayette",
+        "state": "IN",
+        "zip": "47901",
+        "phone": "(765) 423-9326",
+        "efileCode": "tippecanoe:court"
+      },
+      "prosecutor": {
+        "title": "Tippecanoe County Prosecuting Attorney",
+        "division": "Expungement Review Division",
+        "address": "111 N. 4th St.",
+        "city": "Lafayette",
+        "state": "IN",
+        "zip": "47901",
+        "phone": "(765) 423-9305",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Tippecanoe County Sheriff's Office",
+        "address": "2640 Duncan Rd.",
+        "city": "Lafayette",
+        "state": "IN",
+        "zip": "47904",
+        "phone": "(765) 423-9388"
+      }
+    },
+    "80": {
+      "fips": "80",
+      "county": "Tipton",
+      "courtName": "Tipton Circuit / Superior Court",
+      "courtCode": "TIC01",
+      "clerk": {
+        "title": "Tipton County Clerk of the Circuit Court",
+        "address": "Tipton County Courthouse",
+        "city": "Tipton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "tipton:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Tipton County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Tipton County Courthouse / Government Center",
+        "city": "Tipton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Tipton County Sheriff's Department",
+        "address": "Tipton County Sheriff Office",
+        "city": "Tipton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "81": {
+      "fips": "81",
+      "county": "Union",
+      "courtName": "Union Circuit / Superior Court",
+      "courtCode": "UNC01",
+      "clerk": {
+        "title": "Union County Clerk of the Circuit Court",
+        "address": "Union County Courthouse",
+        "city": "Union",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "union:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Union County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Union County Courthouse / Government Center",
+        "city": "Union",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Union County Sheriff's Department",
+        "address": "Union County Sheriff Office",
+        "city": "Union",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "82": {
+      "fips": "82",
+      "county": "Vanderburgh",
+      "courtName": "Vanderburgh Superior Court",
+      "courtCode": "82D01",
+      "clerk": {
+        "title": "Vanderburgh County Clerk",
+        "address": "825 Sycamore St., Room 216",
+        "city": "Evansville",
+        "state": "IN",
+        "zip": "47708",
+        "phone": "(812) 435-5160",
+        "efileCode": "vanderburgh:court"
+      },
+      "prosecutor": {
+        "title": "Vanderburgh County Prosecuting Attorney",
+        "division": "Criminal Prosecution & Expungement",
+        "address": "1 NW Martin Luther King Jr Blvd, Room 108",
+        "city": "Evansville",
+        "state": "IN",
+        "zip": "47708",
+        "phone": "(812) 435-5150",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Vanderburgh County Sheriff's Office",
+        "address": "5607 US Highway 41 N",
+        "city": "Evansville",
+        "state": "IN",
+        "zip": "47711",
+        "phone": "(812) 421-6200"
+      }
+    },
+    "83": {
+      "fips": "83",
+      "county": "Vermillion",
+      "courtName": "Vermillion Circuit / Superior Court",
+      "courtCode": "VEC01",
+      "clerk": {
+        "title": "Vermillion County Clerk of the Circuit Court",
+        "address": "Vermillion County Courthouse",
+        "city": "Vermillion",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "vermillion:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Vermillion County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Vermillion County Courthouse / Government Center",
+        "city": "Vermillion",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Vermillion County Sheriff's Department",
+        "address": "Vermillion County Sheriff Office",
+        "city": "Vermillion",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "84": {
+      "fips": "84",
+      "county": "Vigo",
+      "courtName": "Vigo Superior Court",
+      "courtCode": "84D01",
+      "clerk": {
+        "title": "Vigo County Clerk of Courts",
+        "address": "33 S. 3rd St.",
+        "city": "Terre Haute",
+        "state": "IN",
+        "zip": "47807",
+        "phone": "(812) 462-3211",
+        "efileCode": "vigo:court"
+      },
+      "prosecutor": {
+        "title": "Vigo County Prosecuting Attorney",
+        "division": "Criminal Courts Division",
+        "address": "33 S. 3rd St.",
+        "city": "Terre Haute",
+        "state": "IN",
+        "zip": "47807",
+        "phone": "(812) 462-3305",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Vigo County Sheriff's Office",
+        "address": "201 Cherry St.",
+        "city": "Terre Haute",
+        "state": "IN",
+        "zip": "47807",
+        "phone": "(812) 462-3226"
+      }
+    },
+    "85": {
+      "fips": "85",
+      "county": "Wabash",
+      "courtName": "Wabash Circuit & Superior Courts",
+      "courtCode": "85C01",
+      "clerk": {
+        "title": "Wabash County Clerk of the Circuit Court",
+        "address": "49 W. Hill St., Suite 207",
+        "city": "Wabash",
+        "state": "IN",
+        "zip": "46992",
+        "phone": "(260) 563-0661",
+        "efileCode": "wabash:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Wabash County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "99 W. Main St.",
+        "city": "Wabash",
+        "state": "IN",
+        "zip": "46992",
+        "phone": "(260) 563-1105",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Wabash County Sheriff's Department",
+        "address": "79 W. Main St.",
+        "city": "Wabash",
+        "state": "IN",
+        "zip": "46992",
+        "phone": "(260) 563-8891"
+      }
+    },
+    "86": {
+      "fips": "86",
+      "county": "Warren",
+      "courtName": "Warren Circuit / Superior Court",
+      "courtCode": "WAC01",
+      "clerk": {
+        "title": "Warren County Clerk of the Circuit Court",
+        "address": "Warren County Courthouse",
+        "city": "Warren",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "warren:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Warren County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Warren County Courthouse / Government Center",
+        "city": "Warren",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Warren County Sheriff's Department",
+        "address": "Warren County Sheriff Office",
+        "city": "Warren",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "87": {
+      "fips": "87",
+      "county": "Warrick",
+      "courtName": "Warrick Circuit / Superior Court",
+      "courtCode": "WAC01",
+      "clerk": {
+        "title": "Warrick County Clerk of the Circuit Court",
+        "address": "Warrick County Courthouse",
+        "city": "Warrick",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "warrick:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Warrick County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Warrick County Courthouse / Government Center",
+        "city": "Warrick",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Warrick County Sheriff's Department",
+        "address": "Warrick County Sheriff Office",
+        "city": "Warrick",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "88": {
+      "fips": "88",
+      "county": "Washington",
+      "courtName": "Washington Circuit / Superior Court",
+      "courtCode": "WAC01",
+      "clerk": {
+        "title": "Washington County Clerk of the Circuit Court",
+        "address": "Washington County Courthouse",
+        "city": "Washington",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "washington:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Washington County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Washington County Courthouse / Government Center",
+        "city": "Washington",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Washington County Sheriff's Department",
+        "address": "Washington County Sheriff Office",
+        "city": "Washington",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "89": {
+      "fips": "89",
+      "county": "Wayne",
+      "courtName": "Wayne Circuit / Superior Court",
+      "courtCode": "WAC01",
+      "clerk": {
+        "title": "Wayne County Clerk of the Circuit Court",
+        "address": "Wayne County Courthouse",
+        "city": "Wayne",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "wayne:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Wayne County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Wayne County Courthouse / Government Center",
+        "city": "Wayne",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Wayne County Sheriff's Department",
+        "address": "Wayne County Sheriff Office",
+        "city": "Wayne",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "90": {
+      "fips": "90",
+      "county": "Wells",
+      "courtName": "Wells Circuit & Superior Courts",
+      "courtCode": "90C01",
+      "clerk": {
+        "title": "Wells County Clerk of the Circuit Court",
+        "address": "102 W. Market St., Suite 201",
+        "city": "Bluffton",
+        "state": "IN",
+        "zip": "46714",
+        "phone": "(260) 824-6478",
+        "efileCode": "wells:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Wells County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "102 W. Market St., Suite 303",
+        "city": "Bluffton",
+        "state": "IN",
+        "zip": "46714",
+        "phone": "(260) 824-6415",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Wells County Sheriff's Office",
+        "address": "1615 W. Western Ave.",
+        "city": "Bluffton",
+        "state": "IN",
+        "zip": "46714",
+        "phone": "(260) 824-3426"
+      }
+    },
+    "91": {
+      "fips": "91",
+      "county": "White",
+      "courtName": "White Circuit / Superior Court",
+      "courtCode": "WHC01",
+      "clerk": {
+        "title": "White County Clerk of the Circuit Court",
+        "address": "White County Courthouse",
+        "city": "White",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "white:court"
+      },
+      "prosecutor": {
+        "title": "Office of the White County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "White County Courthouse / Government Center",
+        "city": "White",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "White County Sheriff's Department",
+        "address": "White County Sheriff Office",
+        "city": "White",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "92": {
+      "fips": "92",
+      "county": "Whitley",
+      "courtName": "Whitley Circuit & Superior Courts",
+      "courtCode": "92C01",
+      "clerk": {
+        "title": "Whitley County Clerk of the Circuit Court",
+        "address": "101 W. Van Buren St., Room 24",
+        "city": "Columbia City",
+        "state": "IN",
+        "zip": "46725",
+        "phone": "(260) 248-3164",
+        "efileCode": "whitley:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Whitley County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "101 W. Van Buren St., Suite 22",
+        "city": "Columbia City",
+        "state": "IN",
+        "zip": "46725",
+        "phone": "(260) 248-3126",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Whitley County Sheriff's Department",
+        "address": "101 W. Market St.",
+        "city": "Columbia City",
+        "state": "IN",
+        "zip": "46725",
+        "phone": "(260) 244-6410"
+      }
+    },
+    "01": {
+      "fips": "01",
+      "county": "Adams",
+      "courtName": "Adams Circuit & Superior Courts",
+      "courtCode": "01C01",
+      "clerk": {
+        "title": "Adams County Clerk of the Circuit Court",
+        "address": "112 S. 2nd St., Suite A",
+        "city": "Decatur",
+        "state": "IN",
+        "zip": "46733",
+        "phone": "(260) 724-5300 ext. 2106",
+        "efileCode": "adams:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Adams County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "112 S. 2nd St., Suite C",
+        "city": "Decatur",
+        "state": "IN",
+        "zip": "46733",
+        "phone": "(260) 724-5313",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Adams County Sheriff's Office",
+        "address": "313 W. Jefferson St.",
+        "city": "Decatur",
+        "state": "IN",
+        "zip": "46733",
+        "phone": "(260) 724-5345"
+      }
+    },
+    "02": {
+      "fips": "02",
+      "county": "Allen",
+      "courtName": "Allen Superior Court, Criminal Division",
+      "courtCode": "02D04",
+      "clerk": {
+        "title": "Allen County Clerk of Courts",
+        "address": "715 S. Calhoun St., Room 201",
+        "city": "Fort Wayne",
+        "state": "IN",
+        "zip": "46802",
+        "phone": "(260) 449-7245",
+        "efileCode": "allen:court"
+      },
+      "prosecutor": {
+        "title": "Allen County Prosecuting Attorney's Office",
+        "division": "Expungement & Post-Conviction Review",
+        "address": "602 S. Calhoun St.",
+        "city": "Fort Wayne",
+        "state": "IN",
+        "zip": "46802",
+        "phone": "(260) 449-7641",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Allen County Sheriff's Department",
+        "address": "715 S. Calhoun St., Room 101",
+        "city": "Fort Wayne",
+        "state": "IN",
+        "zip": "46802",
+        "phone": "(260) 449-7535"
+      }
+    },
+    "03": {
+      "fips": "03",
+      "county": "Bartholomew",
+      "courtName": "Bartholomew Superior Court",
+      "courtCode": "03D01",
+      "clerk": {
+        "title": "Bartholomew County Clerk of Courts",
+        "address": "234 Washington St.",
+        "city": "Columbus",
+        "state": "IN",
+        "zip": "47201",
+        "phone": "(812) 379-1600",
+        "efileCode": "bartholomew:court"
+      },
+      "prosecutor": {
+        "title": "Bartholomew County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "234 Washington St.",
+        "city": "Columbus",
+        "state": "IN",
+        "zip": "47201",
+        "phone": "(812) 379-1670",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Bartholomew County Sheriff's Office",
+        "address": "543 2nd St.",
+        "city": "Columbus",
+        "state": "IN",
+        "zip": "47201",
+        "phone": "(812) 379-1650"
+      }
+    },
+    "04": {
+      "fips": "04",
+      "county": "Benton",
+      "courtName": "Benton Circuit / Superior Court",
+      "courtCode": "BEC01",
+      "clerk": {
+        "title": "Benton County Clerk of the Circuit Court",
+        "address": "Benton County Courthouse",
+        "city": "Benton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "benton:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Benton County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Benton County Courthouse / Government Center",
+        "city": "Benton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Benton County Sheriff's Department",
+        "address": "Benton County Sheriff Office",
+        "city": "Benton",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "05": {
+      "fips": "05",
+      "county": "Blackford",
+      "courtName": "Blackford Circuit & Superior Courts",
+      "courtCode": "05C01",
+      "clerk": {
+        "title": "Blackford County Clerk of the Circuit Court",
+        "address": "110 W. Washington St.",
+        "city": "Hartford City",
+        "state": "IN",
+        "zip": "47348",
+        "phone": "(765) 348-1130",
+        "efileCode": "blackford:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Blackford County Prosecuting Attorney",
+        "division": "Criminal Division",
+        "address": "110 W. Washington St.",
+        "city": "Hartford City",
+        "state": "IN",
+        "zip": "47348",
+        "phone": "(765) 348-1422",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Blackford County Sheriff's Office",
+        "address": "0064 N 100 E",
+        "city": "Hartford City",
+        "state": "IN",
+        "zip": "47348",
+        "phone": "(765) 348-0930"
+      }
+    },
+    "06": {
+      "fips": "06",
+      "county": "Boone",
+      "courtName": "Boone Circuit / Superior Court",
+      "courtCode": "BOC01",
+      "clerk": {
+        "title": "Boone County Clerk of the Circuit Court",
+        "address": "Boone County Courthouse",
+        "city": "Boone",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "boone:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Boone County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Boone County Courthouse / Government Center",
+        "city": "Boone",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Boone County Sheriff's Department",
+        "address": "Boone County Sheriff Office",
+        "city": "Boone",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "07": {
+      "fips": "07",
+      "county": "Brown",
+      "courtName": "Brown Circuit / Superior Court",
+      "courtCode": "BRC01",
+      "clerk": {
+        "title": "Brown County Clerk of the Circuit Court",
+        "address": "Brown County Courthouse",
+        "city": "Brown",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "brown:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Brown County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Brown County Courthouse / Government Center",
+        "city": "Brown",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Brown County Sheriff's Department",
+        "address": "Brown County Sheriff Office",
+        "city": "Brown",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "08": {
+      "fips": "08",
+      "county": "Carroll",
+      "courtName": "Carroll Circuit / Superior Court",
+      "courtCode": "CAC01",
+      "clerk": {
+        "title": "Carroll County Clerk of the Circuit Court",
+        "address": "Carroll County Courthouse",
+        "city": "Carroll",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "carroll:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Carroll County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Carroll County Courthouse / Government Center",
+        "city": "Carroll",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Carroll County Sheriff's Department",
+        "address": "Carroll County Sheriff Office",
+        "city": "Carroll",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    },
+    "09": {
+      "fips": "09",
+      "county": "Cass",
+      "courtName": "Cass Circuit / Superior Court",
+      "courtCode": "CAC01",
+      "clerk": {
+        "title": "Cass County Clerk of the Circuit Court",
+        "address": "Cass County Courthouse",
+        "city": "Cass",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Courthouse",
+        "efileCode": "cass:court"
+      },
+      "prosecutor": {
+        "title": "Office of the Cass County Prosecuting Attorney",
+        "division": "Criminal Division / Expungement Section",
+        "address": "Cass County Courthouse / Government Center",
+        "city": "Cass",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact Prosecutor Office",
+        "serviceNotes": "Service via Odyssey IEFS or Certified Mail"
+      },
+      "sheriff": {
+        "title": "Cass County Sheriff's Department",
+        "address": "Cass County Sheriff Office",
+        "city": "Cass",
+        "state": "IN",
+        "zip": "46000",
+        "phone": "Contact County Sheriff"
+      }
+    }
+  }
+}
