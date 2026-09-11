@@ -103,7 +103,7 @@ When prompted by the Chrome Developer Dashboard, use the exact justifications be
 - **Authentication Info**: Not collected.
 - **Web History**: Not collected. The extension only interacts with `public.courts.in.gov/mycase`.
 - **User Activity / Analytics**: Zero analytics, zero telemetry, zero tracking cookies.
-- **Privacy Policy URL**: `https://cambrianminds.github.io/expunger/#privacy`
+- **Privacy Policy URL**: `https://cambrianminds.github.io/exp-2/#privacy`
 
 ---
 

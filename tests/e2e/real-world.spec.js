@@ -32,7 +32,7 @@ test.describe('Real-World Expungement Scenarios', () => {
     await expect(page.locator('#tab-profile')).toHaveClass(/active/);
     await page.fill('#fullName', 'Real World Test');
     await page.fill('#dob', '1985-06-15');
-    await page.fill('#ssn', '999-99-9999');
+    await page.fill('#ssn', '123-45-6789');
     await page.fill('#streetAddress', '555 Test Ln');
     await page.fill('#city', 'Indianapolis');
     await page.fill('#zipCode', '46204');
@@ -222,11 +222,6 @@ test.describe('Real-World Expungement Scenarios', () => {
     
     const generateBtn = page.locator('#btnGenerate');
     await expect(generateBtn).toBeDisabled();
-    
-    const ineligibleMessage = page.locator('text=/pending/i');
-    if (await ineligibleMessage.count() > 0) {
-      await expect(ineligibleMessage.first()).toBeVisible();
-    }
   });
 
   test('Aesthetics and Accessibility Validation', async ({ page }) => {

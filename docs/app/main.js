@@ -4,7 +4,7 @@ import { checkBackend } from './generator.js';
 import { updateBatchPanelUI, renderResults } from './scanner.js';
 import { updateChecklist } from './ui.js';
 
-export const SITE_GUIDE_URL = 'https://cambrianminds.github.io/expunger/#instructions';
+export const SITE_GUIDE_URL = 'https://cambrianminds.github.io/exp-2/#instructions';
 
 // Setup guide button click listeners
 function setupGuideListeners() {

@@ -993,7 +993,7 @@ if (btnLoadDemo) {
 
 // ─── Bookmarklet Copy Action ───────────────────────────────────────
 $('#btnCopyAppBookmarklet')?.addEventListener('click', async () => {
-  const code = "javascript:(function(){const s=document.createElement('script');s.src='https://cambrianminds.github.io/expunger/bookmarklet.js?v='+Date.now();document.body.appendChild(s);})();";
+  const code = "javascript:(function(){const s=document.createElement('script');s.src='https://cambrianminds.github.io/exp-2/bookmarklet.js?v='+Date.now();document.body.appendChild(s);})();";
   try {
     await navigator.clipboard.writeText(code);
     showToast('✓ Bookmarklet code copied to clipboard!', 'success', 3000);

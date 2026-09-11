@@ -1,15 +1,15 @@
 # Indiana Expungement Assistant
 
-[![Build Status](https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square)](https://github.com/CambrianMinds/expunger)
+[![Build Status](https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square)](https://github.com/CambrianMinds/exp-2)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Chrome%20MV3%20%7C%20Web%20App-indigo?style=flat-square)](https://cambrianminds.github.io/expunger/)
+[![Platform](https://img.shields.io/badge/platform-Chrome%20MV3%20%7C%20Web%20App-indigo?style=flat-square)](https://cambrianminds.github.io/exp-2/)
 [![Statute](https://img.shields.io/badge/Indiana%20Code-IC%20%C2%A7%2035--38--9-emerald?style=flat-square)](https://iga.in.gov/laws/2023/ic/titles/35#35-38-9)
 
-A 100% client-side civic document preparation engine that scrapes Indiana MyCase court records in the user's browser and generates 10 court-ready expungement pleadings (IC § 35-38-9) adhering to Indiana Trial Rule 10.
+A 100% client-side civic document preparation engine that scrapes Indiana MyCase court records in the user's browser and generates 10 court-ready expungement pleadings (IC § 35-38-9) adhering to Indiana Trial Rule 10. Designed with a modern, accessible interface utilizing deep dark mode and responsive components.
 
 - **Zero Cloud / Zero Telemetry**: All scraping, eligibility evaluation, and PDF compilation execute entirely in-memory in the browser. PII never leaves the client.
 - **Dual Deployments**: Distributed as a Chrome Manifest V3 extension (`extension/`) and a standalone PWA / web application (`docs/app/`).
-- **Live Web App**: [https://cambrianminds.github.io/expunger/](https://cambrianminds.github.io/expunger/)
+- **Live Web App**: [https://cambrianminds.github.io/exp-2/](https://cambrianminds.github.io/exp-2/)
 
 ---
 
@@ -119,7 +119,7 @@ npm run test:parity
 
 ### Setup
 ```bash
-git clone https://github.com/CambrianMinds/expunger.git
+git clone https://github.com/CambrianMinds/exp-2.git
 cd expunger
 npm install
 ```
@@ -197,7 +197,9 @@ Removing or renaming these element IDs fails `npm run test:disclaimers`.
 │   ├── eligibility.test.js        # Statutory decision engine unit tests
 │   ├── scraper.test.js            # Scraper extraction unit tests
 │   ├── canary-schema.test.js      # Headless scraper canary validation
-│   └── e2e/app.spec.js            # Playwright end-to-end integration tests
+│   └── e2e/                       # Playwright end-to-end integration tests
+│       ├── app.spec.js            # Basic app flow and event dispatching tests
+│       └── real-world.spec.js     # Complex statutory multi-county scenarios
 ├── scripts/                       # CI & verification scripts
 │   ├── check-parity.js            # Dual-tree module parity check
 │   ├── check-disclaimers.js       # Required disclaimer IDs check

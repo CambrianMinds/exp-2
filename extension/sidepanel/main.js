@@ -5,7 +5,7 @@ import { checkPageStatus, updateBatchPanelUI, renderResults } from './scanner.js
 import { updateChecklist } from './ui.js';
 
 
-export const SITE_GUIDE_URL = 'https://cambrianminds.github.io/expunger/#instructions';
+export const SITE_GUIDE_URL = 'https://cambrianminds.github.io/exp-2/#instructions';
 
 // Auto-open site guide tab on first launch / first open of the extension
 async function checkWelcomeGuide() {

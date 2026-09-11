@@ -664,7 +664,7 @@ function initCopyButtons() {
   const bookmarkletCopyBtns = document.querySelectorAll('.btn-bookmarklet-copy');
   bookmarkletCopyBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.getAttribute('data-copy-code') || "javascript:(function(){const s=document.createElement('script');s.src='https://cambrianminds.github.io/expunger/bookmarklet.js?v='+Date.now();document.body.appendChild(s);})();";
+      const code = btn.getAttribute('data-copy-code') || "javascript:(function(){const s=document.createElement('script');s.src='https://cambrianminds.github.io/exp-2/bookmarklet.js?v='+Date.now();document.body.appendChild(s);})();";
       navigator.clipboard.writeText(code).then(() => {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<span>✓ Copied to Clipboard!</span>';

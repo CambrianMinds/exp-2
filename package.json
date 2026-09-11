@@ -33,16 +33,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CambrianMinds/expunger.git"
+    "url": "git+https://github.com/CambrianMinds/exp-2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/CambrianMinds/expunger/issues"
+    "url": "https://github.com/CambrianMinds/exp-2/issues"
   },
-  "homepage": "https://github.com/CambrianMinds/expunger#readme",
+  "homepage": "https://github.com/CambrianMinds/exp-2#readme",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "jest": "^30.5.1",

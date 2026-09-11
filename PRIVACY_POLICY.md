@@ -71,4 +71,4 @@ Visiting those links directs you to external state government servers subject to
 ## 6. Open-Source Verification
 
 Because this project is open-source under the MIT License, our privacy guarantees are fully auditable. You or any security researcher can inspect the complete source code on GitHub at:
-[https://github.com/CambrianMinds/expunger](https://github.com/CambrianMinds/expunger)
+[https://github.com/CambrianMinds/exp-2](https://github.com/CambrianMinds/exp-2)

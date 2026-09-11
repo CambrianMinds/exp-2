@@ -168,7 +168,7 @@
             Your case records and CCS details were downloaded as <b>mycase-expungement-data.json</b>.
           </p>
           <div style="display: flex; flex-direction: column; gap: 10px;">
-            <a href="https://cambrianminds.github.io/expunger/app/app.html" target="_blank" class="iea-btn-primary" style="text-decoration: none; padding: 12px;">
+            <a href="https://cambrianminds.github.io/exp-2/app/app.html" target="_blank" class="iea-btn-primary" style="text-decoration: none; padding: 12px;">
               <span>Open Assistant Web App &amp; Upload ↗</span>
             </a>
             <button id="iea-done-btn" class="iea-btn-secondary">

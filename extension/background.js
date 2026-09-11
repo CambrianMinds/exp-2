@@ -95,7 +95,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install') {
     chrome.tabs.create({
-      url: 'https://cambrianminds.github.io/expunger/#instructions'
+      url: 'https://cambrianminds.github.io/exp-2/#instructions'
     });
     chrome.storage.local.set({ hasSeenWelcomeGuide: true });
   }

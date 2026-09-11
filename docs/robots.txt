@@ -1,5 +1,5 @@
 # Robots.txt for Indiana Expungement Assistant (Expunger)
-# https://cambrianminds.github.io/expunger/
+# https://cambrianminds.github.io/exp-2/
 
 User-agent: *
 Allow: /
@@ -8,4 +8,4 @@ Allow: /
 Disallow: /assets/test_data/
 
 # XML Sitemap
-Sitemap: https://cambrianminds.github.io/expunger/sitemap.xml
+Sitemap: https://cambrianminds.github.io/exp-2/sitemap.xml
