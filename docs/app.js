@@ -566,7 +566,7 @@ function initDocumentModal() {
 function initRulesEngineModal() {
   const modal = document.getElementById('rulesEngineModal');
   const closeBtn = document.getElementById('rulesModalCloseBtn');
-  const openBtns = document.querySelectorAll('#openRulesModalBtn, .open-rules-btn-alt, a[href="#assessment"], a[href="#eligibility"]');
+  const openBtns = document.querySelectorAll('#openRulesModalBtn, .open-rules-modal-btn, [data-open-rules-modal]');
   if (!modal) return;
 
   function openModal() {
@@ -602,7 +602,7 @@ function initRulesEngineModal() {
     }
   });
 
-  if (window.location.hash === '#assessment' || window.location.hash === '#eligibility') {
+  if (window.location.hash === '#rules-modal' || window.location.hash === '#calculator') {
     openModal();
   }
 }
@@ -766,7 +766,7 @@ function initHashExpansion() {
       if (parentDetails) {
         parentDetails.open = true;
       }
-      if (cleanId === 'assessment' || cleanId === 'eligibility') {
+      if (cleanId === 'calculator' || cleanId === 'rules-modal') {
         const rulesModal = document.getElementById('rulesEngineModal');
         if (rulesModal) {
           rulesModal.classList.add('active');

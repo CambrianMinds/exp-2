@@ -155,12 +155,12 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#how-it-works" class="nav-link" data-i18n="nav_how_to_file">How It Works</a></li>
-        <li><a href="#assessment" class="nav-link" data-i18n="nav_eligibility">Eligibility</a></li>
+        <li><a href="#eligibility" class="nav-link" data-i18n="nav_eligibility">Eligibility</a></li>
         <li><a href="#oneshot" class="nav-link" data-i18n="nav_lifetime_limit">Lifetime Limit</a></li>
+        <li><a href="#how-it-works" class="nav-link" data-i18n="nav_how_to_file">How It Works</a></li>
         <li><a href="#documents" class="nav-link" data-i18n="nav_pleadings">Pleadings</a></li>
-        <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
         <li><a href="#mission" class="nav-link" data-i18n="nav_mission">Mission</a></li>
+        <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -213,311 +213,69 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-container">
-      <h1 class="hero-title">Court-ready Indiana expungement packets, fully prepared in your browser.</h1>
+      
+      <!-- Institutional Civic Badge -->
+      <div class="hero-kicker-badge">
+        <span class="badge-icon">🏛️</span>
+        <span>Indiana Code § 35-38-9 Self-Help Portal · 100% Client-Side</span>
+      </div>
 
+      <!-- Clear, Active Headline -->
+      <h1 class="hero-title">
+        Clear your Indiana criminal record. <br>
+        Free, private, and prepared in your browser.
+      </h1>
+
+      <!-- Actionable, Empathetic Subtitle -->
       <p class="hero-subtitle">
-        Turn public MyCase records into Trial Rule 10 compliant pleadings under IC § 35-38-9. Free, open-source, and entirely client-side.
+        Turn public MyCase records into complete, judge-ready expungement petitions under Indiana’s Second Chance Law. No lawyers, no paywalls, and your personal data never leaves your computer.
       </p>
 
-      <!-- Inline Trust Badges Pill Row directly below subtext -->
-      <div class="hero-trust-pills">
-        <span class="trust-pill">100% Client-Side Privacy</span>
-        <span class="trust-pill-dot" aria-hidden="true">&middot;</span>
-        <span class="trust-pill">All 92 Indiana Counties</span>
-        <span class="trust-pill-dot" aria-hidden="true">&middot;</span>
-        <span class="trust-pill">Full 10-Pleading Packet</span>
-        <span class="trust-pill-dot" aria-hidden="true">&middot;</span>
-        <span class="trust-pill">$0 Cost</span>
+      <!-- Consolidated Trust Ribbon (Single Row) -->
+      <div class="hero-trust-ribbon">
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <span>100% In-Browser Privacy</span>
+        </div>
+        <span class="trust-sep">·</span>
+        <div class="trust-item">
+          <span class="trust-icon">⚖️</span>
+          <span>All 92 Indiana Counties</span>
+        </div>
+        <span class="trust-sep">·</span>
+        <div class="trust-item">
+          <span class="trust-icon">📄</span>
+          <span>Complete 10-Pleading Packet</span>
+        </div>
+        <span class="trust-sep">·</span>
+        <div class="trust-item">
+          <span class="trust-icon">💵</span>
+          <span>$0 Cost · Pro Se Resource</span>
+        </div>
       </div>
 
-      <!-- Action Panel with Single Clear Primary Action + Secondary Skip Link -->
-      <div class="hero-action-panel">
-        <div class="hero-cta-group">
-          <a href="#assessment" class="btn btn-primary hero-btn-primary" data-i18n="btn_check_eligibility">
-            <span>Check Eligibility &amp; Start Free</span>
+      <!-- Distinct Primary & Secondary Action Block -->
+      <div class="hero-cta-block">
+        <div class="hero-primary-wrap">
+          <a href="app/app.html" class="btn btn-primary hero-btn-main">
+            <span>Launch Free Document Generator</span>
             <span class="btn-arrow" aria-hidden="true">&rarr;</span>
           </a>
-
-          <div class="hero-secondary-link-wrap">
-            <a href="app/app.html" class="hero-secondary-link">
-              Have records ready? Skip to Document Generator &rarr;
-            </a>
-          </div>
+          <span class="hero-cta-subtext">No login or personal data stored · Ready in ~10 minutes</span>
         </div>
 
-        <!-- 3-Pillar Reassurance -->
-        <div class="hero-pillars">
-          <div class="pillar-item">
-            <div class="pillar-text">
-              <strong data-i18n="feat_1_title">100% Private</strong>
-              <span data-i18n="feat_1_desc">Browser-local execution · Zero tracking</span>
-            </div>
-          </div>
-          <div class="pillar-divider"></div>
-          <div class="pillar-item">
-            <div class="pillar-text">
-              <strong>$0 to Use</strong>
-              <span>Public legal self-help · No paywalls</span>
-            </div>
-          </div>
-          <div class="pillar-divider"></div>
-          <div class="pillar-item">
-            <div class="pillar-text">
-              <strong data-i18n="feat_3_title">10 Court Pleadings</strong>
-              <span data-i18n="feat_3_desc">Trial Rule 10 compliant PDF packet</span>
-            </div>
-          </div>
+        <div class="hero-secondary-wrap">
+          <a href="#eligibility" class="hero-secondary-scroll">
+            <span>Not sure if you qualify? Check waiting periods</span>
+            <span class="scroll-arrow" aria-hidden="true">&darr;</span>
+          </a>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Section 2: How It Works (Full Width) & Statutory Rules Engine Modal Trigger -->
-  <section class="section section-alt" id="workflow-section">
-    <span id="how-it-works" class="anchor-target"></span>
-    <span id="workflow" class="anchor-target"></span>
-    <span id="instructions" class="anchor-target"></span>
-    <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Self-Help Reference</span>
-        <h2 class="section-title">How It Works: 3 Steps to Court-Ready Filings</h2>
-        <p class="section-lead">
-          Extract your public court records, verify statutory eligibility across all 92 Indiana counties, and generate all 10 Trial Rule 10 compliant court pleadings.
-        </p>
-      </div>
-
-      <div class="how-it-works-panel">
-        <div class="quickstart-grid">
-          <!-- Step 1 Card: Streamlined Record Access -->
-          <div class="quickstart-card">
-            <div class="quickstart-badge">
-              <span class="step-badge-num">1</span>
-              <span>Step 1: Pull Records</span>
-            </div>
-            <h3 class="quickstart-title">Find Your MyCase Records</h3>
-            <p class="quickstart-desc">
-              Search your legal name and past aliases on Indiana's free public court portal. You can upload saved case records or enter your cause numbers directly in the app.
-            </p>
-
-            <ul class="quickstart-feature-list">
-              <li><strong>All 92 Counties:</strong> Free public docket access at <code>public.courts.in.gov/mycase</code></li>
-              <li><strong>Flexible Import:</strong> Upload saved HTML/PDF files or input cause numbers manually</li>
-              <li><strong>Zero Friction:</strong> No state login, registration, or filing fees to retrieve records</li>
-            </ul>
-
-            <div class="quickstart-action-box">
-              <a href="https://public.courts.in.gov/mycase/#/vw/Search" target="_blank" rel="noopener noreferrer"
-                class="btn btn-secondary quickstart-link-btn extracted-style-2">
-                <span>Search Indiana MyCase</span>
-                <span class="btn-arrow" aria-hidden="true">↗</span>
-              </a>
-              <p class="quickstart-filed-hint">
-                Be sure to check past married names and former aliases across all Indiana counties.
-              </p>
-            </div>
-          </div>
-
-          <!-- Step 2 Card -->
-          <div class="quickstart-card">
-            <div class="quickstart-badge">
-              <span class="step-badge-num">2</span>
-              <span>Step 2: Legal Audit</span>
-            </div>
-            <h3 class="quickstart-title">In-Browser Statutory Audit</h3>
-            <p class="quickstart-desc">
-              The assistant instantly evaluates every conviction, dismissal, and arrest against Indiana Code § 35-38-9 requirements with 100% offline privacy.
-            </p>
-            <ul class="quickstart-feature-list">
-              <li><strong>Waiting Clocks:</strong> Verifies 1-yr, 5-yr, 8-yr, and 10-yr statutory wait periods from sentencing</li>
-              <li><strong>Tier Identification:</strong> Distinguishes mandatory grants vs. discretionary judge review</li>
-              <li><strong>Fee Waiver Check:</strong> Analyzes eligibility to waive standard $157 civil filing fees</li>
-              <li><strong>100% Client-Side:</strong> All parsing executes locally in your browser with zero telemetry</li>
-            </ul>
-
-            <!-- Inline High-Contrast Statutory Callout -->
-            <div class="audit-statutory-callout">
-              <div class="callout-badge">Statutory Prerequisite</div>
-              <strong>Strict Lifetime Limit (IC § 35-38-9-9):</strong> Indiana permits conviction expungement only once per lifetime. Check all 92 counties before generating pleadings.
-            </div>
-
-            <div class="extracted-style-3">
-              <button type="button" class="btn btn-secondary btn-sm open-rules-btn-alt extracted-style-2" id="openRulesModalBtn">
-                <span>Launch Interactive Rules Engine &rarr;</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 3 Card -->
-          <div class="quickstart-card quickstart-card-primary">
-            <div class="quickstart-badge">
-              <span class="step-badge-num">3</span>
-              <span>Step 3: Generate Packet</span>
-            </div>
-            <h3 class="quickstart-title">Download All 10 Pleadings</h3>
-            <p class="quickstart-desc">
-              Compile every required petition, confidential sheet, appearance form, proposed order, and notice formatted strictly to Indiana Trial Rule 10.
-            </p>
-            <ul class="quickstart-feature-list">
-              <li><strong>Consolidated Packet:</strong> Merges cases by county with automatic statutory caption formatting</li>
-              <li><strong>Zero Typing:</strong> Auto-populates all 10 official court pleadings ready for filing</li>
-              <li><strong>In-App Preview:</strong> Review each form on-screen before downloading or printing</li>
-            </ul>
-            <div class="quickstart-action-box">
-              <a href="app/app.html" class="btn btn-primary quickstart-launch-btn">
-                <span>Launch Web App &amp; Generate</span>
-                <span class="btn-arrow" aria-hidden="true">&rarr;</span>
-              </a>
-              <p class="quickstart-filed-hint">
-                Print, sign under penalty of perjury, and submit to the County Clerk in person or via Indiana E-File.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Advanced / Developer Accordion Tray -->
-        <details class="alt-methods-drawer advanced-accordion" id="advancedAccordion">
-          <summary class="alt-methods-summary">
-            <span class="advanced-summary-badge">Advanced / Developer Tools</span>
-            <span class="advanced-summary-title">Offline Setup: Chrome Extension (Developer Mode) &amp; Manual File Import</span>
-            <span class="alt-arrow" aria-hidden="true">▾</span>
-          </summary>
-          <div class="guide-container extracted-style-4">
-            <div class="guide-tabs">
-              <button class="guide-tab-btn active" data-tab="tab-chrome">
-                <span>Chrome Extension (Sidepanel)</span>
-              </button>
-              <button class="guide-tab-btn" data-tab="tab-offline">
-                <span>Saved HTML / JSON Upload</span>
-              </button>
-            </div>
-
-            <!-- Tab 1: Chrome Extension -->
-            <div class="guide-pane active" id="tab-chrome">
-              <ul class="guide-steps">
-                <li class="guide-step">
-                  <span class="guide-step-num">1</span>
-                  <div class="guide-step-body">
-                    <h4>Clone or Download Repository</h4>
-                    <p>Download the project ZIP from GitHub or clone the repository to your computer:</p>
-                    <div class="snippet-box">
-                      <button class="btn-snippet-copy">Copy</button>
-                      <pre>git clone https://github.com/CambrianMinds/exp-2.git</pre>
-                    </div>
-                  </div>
-                </li>
-                <li class="guide-step">
-                  <span class="guide-step-num">2</span>
-                  <div class="guide-step-body">
-                    <h4>Open Chrome Extensions</h4>
-                    <p>In Google Chrome, navigate to <code>chrome://extensions</code> in the address bar and switch
-                      on <b>Developer mode</b> in the top right.</p>
-                  </div>
-                </li>
-                <li class="guide-step">
-                  <span class="guide-step-num">3</span>
-                  <div class="guide-step-body">
-                    <h4>Load Unpacked</h4>
-                    <p>Click <b>Load unpacked</b> and select the <code>extension/</code> directory from the
-                      repository.</p>
-                  </div>
-                </li>
-                <li class="guide-step">
-                  <span class="guide-step-num">4</span>
-                  <div class="guide-step-body">
-                    <h4>Open Sidepanel on MyCase</h4>
-                    <p>Navigate to <a href="https://public.courts.in.gov/mycase/#/vw/Search" target="_blank"
-                        rel="noopener noreferrer"><code>public.courts.in.gov/mycase</code></a>, click the extension icon
-                      to open the
-                      side panel, and scan records side-by-side.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Tab 2: Offline HTML / JSON Upload -->
-            <div class="guide-pane" id="tab-offline">
-              <ul class="guide-steps">
-                <li class="guide-step">
-                  <span class="guide-step-num">1</span>
-                  <div class="guide-step-body">
-                    <h4>Save MyCase Search Page (HTML)</h4>
-                    <p>On <a href="https://public.courts.in.gov/mycase/#/vw/Search" target="_blank"
-                        rel="noopener noreferrer"><code>public.courts.in.gov/mycase</code></a>, after searching your
-                      name, press
-                      <kbd>Ctrl+S</kbd> (or right click &rarr; "Save Page As...") and save as <b>Webpage, HTML
-                        Only</b>.
-                    </p>
-                  </div>
-                </li>
-                <li class="guide-step">
-                  <span class="guide-step-num">2</span>
-                  <div class="guide-step-body">
-                    <h4>Upload in the Web App</h4>
-                    <p>Open the <a href="app/app.html">Web App</a>, switch to the <b>Import Records</b> tab, and
-                      drag-and-drop the saved <code>.html</code> file.</p>
-                  </div>
-                </li>
-                <li class="guide-step">
-                  <span class="guide-step-num">3</span>
-                  <div class="guide-step-body">
-                    <h4>Review &amp; Generate Filings</h4>
-                    <p>The parser extracts your cause numbers, verifies eligibility, and produces your 10 court
-                      documents locally.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Civic Mission & Core Rationale ("The Law Belongs to You") -->
-  <section class="section" id="mission">
-    <div class="container">
-      <div class="letter-panel">
-        <div class="letter-glass-card">
-          <div class="letter-header">
-            <div>
-              <h2 class="scenic-title extracted-style-7">The Law Belongs to You</h2>
-              <p class="scenic-subtitle">Indiana's Second Chance Law exists. The $3,000 gate in front of it doesn't have to.</p>
-            </div>
-          </div>
-
-          <div class="letter-quote-callout">
-            <p>&ldquo;Empathy is just a feeling; actual care is resource allocation.&rdquo;</p>
-          </div>
-
-          <div class="letter-body">
-            <p>
-              Indiana's Second Chance Law looks great on paper, but the vocabulary we use around it is doing enormous,
-              unhelpful work. The state feels <em>empathy</em> for people with records, so it wrote a statute. But
-              empathy is just a feeling; actual care is resource allocation. Right now, the state's empathy is locked behind a
-              gate with up to a $3,000 admission fee, operated by private attorneys. It is an economic filter that locks
-              out the exact people who need a clean slate the most.
-            </p>
-            <p>
-              I built this tool because that filter is a structural choice, not an inevitability. You shouldn't have to
-              buy your way back into a system you already paid for.
-            </p>
-            <p>
-              This software is not legal counsel. It is the raw infrastructure required to do the
-              work yourself &mdash; the same work an attorney charges thousands to format on your behalf.
-              The law belongs to you. This is just the machinery to use it.
-            </p>
-
-            <div class="letter-signature">
-              <p class="signature-name">Justin Bogner</p>
-              <p class="signature-sub">Developer · CambrianMinds</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Dedicated Statutory Waiting Clocks Reference Grid (IC § 35-38-9) -->
+  <!-- Section 2: Dedicated Statutory Waiting Clocks Reference Grid (IC § 35-38-9) -->
   <section class="section section-alt" id="assessment">
     <span id="clocks" class="anchor-target"></span>
     <span id="eligibility" class="anchor-target"></span>
@@ -531,7 +289,7 @@
       </div>
 
       <div class="statutory-clocks-container">
-        <!-- 4-Tier Statutory Ledger Grid (Relocated from Hero) -->
+        <!-- 4-Tier Statutory Ledger Grid -->
         <div class="hero-tier-grid statutory-grid-expanded">
           <div class="hero-tier-card">
             <div class="hero-tier-top">
@@ -571,8 +329,8 @@
         </div>
 
         <div class="statutory-clocks-cta">
-          <button type="button" class="btn btn-primary open-rules-btn-alt" id="openRulesFromClocksBtn">
-            <span>Launch Interactive Eligibility Calculator</span>
+          <button type="button" class="btn btn-primary open-rules-modal-btn" id="openRulesFromClocksBtn">
+            <span>Open Interactive Eligibility Calculator</span>
             <span class="btn-arrow" aria-hidden="true">&rarr;</span>
           </button>
         </div>
@@ -580,13 +338,12 @@
     </div>
   </section>
 
-  <!-- Section: The Lifetime Limit (The One-Shot Rule) -->
+  <!-- Section 3: The Lifetime Limit (The One-Shot Rule) -->
   <section class="section" id="oneshot">
     <span id="warning" class="anchor-target"></span>
     <div class="container">
       <div class="advisory-panel">
         <div class="advisory-header-wrap">
-
           <h2 class="advisory-title">The Lifetime One-Shot Rule</h2>
           <p class="advisory-subtitle">
             Unlike states with rolling expungements, Indiana permits conviction expungement <strong>only once in your
@@ -642,7 +399,195 @@
     </div>
   </section>
 
-  <!-- Section 4: Document Library (10 Pleadings) -->
+  <!-- Section 4: How to Prepare Your Expungement Packet (3 Steps) -->
+  <section class="section section-alt" id="how-it-works">
+    <span id="workflow-section" class="anchor-target"></span>
+    <span id="workflow" class="anchor-target"></span>
+    <span id="instructions" class="anchor-target"></span>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Simple 3-Step Process</span>
+        <h2 class="section-title">How to Prepare Your Expungement Packet</h2>
+        <p class="section-lead">
+          From public court docket to complete, court-ready pleadings in three simple steps.
+        </p>
+      </div>
+
+      <div class="quickstart-grid">
+
+        <!-- Step 1: Record Gathering -->
+        <div class="quickstart-card">
+          <div class="quickstart-badge">
+            <span class="step-badge-num">1</span>
+            <span>Find Records</span>
+          </div>
+          <h3 class="quickstart-title">Look Up Your MyCase Docket</h3>
+          <p class="quickstart-desc">
+            Search your legal name, maiden names, and past aliases on Indiana’s free court portal (<code>public.courts.in.gov/mycase</code>).
+          </p>
+          
+          <div class="quickstart-checklist">
+            <div class="check-point"><strong>What to collect:</strong> Your Case/Cause Numbers (e.g., <code>49D01-1605-FD-000123</code>) and date of sentencing.</div>
+            <div class="check-point"><strong>Fastest method:</strong> Press <kbd>Ctrl+S</kbd> to save the search results page as an HTML file.</div>
+            <div class="check-point warning-point"><strong>Crucial:</strong> Search all 92 counties to avoid violating the lifetime one-shot rule.</div>
+          </div>
+
+          <div class="quickstart-action-box">
+            <a href="https://public.courts.in.gov/mycase/#/vw/Search" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">
+              <span>Open Indiana MyCase Portal</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Step 2: Instant Audit in Web App -->
+        <div class="quickstart-card">
+          <div class="quickstart-badge">
+            <span class="step-badge-num">2</span>
+            <span>Automatic Audit</span>
+          </div>
+          <h3 class="quickstart-title">Load Records &amp; Check Eligibility</h3>
+          <p class="quickstart-desc">
+            Open the free generator and upload your saved MyCase HTML (or type your cause numbers). The in-browser rules engine immediately verifies:
+          </p>
+          <ul class="quickstart-feature-list">
+            <li><strong>Waiting Clocks:</strong> Verifies 1, 5, 8, or 10-year statutory waiting periods from sentencing.</li>
+            <li><strong>Mandatory vs. Discretionary:</strong> Identifies which charges the court is statutorily required to grant.</li>
+            <li><strong>Fee Waiver Analysis:</strong> Checks eligibility to waive the standard $157 civil filing fee (DOC 08).</li>
+            <li><strong>100% Local Privacy:</strong> All record parsing executes in your browser session with zero tracking.</li>
+          </ul>
+          <div class="quickstart-action-box">
+            <button type="button" class="btn btn-secondary btn-block open-rules-modal-btn">
+              <span>Test a Date in Calculator</span>
+              <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Complete Packet Download -->
+        <div class="quickstart-card quickstart-card-primary">
+          <div class="quickstart-badge">
+            <span class="step-badge-num">3</span>
+            <span>Generate &amp; File</span>
+          </div>
+          <h3 class="quickstart-title">Download All 10 Pleadings</h3>
+          <p class="quickstart-desc">
+            Enter your pro se address details, preview your documents on-screen, and compile the full court packet.
+          </p>
+          <ul class="quickstart-feature-list">
+            <li><strong>All 10 Required Pleadings:</strong> Generates Appearance, Petition, Proposed Order, and Service Proof.</li>
+            <li><strong>Trial Rule 10 Formatting:</strong> Auto-populates official Indiana court captions and case tables.</li>
+            <li><strong>Pro Se Filing Guide Included:</strong> Plain-English instructions for filing with the Clerk and serving the Prosecutor.</li>
+          </ul>
+          <div class="quickstart-action-box">
+            <a href="app/app.html" class="btn btn-primary btn-block">
+              <span>Launch Generator &amp; Prepare Packet</span>
+              <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Power User / Developer Collapsible Drawer -->
+      <details class="alt-methods-drawer advanced-accordion" id="advancedAccordion">
+        <summary class="alt-methods-summary">
+          <span class="advanced-summary-badge">Advanced / Power Users</span>
+          <span class="advanced-summary-title">Alternative: Chrome Extension (Side-by-Side Scanning on MyCase)</span>
+          <span class="alt-arrow" aria-hidden="true">▾</span>
+        </summary>
+        <div class="guide-container extracted-style-4">
+          <div class="guide-tabs">
+            <button class="guide-tab-btn active" data-tab="tab-chrome">
+              <span>Chrome Extension (Sidepanel)</span>
+            </button>
+            <button class="guide-tab-btn" data-tab="tab-offline">
+              <span>Saved HTML / JSON Upload</span>
+            </button>
+          </div>
+
+          <!-- Tab 1: Chrome Extension -->
+          <div class="guide-pane active" id="tab-chrome">
+            <ul class="guide-steps">
+              <li class="guide-step">
+                <span class="guide-step-num">1</span>
+                <div class="guide-step-body">
+                  <h4>Clone or Download Repository</h4>
+                  <p>Download the project ZIP from GitHub or clone the repository to your computer:</p>
+                  <div class="snippet-box">
+                    <button class="btn-snippet-copy">Copy</button>
+                    <pre>git clone https://github.com/CambrianMinds/exp-2.git</pre>
+                  </div>
+                </div>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-num">2</span>
+                <div class="guide-step-body">
+                  <h4>Open Chrome Extensions</h4>
+                  <p>In Google Chrome, navigate to <code>chrome://extensions</code> in the address bar and switch
+                    on <b>Developer mode</b> in the top right.</p>
+                </div>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-num">3</span>
+                <div class="guide-step-body">
+                  <h4>Load Unpacked</h4>
+                  <p>Click <b>Load unpacked</b> and select the <code>extension/</code> directory from the
+                    repository.</p>
+                </div>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-num">4</span>
+                <div class="guide-step-body">
+                  <h4>Open Sidepanel on MyCase</h4>
+                  <p>Navigate to <a href="https://public.courts.in.gov/mycase/#/vw/Search" target="_blank"
+                      rel="noopener noreferrer"><code>public.courts.in.gov/mycase</code></a>, click the extension icon
+                    to open the
+                    side panel, and scan records side-by-side.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab 2: Offline HTML / JSON Upload -->
+          <div class="guide-pane" id="tab-offline">
+            <ul class="guide-steps">
+              <li class="guide-step">
+                <span class="guide-step-num">1</span>
+                <div class="guide-step-body">
+                  <h4>Save MyCase Search Page (HTML)</h4>
+                  <p>On <a href="https://public.courts.in.gov/mycase/#/vw/Search" target="_blank"
+                      rel="noopener noreferrer"><code>public.courts.in.gov/mycase</code></a>, after searching your
+                    name, press
+                    <kbd>Ctrl+S</kbd> (or right click &rarr; "Save Page As...") and save as <b>Webpage, HTML
+                      Only</b>.
+                  </p>
+                </div>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-num">2</span>
+                <div class="guide-step-body">
+                  <h4>Upload in the Web App</h4>
+                  <p>Open the <a href="app/app.html">Web App</a>, switch to the <b>Import Records</b> tab, and
+                    drag-and-drop the saved <code>.html</code> file.</p>
+                </div>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-num">3</span>
+                <div class="guide-step-body">
+                  <h4>Review &amp; Generate Filings</h4>
+                  <p>The parser extracts your cause numbers, verifies eligibility, and produces your 10 court
+                    documents locally.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Section 5: Document Library (10 Pleadings) -->
   <section class="section" id="documents">
     <span id="pleadings" class="anchor-target"></span>
     <div class="container">
@@ -804,7 +749,51 @@
     </div>
   </section>
 
-  <!-- Section 5: Frequently Asked Questions (FAQ) -->
+  <!-- Section 6: Civic Mission & Core Rationale ("The Law Belongs to You") -->
+  <section class="section" id="mission">
+    <div class="container">
+      <div class="letter-panel">
+        <div class="letter-glass-card">
+          <div class="letter-header">
+            <div>
+              <h2 class="scenic-title extracted-style-7">The Law Belongs to You</h2>
+              <p class="scenic-subtitle">Indiana's Second Chance Law exists. The $3,000 gate in front of it doesn't have to.</p>
+            </div>
+          </div>
+
+          <div class="letter-quote-callout">
+            <p>&ldquo;Empathy is just a feeling; actual care is resource allocation.&rdquo;</p>
+          </div>
+
+          <div class="letter-body">
+            <p>
+              Indiana's Second Chance Law looks great on paper, but the vocabulary we use around it is doing enormous,
+              unhelpful work. The state feels <em>empathy</em> for people with records, so it wrote a statute. But
+              empathy is just a feeling; actual care is resource allocation. Right now, the state's empathy is locked behind a
+              gate with up to a $3,000 admission fee, operated by private attorneys. It is an economic filter that locks
+              out the exact people who need a clean slate the most.
+            </p>
+            <p>
+              I built this tool because that filter is a structural choice, not an inevitability. You shouldn't have to
+              buy your way back into a system you already paid for.
+            </p>
+            <p>
+              This software is not legal counsel. It is the raw infrastructure required to do the
+              work yourself &mdash; the same work an attorney charges thousands to format on your behalf.
+              The law belongs to you. This is just the machinery to use it.
+            </p>
+
+            <div class="letter-signature">
+              <p class="signature-name">Justin Bogner</p>
+              <p class="signature-sub">Developer · CambrianMinds</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Frequently Asked Questions (FAQ) -->
   <section class="section section-alt" id="faq">
     <div class="container">
       <div class="section-header">
@@ -988,7 +977,25 @@
     </div>
   </section>
 
-  <!-- Section: Mandatory Legal Disclaimers & Non-Attorney Notice -->
+  <!-- Section 8: Closing Action Banner -->
+  <section class="section section-closing-cta">
+    <div class="container">
+      <div class="closing-cta-card">
+        <h2 class="closing-cta-title">Ready to prepare your expungement packet?</h2>
+        <p class="closing-cta-desc">
+          Takes about 10 minutes in your browser. 100% free, private, and formatted to Indiana Trial Rule 10 standards.
+        </p>
+        <div class="closing-cta-actions">
+          <a href="app/app.html" class="btn btn-primary btn-lg">
+            <span>Launch Free Document Generator</span>
+            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Mandatory Legal Disclaimers & Non-Attorney Notice -->
   <section class="section section-disclaimers" id="disclaimers">
     <div class="container">
       <div class="letter-disclaimer">

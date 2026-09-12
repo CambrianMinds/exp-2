@@ -4093,83 +4093,302 @@ body:not(.statutory-banner-dismissed) .back-to-top {
 .extracted-style-21 { margin-top: 1rem; padding: 10px 12px; background: var(--color-gold-50, rgba(217, 119, 6, 0.08)); border-left: 3px solid var(--color-gold-500); border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--text-primary); line-height: 1.4; }
 
 /* ==========================================================================
-   Hero Redesign (2026 Focused Value & Zero Cognitive Overload)
+   Hero Redesign (Consolidated Value & Action Hierarchy)
    ========================================================================== */
-.hero-trust-pills {
+.hero-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-xs);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-gold-700);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.35rem;
+}
+
+[data-theme="dark"] .hero-kicker-badge {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--color-gold-400);
+}
+
+.hero-kicker-badge .badge-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.hero-trust-ribbon {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin: -0.85rem auto 2.25rem;
-  padding: 0.45rem 1.15rem;
+  gap: 0.5rem 0.85rem;
+  margin: -0.5rem auto 2.5rem;
+  padding: 0.55rem 1.35rem;
   background: var(--color-surface);
-  border: 1px solid var(--border-gold-subtle);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-xs);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-secondary);
   max-width: fit-content;
 }
 
-.trust-pill {
+[data-theme="dark"] .hero-trust-ribbon {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.trust-item {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 650;
-  color: var(--text-secondary);
 }
 
-.trust-pill .pill-icon {
+.trust-icon {
   font-size: 0.95rem;
   line-height: 1;
 }
 
-.trust-pill-dot {
+.trust-sep {
   color: var(--color-gold-500);
   font-weight: 800;
-  font-size: 0.9rem;
 }
 
-.hero-action-panel {
+.hero-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
   width: 100%;
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.hero-cta-group {
+.hero-primary-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.5rem;
   width: 100%;
 }
 
-.hero-secondary-link-wrap {
-  margin-top: 0.25rem;
+.hero-btn-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2.5rem !important;
+  font-size: 1.06rem !important;
+  font-weight: 750 !important;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #dfbe47 0%, #d4af37 55%, #c49e28 100%) !important;
+  color: #081713 !important;
+  border: 1px solid rgba(140, 109, 23, 0.45) !important;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px -2px rgba(212, 175, 55, 0.35), 0 2px 6px rgba(15, 41, 34, 0.12) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease !important;
 }
 
-.hero-secondary-link {
+.hero-btn-main:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.04);
+  box-shadow: 0 16px 36px -4px rgba(212, 175, 55, 0.48), 0 6px 14px -2px rgba(15, 41, 34, 0.16) !important;
+  color: #050e0b !important;
+}
+
+.hero-btn-main:active {
+  transform: translateY(0.5px) !important;
+  box-shadow: 0 4px 12px -2px rgba(212, 175, 55, 0.25) !important;
+}
+
+.hero-btn-main .btn-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  font-weight: 700;
+}
+
+.hero-btn-main:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.hero-cta-subtext {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.hero-secondary-wrap {
+  margin-top: 0.15rem;
+}
+
+.hero-secondary-scroll {
   font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
-  border-bottom: 1px dashed var(--border-medium);
+  border-bottom: 1.5px dashed var(--border-medium);
   padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   transition: all var(--transition);
 }
 
-.hero-secondary-link:hover {
+.hero-secondary-scroll:hover {
   color: var(--color-gold-700);
   border-bottom-color: var(--color-gold-500);
+  transform: translateY(1px);
 }
 
-[data-theme="dark"] .hero-secondary-link:hover {
+[data-theme="dark"] .hero-secondary-scroll:hover {
   color: var(--color-gold-400);
+}
+
+.hero-secondary-scroll .scroll-arrow {
+  font-weight: 700;
+  transition: transform 0.25s ease;
+}
+
+.hero-secondary-scroll:hover .scroll-arrow {
+  transform: translateY(3px);
+}
+
+/* Quickstart Checklist & Actions */
+.quickstart-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+}
+
+.check-point {
+  position: relative;
+  padding-left: 1.15rem;
+}
+
+.check-point::before {
+  content: "•";
+  position: absolute;
+  left: 0.15rem;
+  color: var(--color-gold-600);
+  font-weight: bold;
+}
+
+.check-point kbd {
+  background: var(--color-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.check-point code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--color-surface);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+
+.warning-point {
+  color: var(--color-burgundy-700);
+}
+
+[data-theme="dark"] .warning-point {
+  color: #f87171;
+}
+
+.warning-point::before {
+  color: var(--color-burgundy-700);
+}
+
+[data-theme="dark"] .warning-point::before {
+  color: #f87171;
+}
+
+.btn-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Closing Conversion Section
+   ========================================================================== */
+.section-closing-cta {
+  padding: 5rem 0;
+  background: var(--color-canvas);
+}
+
+.closing-cta-card {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 68%), var(--color-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-xl), var(--glass-specular);
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.closing-cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-gold-600), var(--color-blue-600), var(--color-gold-500));
+}
+
+.closing-cta-title {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
+  line-height: 1.25;
+}
+
+.closing-cta-desc {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+}
+
+.closing-cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-lg {
+  padding: 0.95rem 2.5rem !important;
+  font-size: 1.08rem !important;
+  font-weight: 750 !important;
 }
 
 /* Nav Pro Tag */
