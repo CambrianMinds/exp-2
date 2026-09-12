@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Indiana Expungement Assistant",
-  "version": "1.0.0",
-  "description": "Automatically parse Indiana MyCase records and generate court-ready expungement petition packets under IC § 35-38-9.",
+  "version": "1.2.0",
+  "description": "Scrapes Indiana MyCase court records and generates 10 official court-ready expungement pleadings under IC § 35-38-9 with zero telemetry.",
   "permissions": [
     "activeTab",
     "storage",

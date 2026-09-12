@@ -147,4 +147,18 @@ describe('Indiana Expungement PDF Generator (Trial Rule 10 Compliance)', () => {
     const loadedDoc = await PDFLib.PDFDocument.load(pdfBytes);
     expect(loadedDoc.getPageCount()).toBeGreaterThanOrEqual(8);
   });
+
+  it('triggers onProgress callback with granular form metadata during compilation', async () => {
+    const progressEvents = [];
+    const pdfBytes = await pdfGenerator.generateCompletePacket(samplePayload, (event) => {
+      progressEvents.push(event);
+    });
+
+    expect(pdfBytes).toBeInstanceOf(Uint8Array);
+    expect(progressEvents.length).toBeGreaterThanOrEqual(8);
+    expect(progressEvents[0].formIndex).toBe(1);
+    expect(progressEvents[0].totalForms).toBe(progressEvents.length);
+    expect(progressEvents[0].formKey).toBe('form00');
+    expect(progressEvents[0].formName).toContain('Cover Sheet');
+  });
 });

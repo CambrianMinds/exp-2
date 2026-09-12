@@ -1,6 +1,6 @@
 {
   "name": "indiana-expunge",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "**Automated in-browser MyCase scraper and court-ready expungement packet generator for Indiana's Second Chance Law (Indiana Code § 35-38-9).**",
   "main": "index.js",
   "directories": {

@@ -49,6 +49,10 @@ test.describe('Real-World Expungement Scenarios', () => {
       document.getElementById('ackAllCounties').checked = true;
       document.getElementById('ackNotLawyer').checked = true;
       document.getElementById('ackProSe').checked = true;
+      if (document.getElementById('chkPreflight92Counties')) document.getElementById('chkPreflight92Counties').checked = true;
+      if (document.getElementById('chkPreflightISP')) document.getElementById('chkPreflightISP').checked = true;
+      if (document.getElementById('chkPreflightFines')) document.getElementById('chkPreflightFines').checked = true;
+      if (document.getElementById('chkPreflightPending')) document.getElementById('chkPreflightPending').checked = true;
       document.getElementById('ackProSe').dispatchEvent(new Event('change', { bubbles: true }));
       // Also force it explicitly if the module exposes it, or just trigger it again
       if (window.IndianaExpungement && window.IndianaExpungement.ui) {
@@ -180,6 +184,10 @@ test.describe('Real-World Expungement Scenarios', () => {
       document.getElementById('ackAllCounties').checked = true;
       document.getElementById('ackNotLawyer').checked = true;
       document.getElementById('ackProSe').checked = true;
+      if (document.getElementById('chkPreflight92Counties')) document.getElementById('chkPreflight92Counties').checked = true;
+      if (document.getElementById('chkPreflightISP')) document.getElementById('chkPreflightISP').checked = true;
+      if (document.getElementById('chkPreflightFines')) document.getElementById('chkPreflightFines').checked = true;
+      if (document.getElementById('chkPreflightPending')) document.getElementById('chkPreflightPending').checked = true;
       document.getElementById('ackProSe').dispatchEvent(new Event('change', { bubbles: true }));
       if (window.IndianaExpungement && window.IndianaExpungement.ui) {
         window.IndianaExpungement.ui.updateChecklist();

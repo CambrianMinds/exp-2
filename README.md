@@ -98,16 +98,75 @@ The codebase maintains two synchronized front-end trees:
 | `extension/` | Chrome Manifest V3 (Sidepanel + Content Scripts) | `extension/sidepanel/sidepanel.html` |
 | `docs/app/` | Standalone Web App / PWA (GitHub Pages) | `docs/app/app.html` |
 
-Shared logic modules are mirrored across trees:
+Shared logic modules are authored in `src/core/` (Single Source of Truth) and propagated automatically via `npm run build:core`:
 ```text
-eligibility.js  county-directory.js  pdf-generator.js
+eligibility.js  county-directory.js  pdf-generator.js  generator.js
 profile.js      state.js             ui.js             utils.js
+scanner.js      i18n.js              content.js        content-main.js
 ```
 
 `scripts/check-parity.js` runs during CI and `npm test` to enforce byte-for-byte identity on shared files:
 ```bash
 npm run test:parity
 ```
+
+---
+
+## Release v1.2.0 Capabilities & Pro Se Safeguards
+
+### 1. Guided Manual Case Entry (`#manualEntryModal`) & Complete Parity
+- **Direct Cause Insertion**: Pro se filers can add missing, older, or archived records absent from MyCase search results.
+- **Full Parity with Scraped Records**: Manual cases immediately populate the comprehensive Statutory Eligibility Matrix (`#eligibilityMatrixCard`), calculate waiting periods and fee waivers, display one-shot warnings, and require full clearance of the 4-point Pre-Flight Checklist before filing packet compilation.
+- **Statutory Tier Assignment**: Map causes to IC § 35-38-9-1 (non-conviction), § 35-38-9-2 (misdemeanor), § 35-38-9-3 (Level 6 felony), § 35-38-9-4 (major felony), or § 35-38-9-5 (serious felony).
+- **Sentence & Restitution Validation**: Captures sentence completion dates (mandatory for the 3-year post-discharge waiting period under Sections 4 & 5) and outstanding fine/fee balances.
+- **Mandatory Completeness Acknowledgment**: Enforces confirmation under IC § 35-38-9-9(i) that omitting any count or conviction permanently forfeits future expungement rights.
+
+### 2. Automatic Ineligible-Offense Flagging at Import
+- **Instant Statutory Bar Detection**: Scraped, uploaded, and manually entered cases are analyzed against statutory exclusion rules (IC § 35-38-9-3(b) and § 8(b)).
+- **Pattern Matching**: Automatically flags Murder (`MR` case type code or cause pattern `/-MR-/`), offenses causing death (IC § 35-42-1), sex/violent offender registry offenses (IC § 11-8-8), human trafficking (IC § 35-42-3.5), and public corruption.
+- **High-Visibility Barred Indicators**: Displays prominent red `[⛔ BARRED]` badges on case cards, dedicated statutory exclusion callouts explaining why the offense is barred, exclusion rows in the Eligibility Matrix, and an aggregate warning banner in the Results tab.
+
+### 3. Actionable Indiana State Police (ISP) Guidance (`#ispNoticeBanner`)
+- **Direct IN.gov Portal Link**: One-click navigation to the official Indiana State Police Limited Criminal History request portal (`https://www.in.gov/ai/appfiles/isp-lch/`).
+- **Cost & Turnaround Breakdown**:
+  - **Online:** **$15.00** per search · **Instant PDF Download** via Access Indiana.
+  - **Mail:** **$7.00** per search · **7–14 Business Days** using official ISP Form 8053.
+- **Older Case Protection**: Protects against lifetime forfeiture by alerting filers that pre-2010 dispositions or unindexed paper files often do not appear on MyCase.
+
+### 4. Residential Address History Helper & Statutory Clarity
+- **1-Click "Copy Previous Address"**: Added helper button on prior address cards to instantly copy street, city, state, and ZIP code from preceding entries or current residence, drastically speeding up data entry.
+- **Clear Statutory Purpose Explanation**: Transparently explains under IC § 35-38-9-8(b)(3) why full address history from earliest arrest/offense is required:
+  - Facilitates prosecutorial and Indiana State Police background checks to confirm no active warrants or open charges exist across any prior jurisdiction.
+  - Form ACR (Confidential Court Record under Access to Court Records Rule 5) ensures personal residential history is permanently sealed from public view.
+  - Prevents fatal pleading defects and objections from county prosecutors.
+
+### 5. Pre-Flight Record Completeness Checklist (`.preflight-checklist-card`)
+A required 4-point verification gate before petition compilation:
+- **92-County Search**: Affirmation that MyCase was searched across all 92 Indiana counties under legal names, maiden names, and aliases.
+- **ISP Criminal History Check**: Confirmation that official Indiana State Police records were checked or acknowledgment of risk regarding unindexed paper dockets.
+- **$0 Balance on Fines & Fees**: Affirmation that all court costs, probation fees, and victim restitution are paid in full (IC § 35-38-9-8(b)(6)).
+- **Zero Pending Charges**: Confirmation of no active open criminal charges or outstanding arrest warrants anywhere in the United States (IC § 35-38-9-8(b)(4)).
+
+### 6. Plain-Language Expungement Tier Explainer (`#expungementExplainerDrawer`)
+- Detailed breakdown contrasting **Section 1 (full sealing / erased from public record)** with **Sections 2–3 (mandatory seal from employers)** and **Sections 4–5 (discretionary / marked as expunged on public docket)**.
+- Prominent statutory exclusion warnings highlighting offenses barred by law: homicide/death offenses (IC § 35-42-1), sex/violent offender registry offenses (IC § 11-8-8), human trafficking (IC § 35-42-3.5), public corruption by elected officials, and two or more separate felony convictions involving deadly weapons.
+
+### 7. Lawyer Advisory & Filing Logistics (`#lawyerAdvisoryCard`)
+- Outlines Indiana E-Filing System (IEFS) electronic filing vs. in-person filing with County Clerks.
+- Details statutory timelines, including the prosecutor's 30-day objection window (IC § 35-38-9-8(f)).
+- Connects filers to free civil legal aid resources: [Indiana Legal Help](https://indianalegalhelp.org) and [Indiana Legal Services](https://www.indianalegalservices.org).
+
+### 8. Mobile UX & 44px Touch Targets
+- Conforms to WCAG 2.5.5 touch target sizing (≥ 44×44 CSS pt) for all interactive buttons, checkboxes, radio buttons, and inputs.
+- Responsive single-column layouts for mobile Safari / Chrome users.
+
+### 9. Indiana Trial Rule 10 Footer & Audit Stamp
+- Court-ready PDFs generated via `pdf-generator.js` feature clean 1-inch margins (72 pt), 12 pt Times New Roman typography, double-spaced body, single-spaced tables, bottom-center page numbering starting at 1, and an official Pro Se filing footer stamp referencing IC § 35-38-9.
+
+### 10. Full Spanish Language Localization (100% Parity)
+- Complete English (`en`) and Spanish (`es`) translations maintained in `locales/translations.json`.
+- Dynamic client-side language toggle in both the Chrome extension sidepanel and web application with instant DOM translation.
+- Validated with automated test `npm run test:i18n` ensuring 100% key parity across all languages.
 
 ---
 

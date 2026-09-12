@@ -281,6 +281,78 @@ describe('IndianaExpungement Eligibility Rules Engine', () => {
       expect(report.pendingChargesBlock.reason).toContain('Pending Criminal Charges');
       expect(report.pendingChargesBlock.pendingCases).toContain('49D01-2501-CM-000002');
     });
+
+    it('automatically flags Murder (MR) cause numbers and charges as statutorily barred', () => {
+      const mrCase = {
+        caseNumber: '49G01-1605-MR-000123',
+        case_type: 'MR',
+        status: '05/10/2018, Decided',
+        filed: '05/10/2016',
+        charges: 'Murder (IC 35-42-1-1)'
+      };
+      const result = IndianaExpungement.assessEligibility(mrCase, asOfDate);
+      expect(result.eligible).toBe(false);
+      expect(result.isStatutorilyBarred).toBe(true);
+      expect(result.mitigationType).toBe('strictly_excluded');
+      expect(result.reason).toContain('Statutorily Barred');
+      expect(result.warnings.some(w => w.includes('permanently excluded'))).toBe(true);
+    });
+
+    it('flags sex offenses and human trafficking as statutorily barred', () => {
+      const barredCase = {
+        caseNumber: '49D01-1401-FB-000555',
+        status: '01/01/2015, Decided',
+        filed: '01/01/2014',
+        charges: 'Child Molesting - Class B Felony'
+      };
+      const result = IndianaExpungement.assessEligibility(barredCase, asOfDate);
+      expect(result.eligible).toBe(false);
+      expect(result.isStatutorilyBarred).toBe(true);
+      expect(result.mitigationType).toBe('strictly_excluded');
+    });
+
+    it('aggregates statutorilyBarred cases in analyzeAll and populates statutorilyBarredBlock', () => {
+      const cases = [
+        {
+          caseNumber: '49D01-1501-CM-000001',
+          status: '01/01/2015, Decided',
+          filed: '01/01/2015',
+          court: 'Marion Superior Court'
+        },
+        {
+          caseNumber: '49G01-1605-MR-000123',
+          case_type: 'MR',
+          status: '05/10/2018, Decided',
+          filed: '05/10/2016',
+          court: 'Marion Superior Court',
+          charges: 'Murder'
+        }
+      ];
+      const report = IndianaExpungement.analyzeAll(cases);
+      expect(report.summary.statutorilyBarred).toBe(1);
+      expect(report.statutorilyBarredBlock.isSafe).toBe(false);
+      expect(report.statutorilyBarredBlock.barredCases).toContain('49G01-1605-MR-000123');
+    });
+
+    it('validates manual case entry records with schema validation', () => {
+      const validManual = {
+        case_number: '49D01-1605-FD-000123',
+        case_type: 'FD',
+        filed: '05/10/2016',
+        dispositionDate: '05/10/2016'
+      };
+      const val1 = IndianaExpungement.validateCaseRecord(validManual);
+      expect(val1.isValid).toBe(true);
+      expect(val1.errors.length).toBe(0);
+
+      const invalidManual = {
+        case_number: '',
+        case_type: 'CM'
+      };
+      const val2 = IndianaExpungement.validateCaseRecord(invalidManual);
+      expect(val2.isValid).toBe(false);
+      expect(val2.errors).toContain('Missing case number / cause number.');
+    });
   });
 
 });

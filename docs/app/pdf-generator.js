@@ -1120,7 +1120,7 @@ function buildForm08(ctx, payload) {
 
 
 // ─── MASTER PACKET GENERATOR ──────────────────────────────────────────
-export async function generateCompletePacket(payload) {
+export async function generateCompletePacket(payload, onProgress = null) {
   const { PDFDocument, rgb, StandardFonts } = PDFLib;
   const pdfDoc = await PDFDocument.create();
 
@@ -1145,66 +1145,41 @@ export async function generateCompletePacket(payload) {
   const target = payload.targetForm || 'all';
   const shouldBuild = (formKey) => target === 'all' || target === formKey;
 
-  // 1. Instructions & Warnings Cover Sheet
-  if (shouldBuild('form00')) {
-    ctx.startDocument('Form 00');
-    buildForm00(ctx, payload);
-    ctx.endDocument();
-  }
+  const formsToBuild = [
+    { key: 'form00', docId: 'Form 00', name: 'Instructions & Warnings Cover Sheet', build: () => buildForm00(ctx, payload), condition: shouldBuild('form00') },
+    { key: 'form01', docId: 'Form 01', name: 'Appearance Form (Trial Rule 3.1)', build: () => buildForm01(ctx, payload), condition: shouldBuild('form01') },
+    { key: 'form02', docId: 'Form 02', name: 'Form ACR (Notice of Exclusion of Confidential Information)', build: () => buildForm02(ctx, payload), condition: shouldBuild('form02') },
+    { key: 'form03', docId: 'Form 03', name: 'Confidential Information & 10-Year Address History', build: () => buildForm03(ctx, payload), condition: shouldBuild('form03') && payload.includeAddressSupplement !== false },
+    { key: 'form04', docId: 'Form 04', name: 'Verified Petition for Expungement', build: () => buildForm04(ctx, payload), condition: shouldBuild('form04') },
+    { key: 'form05', docId: 'Form 05', name: 'Notice of Filing to Prosecuting Attorney', build: () => buildForm05(ctx, payload), condition: shouldBuild('form05') },
+    { key: 'form06', docId: 'Form 06', name: 'Certificate of Service', build: () => buildForm06(ctx, payload), condition: shouldBuild('form06') },
+    { key: 'form07', docId: 'Form 07', name: 'Proposed Order Granting Expungement', build: () => buildForm07(ctx, payload), condition: shouldBuild('form07') },
+    { key: 'form08', docId: 'Form 08', name: 'Fee Waiver Request & Order', build: () => buildForm08(ctx, payload), condition: shouldBuild('form08') && payload.includeFeeWaiver }
+  ].filter(f => f.condition);
 
-  // 2. Appearance Form (Trial Rule 3.1)
-  if (shouldBuild('form01')) {
-    ctx.startDocument('Form 01');
-    buildForm01(ctx, payload);
-    ctx.endDocument();
-  }
+  const totalForms = formsToBuild.length;
+  for (let idx = 0; idx < totalForms; idx++) {
+    const formDef = formsToBuild[idx];
+    if (typeof onProgress === 'function') {
+      try {
+        onProgress({
+          formIndex: idx + 1,
+          totalForms,
+          formKey: formDef.key,
+          formName: formDef.name
+        });
+      } catch (pErr) {
+        console.warn('[PDF Engine] onProgress handler error:', pErr);
+      }
+    }
 
-  // 3. Form ACR (Exclusion of Confidential Info)
-  if (shouldBuild('form02')) {
-    ctx.startDocument('Form 02');
-    buildForm02(ctx, payload);
-    ctx.endDocument();
-  }
-
-  // 4. Form 03: Confidential Information Supplement & Residential History
-  if (shouldBuild('form03') && payload.includeAddressSupplement !== false) {
-    ctx.startDocument('Form 03');
-    buildForm03(ctx, payload);
-    ctx.endDocument();
-  }
-
-  // 5. Form 04: Verified Petition for Expungement
-  if (shouldBuild('form04')) {
-    ctx.startDocument('Form 04');
-    buildForm04(ctx, payload);
-    ctx.endDocument();
-  }
-
-  // 6. Form 05: Notice of Filing to Prosecuting Attorney
-  if (shouldBuild('form05')) {
-    ctx.startDocument('Form 05');
-    buildForm05(ctx, payload);
-    ctx.endDocument();
-  }
-
-  // 7. Form 06: Certificate of Service
-  if (shouldBuild('form06')) {
-    ctx.startDocument('Form 06');
-    buildForm06(ctx, payload);
-    ctx.endDocument();
-  }
-
-  // 8. Form 07: Proposed Order Granting Expungement
-  if (shouldBuild('form07')) {
-    ctx.startDocument('Form 07');
-    buildForm07(ctx, payload);
-    ctx.endDocument();
-  }
-
-  // 9. Form 08: Fee Waiver Request & Order
-  if (shouldBuild('form08') && payload.includeFeeWaiver) {
-    ctx.startDocument('Form 08');
-    buildForm08(ctx, payload);
+    ctx.startDocument(formDef.docId);
+    try {
+      formDef.build();
+    } catch (buildErr) {
+      console.error(`[PDF Engine] Error building ${formDef.docId} (${formDef.name}):`, buildErr);
+      throw new Error(`Failed generating ${formDef.name}: ${buildErr.message}`);
+    }
     ctx.endDocument();
   }
 
@@ -1222,6 +1197,16 @@ export async function generateCompletePacket(payload) {
         size: 10.5,
         font: regularFont,
         color: colors.black
+      });
+
+      // Statutory Version & Audit Stamp (Trial Rule 10 compliant footer)
+      const versionStamp = 'IC § 35-38-9 · Engine v1.2.0 · Statute Last Reviewed: Sept 2026 · Pro Se Document Formatter';
+      page.drawText(versionStamp, {
+        x: 72,
+        y: 36,
+        size: 7.5,
+        font: italicFont,
+        color: rgb(0.35, 0.35, 0.35)
       });
     }
   }
@@ -1265,6 +1250,15 @@ export async function generateAppearanceForm(payload) {
         size: 10.5,
         font: regularFont,
         color: colors.black
+      });
+
+      const versionStamp = 'IC § 35-38-9 · Engine v1.2.0 · Statute Last Reviewed: Sept 2026 · Pro Se Document Formatter';
+      page.drawText(versionStamp, {
+        x: 72,
+        y: 36,
+        size: 7.5,
+        font: italicFont,
+        color: rgb(0.35, 0.35, 0.35)
       });
     }
   }

@@ -82,7 +82,7 @@
           <line x1="16" y1="17" x2="8" y2="17" />
         </svg>
         Results
-        <span class="tab-badge" id="resultsBadge" style="display:none">0</span>
+        <span class="tab-badge" id="resultsBadge">0</span>
       </button>
       <button class="tab-btn" data-tab="profile">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -116,7 +116,7 @@
       </div>
 
       <!-- Multi-Page Batch & Alias Accumulation Banner -->
-      <div class="batch-panel" id="batchPanel" style="display:none">
+      <div class="batch-panel" id="batchPanel">
         <div class="batch-header">
           <div class="batch-title-row">
             <span class="batch-icon" aria-hidden="true"></span>
@@ -146,6 +146,86 @@
           View Guide ↗
         </button>
       </div>
+
+      <!-- ── ISP Criminal History Notice Banner ── -->
+      <div class="isp-notice-banner" id="ispNoticeBanner">
+        <div class="isp-notice-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="isp-notice-body">
+          <h5 data-i18n="isp_notice_title">CRUCIAL: Older Records May Be Missing from MyCase</h5>
+          <p data-i18n="isp_notice_desc">
+            Odyssey was rolled out between 2005–2011. Pre-2010 dispositions or unindexed paper files may not appear. Omitting any conviction permanently forfeits your lifetime right to expunge it (IC § 35-38-9-9(i)).
+          </p>
+          <div class="isp-pricing-time-box">
+            <div class="isp-metric-item">
+              <span class="metric-label">Online Portal:</span>
+              <span class="metric-value"><strong>$15.00</strong> · Instant PDF (via IN.gov)</span>
+            </div>
+            <div class="isp-metric-item">
+              <span class="metric-label">Mail-In Option:</span>
+              <span class="metric-value"><strong>$7.00</strong> · 7–14 days (Form 8053)</span>
+            </div>
+          </div>
+          <div class="isp-actions-row">
+            <a href="https://www.in.gov/ai/appfiles/isp-lch/" target="_blank" rel="noopener" class="btn btn-sm btn-isp-action" id="btnIspOnlinePortal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              <span>Order at IN.gov ($15 · Instant) ↗</span>
+            </a>
+            <a href="https://www.in.gov/isp/crime-reporting/criminal-history-services/" target="_blank" rel="noopener" class="isp-mail-link">
+              Mail-In Form 8053 ($7) ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Expungement Tiers Explained Drawer ── -->
+      <details class="expungement-explainer-drawer" id="expungementExplainerDrawer">
+        <summary class="explainer-summary">
+          <span class="explainer-summary-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <span data-i18n="explainer_title">What Does Indiana Expungement Do? (Tiers &amp; Limits)</span>
+          </span>
+          <span class="explainer-tag" data-i18n="explainer_tag">Plain Guide</span>
+        </summary>
+        <div class="explainer-body">
+          <div class="explainer-tiers-grid">
+            <div class="tier-card tier-section-1">
+              <div class="tier-badge">Section 1 · IC § 35-38-9-1</div>
+              <h4 data-i18n="explainer_sec1_title">Non-Convictions / Arrests</h4>
+              <div class="tier-remedy full-seal">FULL SEALING</div>
+              <p data-i18n="explainer_sec1_desc">Permanently sealed from public view. Treated as if the arrest never occurred. $0 filing fee. No lifetime limit.</p>
+            </div>
+            <div class="tier-card tier-section-2-3">
+              <div class="tier-badge">Sections 2–3 · IC § 35-38-9-2 &amp; 3</div>
+              <h4 data-i18n="explainer_sec23_title">Misdemeanors &amp; Level 6 Felonies</h4>
+              <div class="tier-remedy mandatory-seal">MANDATORY SEALING</div>
+              <p data-i18n="explainer_sec23_desc">Court must grant if statutory time met (5 yrs CM / 8 yrs L6). Sealed from public and private employers. Restores civil rights.</p>
+            </div>
+            <div class="tier-card tier-section-4-5">
+              <div class="tier-badge">Sections 4–5 · IC § 35-38-9-4 &amp; 5</div>
+              <h4 data-i18n="explainer_sec45_title">Major Felonies</h4>
+              <div class="tier-remedy discretionary-seal">DISCRETIONARY / MARKED EXPUNGED</div>
+              <p data-i18n="explainer_sec45_desc">Court discretion. Dockets marked <i>"Expunged / Civil Rights Restored"</i>. Level 5+ serious bodily injury requires prosecutor consent.</p>
+            </div>
+          </div>
+          <div class="ineligible-categories-box">
+            <strong data-i18n="explainer_barred_title">Statutorily Barred Offenses:</strong>
+            <p data-i18n="explainer_barred_desc">Homicide/death (IC § 35-42-1), sex registry offenses (IC § 11-8-8), human trafficking (IC § 35-42-3.5), public corruption by elected officials, 2+ weapons felonies, or active pending charges.</p>
+          </div>
+        </div>
+      </details>
 
       <div class="scan-hero">
         <div class="scan-icon-container">
@@ -182,8 +262,8 @@
           </svg>
           Deep Scrape CCS Details
         </button>
-        <div style="margin-top: 12px;">
-          <button class="btn btn-outline" id="btnUploadHtml" style="width: 100%; border-style: dashed; padding: 10px;">
+        <div class="upload-html-wrapper">
+          <button class="btn btn-outline btn-upload-html" id="btnUploadHtml">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="17 8 12 3 7 8" />
@@ -191,7 +271,14 @@
             </svg>
             Upload Saved HTML or JSON File
           </button>
-          <input type="file" id="htmlUpload" accept=".json,.html,.htm" style="display: none;">
+          <input type="file" id="htmlUpload" accept=".json,.html,.htm">
+          <button type="button" class="btn btn-sm btn-outline mt-2 w-full" id="btnManualEntryDropzone" title="Add a case manually">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Add Case Manually
+          </button>
         </div>
       </div>
 
@@ -200,7 +287,7 @@
         <p><b>Multi-Search Tip:</b> Search MyCase for your maiden name, previous married names, other counties, or aliases, and scan each page. They will automatically accumulate into one lifetime expungement petition.</p>
       </div>
 
-      <div class="scan-progress" id="scanProgress" style="display:none" role="status" aria-live="polite" aria-atomic="true">
+      <div class="scan-progress" id="scanProgress" role="status" aria-live="polite" aria-atomic="true">
         <div class="progress-bar">
           <div class="progress-fill" id="progressFill"></div>
         </div>
@@ -224,9 +311,14 @@
           <polyline points="14 2 14 8 20 8" />
         </svg>
         <p>No cases scanned yet.<br>Go to the Scan tab to begin.</p>
+        <div class="empty-state-actions">
+          <button type="button" class="btn btn-sm btn-outline" id="btnManualEntryEmpty">
+            Add Case Manually
+          </button>
+        </div>
       </div>
 
-      <div id="resultsContent" style="display:none">
+      <div id="resultsContent">
         <!-- Results Header Actions -->
         <div class="results-header-actions" id="resultsHeaderActions">
           <div class="results-count-summary" id="resultsCountSummary">
@@ -239,6 +331,14 @@
           <button type="button" class="btn btn-sm btn-outline" id="btnScanAnotherPage" title="Scan another MyCase name, married name, or county search">
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             <span>Scan Another Name/County</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline" id="btnExportCases" title="Export extracted case records as JSON">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Export Cases (JSON)</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline" id="btnExportAudit" title="Export timestamped audit log and statutory manifest as JSON">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Export Audit Manifest</span>
           </button>
         </div>
 
@@ -428,6 +528,25 @@
           <h4>Address History (10+ Years)</h4>
           <p>Required by IC § 35-38-9-8(b)(3). List all addresses from earliest offense to present.</p>
         </div>
+
+        <div class="address-statutory-explanation" id="addressStatutoryExplanation">
+          <div class="statutory-explanation-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <strong>Why Is Full Address History Required?</strong>
+          </div>
+          <p>
+            Under <b>IC § 35-38-9-8(b)(3)</b>, your petition must list every residential address from your earliest arrest/offense to today:
+          </p>
+          <ul class="statutory-explanation-bullets">
+            <li><b>Statewide Background Check:</b> Prosecutors verify no open warrants or pending cases exist where you previously lived.</li>
+            <li><b>Sealed on Form ACR:</b> Address history is filed confidentially under Access to Court Records Rule 5 (not viewable by public).</li>
+            <li><b>Prevents Objections:</b> Leaving off a prior residence is a statutory pleading defect that can delay your filing.</li>
+          </ul>
+        </div>
         <div id="addressHistory" class="address-list">
           <!-- Dynamically populated -->
         </div>
@@ -503,38 +622,38 @@
       </div>
 
       <!-- Prior Filings Check -->
-      <div id="priorFilingsCard" class="prior-filings-box" style="margin-bottom: 24px; padding: 16px; background-color: var(--bg-card-elevated); border: 1px solid var(--border-color); border-radius: 8px;">
+      <div id="priorFilingsCard" class="prior-filings-box">
         <!-- Section 1 Exemption Callout (displayed when batch is exclusively Section 1) -->
-        <div id="priorFilingSection1Callout" style="display: none; padding: 12px 14px; background: rgba(59, 130, 246, 0.12); border-left: 4px solid #3b82f6; border-radius: 6px; font-size: 0.88rem; line-height: 1.45;">
+        <div id="priorFilingSection1Callout">
           <strong>ℹ️ Section 1 Non-Conviction Exemption:</strong> Your eligible records consist exclusively of Section 1 non-convictions, dismissals, or infractions (IC § 35-38-9-1). Non-conviction expungements carry no lifetime limit and are completely exempt from the 365-day multi-county consolidation window (IC § 35-38-9-9(d)).
         </div>
 
         <!-- Conviction Prior Filings Questionnaire -->
         <div id="priorFilingQuestionnaire">
-          <h5 style="margin-top: 0; margin-bottom: 12px;">Prior County Filings (365-Day Rule Check)</h5>
-          <p style="font-size: 0.9rem; margin-bottom: 12px;">Have you filed an expungement petition in <b>any other Indiana county</b> within the past 12 months?</p>
-          <div style="display: flex; gap: 16px; margin-bottom: 12px;">
+          <h5 class="prior-filings-title">Prior County Filings (365-Day Rule Check)</h5>
+          <p class="prior-filings-desc">Have you filed an expungement petition in <b>any other Indiana county</b> within the past 12 months?</p>
+          <div class="prior-filings-radios">
             <label><input type="radio" name="hasPriorFiling" value="no" checked> No</label>
             <label><input type="radio" name="hasPriorFiling" value="yes"> Yes</label>
           </div>
-          <div id="priorFilingDateBox" style="display: none;">
-            <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px;">
-              <div style="flex: 1; min-width: 180px;">
-                <label for="priorFilingCounty" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 4px;">Prior Filing County:</label>
-                <select id="priorFilingCounty" class="input-field" style="width: 100%;">
+          <div id="priorFilingDateBox">
+            <div class="prior-filing-fields">
+              <div class="prior-filing-col">
+                <label for="priorFilingCounty" class="prior-filing-label">Prior Filing County:</label>
+                <select id="priorFilingCounty" class="input-field prior-filing-input">
                   <option value="">Select County...</option>
                 </select>
               </div>
-              <div style="flex: 1; min-width: 180px;">
-                <label for="priorFilingDate" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 4px;">Date of First Filing:</label>
-                <input type="date" id="priorFilingDate" class="input-field" style="width: 100%;">
+              <div class="prior-filing-col">
+                <label for="priorFilingDate" class="prior-filing-label">Date of First Filing:</label>
+                <input type="date" id="priorFilingDate" class="input-field prior-filing-input">
               </div>
-              <div style="flex: 1; min-width: 180px;">
-                <label for="priorFilingCauseNumber" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 4px;">Prior XP Cause Number (Optional):</label>
-                <input type="text" id="priorFilingCauseNumber" class="input-field" placeholder="e.g. 49D01-2501-XP-000123" style="width: 100%;">
+              <div class="prior-filing-col">
+                <label for="priorFilingCauseNumber" class="prior-filing-label">Prior XP Cause Number (Optional):</label>
+                <input type="text" id="priorFilingCauseNumber" class="input-field prior-filing-input" placeholder="e.g. 49D01-2501-XP-000123">
               </div>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; margin-bottom: 0; line-height: 1.4;">
+            <p class="prior-filing-hint">
               <em>Indiana Trial Rule 6(A) &amp; Clerk File-Stamp:</em> The statutory 365-day clock (IC § 35-38-9-9(d)) only stops on the date the Court Clerk file-stamps your petition—not when this packet is generated. If the 365th day falls on a weekend, legal holiday, or day the office is closed, the filing deadline extends to the next business day.
             </p>
           </div>
@@ -550,7 +669,7 @@
             </svg>
           </span>
           <div>
-            <h5>Mandatory Legal Acknowledgments</h5>
+            <h5 data-i18n="lbl_mandatory_acks">Mandatory Legal Acknowledgments</h5>
             <p>You must check each box to confirm your understanding before generating court forms:</p>
           </div>
         </div>
@@ -588,6 +707,50 @@
         </label>
       </div>
 
+      <!-- ── Pre-Flight Completeness Checklist ── -->
+      <div class="preflight-checklist-card">
+        <div class="preflight-header">
+          <span class="preflight-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </span>
+          <div>
+            <h5 data-i18n="preflight_card_title">Pre-Flight Record Completeness Checklist</h5>
+            <p data-i18n="preflight_card_subtitle">Required statutory confirmations under Indiana Trial Rule 11 &amp; IC § 35-38-9:</p>
+          </div>
+        </div>
+
+        <label class="preflight-item">
+          <input type="checkbox" id="chkPreflight92Counties" class="preflight-checkbox">
+          <span class="preflight-label">
+            <b data-i18n="preflight_chk1_title">All 92 Indiana Counties Searched:</b> <span data-i18n="preflight_chk1_desc">I have searched MyCase under my legal name, maiden names, prior names, and aliases across all 92 Indiana counties.</span>
+          </span>
+        </label>
+
+        <label class="preflight-item">
+          <input type="checkbox" id="chkPreflightISP" class="preflight-checkbox">
+          <span class="preflight-label">
+            <b data-i18n="preflight_chk2_title">ISP Criminal History Report:</b> <span data-i18n="preflight_chk2_desc">I have obtained an official Indiana State Police Criminal History report, or I knowingly accept the risk of omitting unindexed paper records.</span>
+          </span>
+        </label>
+
+        <label class="preflight-item">
+          <input type="checkbox" id="chkPreflightFines" class="preflight-checkbox">
+          <span class="preflight-label">
+            <b data-i18n="preflight_chk3_title">$0 Balance on Court Fines &amp; Restitution:</b> <span data-i18n="preflight_chk3_desc">All fines, court fees, probation costs, and restitution are paid in full (IC § 35-38-9-8(b)(6)).</span>
+          </span>
+        </label>
+
+        <label class="preflight-item">
+          <input type="checkbox" id="chkPreflightPending" class="preflight-checkbox">
+          <span class="preflight-label">
+            <b data-i18n="preflight_chk4_title">No Active Charges or Open Warrants:</b> <span data-i18n="preflight_chk4_desc">I currently have no pending criminal charges, open warrants, or active probation revocation proceedings anywhere (IC § 35-38-9-8(b)(4)).</span>
+          </span>
+        </label>
+      </div>
+
       <div class="generate-checklist">
         <div class="checklist-item" id="checkProfile">
           <span class="check-icon">○</span>
@@ -605,10 +768,14 @@
           <span class="check-icon">○</span>
           <span>All 4 legal disclaimers &amp; one-shot rule acknowledged</span>
         </div>
+        <div class="checklist-item" id="checkPreflight">
+          <span class="check-icon">○</span>
+          <span data-i18n="checklist_preflight_label">All 4 pre-flight completeness checklist items confirmed</span>
+        </div>
       </div>
 
       <!-- Multi-County Packet Generator Notice & Selector -->
-      <div class="county-select-card" id="countySelectCard" style="display:none">
+      <div class="county-select-card" id="countySelectCard">
         <div class="county-card-header">
           <span class="county-card-icon" aria-hidden="true"></span>
           <div>
@@ -640,6 +807,50 @@
         </div>
       </div>
 
+      <!-- ── Filing Logistics & Lawyer Advisory Card ── -->
+      <div class="lawyer-advisory-card" id="lawyerAdvisoryCard">
+        <div class="lawyer-card-header">
+          <span class="lawyer-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </span>
+          <div>
+            <h5 data-i18n="lawyer_card_title">Filing Logistics &amp; When to Consult Counsel</h5>
+            <p data-i18n="lawyer_card_subtitle">Pro se filing steps, service methods, and complex cases requiring attorney advice</p>
+          </div>
+        </div>
+        <div class="lawyer-card-body">
+          <div class="filing-method-block">
+            <strong data-i18n="lawyer_step1_title">1. Filing Methods: IEFS vs. In-Person</strong>
+            <p>
+              • <b>Odyssey E-Filing System (IEFS):</b> Free pro se registration through certified service providers (e.g. <code>fileandserve.courts.in.gov</code>). Upload generated PDFs; e-service automatically notifies the County Prosecutor.<br>
+              • <b>In-Person Clerk Filing:</b> Print 4 copies of your complete petition packet. Present to County Clerk with filing fee or Form 08 Fee Waiver. Have Clerk date-stamp your retain copies.
+            </p>
+          </div>
+
+          <div class="filing-method-block">
+            <strong data-i18n="lawyer_step2_title">2. What to Expect After Filing (Timelines)</strong>
+            <p data-i18n="lawyer_step2_desc">
+              Under <b>IC § 35-38-9-8(f)</b>, the Prosecuting Attorney has <b>30 days</b> to file an objection. If no objection is filed, the court may enter the order without a hearing.
+            </p>
+          </div>
+
+          <div class="lawyer-advisory-warning">
+            <strong data-i18n="lawyer_box_title">Complex Cases Where You Should Consult an Attorney:</strong>
+            <ul>
+              <li>Out-of-state or federal convictions that might impact statutory waiting periods</li>
+              <li>Contested victim restitution amounts or missing payment satisfactions</li>
+              <li>Class C/B/A or Level 5/4/3/2/1 felonies where the prosecutor may object</li>
+              <li>Professional licensing boards (medical, nursing, legal) with mandatory reporting rules</li>
+            </ul>
+          </div>
+
+          <div class="lawyer-resource-links">
+            <a href="https://indianalegalhelp.org" target="_blank" rel="noopener" class="lawyer-link-btn" data-i18n="lawyer_link_ilhelp">Indiana Legal Help (Self-Help Resource) ↗</a>
+            <a href="https://www.indianalegalservices.org" target="_blank" rel="noopener" class="lawyer-link-btn" data-i18n="lawyer_link_ilservices">Indiana Legal Services (Free Civil Legal Aid) ↗</a>
+          </div>
+        </div>
+      </div>
+
       <div class="generate-options">
         <label class="checkbox-label">
           <input type="checkbox" id="includeFeeWaiver" checked>
@@ -653,9 +864,9 @@
           <input type="checkbox" id="eSignDocuments">
           <span data-i18n="label_esign">Electronically sign documents (/s/ format for IEFS e-Filing)</span>
         </label>
-        <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
-          <label for="serviceMethod" style="font-size: 0.85rem; font-weight: 500;">Prosecutor Service Method (Form 06):</label>
-          <select id="serviceMethod" class="input-field" style="padding: 4px 8px; font-size: 0.85rem;">
+        <div class="service-method-row">
+          <label for="serviceMethod" class="service-method-label">Prosecutor Service Method (Form 06):</label>
+          <select id="serviceMethod" class="input-field service-method-select">
             <option value="iefs" selected>Indiana Odyssey E-Filing System (IEFS)</option>
             <option value="certified_mail">Certified Mail (Return Receipt Requested)</option>
             <option value="first_class">First Class U.S. Mail / Hand Delivery</option>
@@ -681,7 +892,7 @@
         </button>
       </div>
 
-      <div class="generate-status" id="generateStatus" style="display:none">
+      <div class="generate-status" id="generateStatus">
         <div class="spinner"></div>
         <p id="generateStatusText">Generating forms...</p>
       </div>
@@ -693,7 +904,7 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- ═══ Modal: Scraper Parity Check (shown after each scan) ═══ -->
-  <div class="modal-overlay" id="parityModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="parityModalTitle">
+  <div class="modal-overlay" id="parityModal" role="dialog" aria-modal="true" aria-labelledby="parityModalTitle">
     <div class="modal-dialog">
       <div class="modal-header">
         <div class="modal-icon-alert" aria-hidden="true"></div>
@@ -738,7 +949,7 @@
   </div>
 
   <!-- ═══ Modal: Statutory Pre-Flight Audit & One-Shot Confirmation ═══ -->
-  <div class="modal-overlay" id="confirmModal" style="display:none" role="alertdialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+  <div class="modal-overlay" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmModalTitle">
     <div class="modal-dialog audit-dialog">
       <div class="modal-header">
         <div class="modal-icon-alert modal-icon-shield">
@@ -765,26 +976,26 @@
           </div>
         </div>
 
-        <p class="modal-subtext" style="margin-bottom:6px">
+        <p class="modal-subtext modal-subtext-tight">
           The following case(s) will be consolidated into this petition packet. Review carefully:
         </p>
-        <div class="modal-callout-info" id="confirmCaseList" style="max-height:140px; overflow-y:auto;">
+        <div class="modal-callout-info" id="confirmCaseList">
           <!-- Dynamically populated with case numbers before modal is shown -->
         </div>
 
         <!-- Dynamic Multi-County / Prior Filing Notice -->
-        <div class="modal-callout-warning" id="confirmMultiCountyNotice" style="display:none; margin-top:10px;">
+        <div class="modal-callout-warning modal-callout-mt" id="confirmMultiCountyNotice">
           <div class="notice-title"><strong>Consolidation Window Notice (IC § 35-38-9-9(d))</strong></div>
-          <p id="confirmMultiCountyText" style="margin:4px 0 0; font-size:0.84rem; line-height:1.45;"></p>
+          <p id="confirmMultiCountyText" class="confirm-notice-text"></p>
         </div>
 
         <!-- Dynamic Outstanding Fees / Restitution Notice -->
-        <div class="modal-callout-warning" id="confirmFeesNotice" style="display:none; margin-top:10px;">
+        <div class="modal-callout-warning modal-callout-mt" id="confirmFeesNotice">
           <div class="notice-title"><strong>Outstanding Court Balances / Restitution Notice</strong></div>
-          <p id="confirmFeesText" style="margin:4px 0 0; font-size:0.84rem; line-height:1.45;"></p>
+          <p id="confirmFeesText" class="confirm-notice-text"></p>
         </div>
 
-        <div class="modal-callout-danger" style="margin-top:10px;">
+        <div class="modal-callout-danger modal-callout-mt">
           <strong>Indiana Code § 35-38-9-9(i) Lifetime Limit:</strong>
           <br>You can petition to expunge criminal convictions <u>only once in your lifetime</u>. Any conviction omitted now can
           <u>never be expunged later</u>.
@@ -811,7 +1022,7 @@
   </div>
 
   <!-- ═══ Modal: In-App PDF Court Pleadings Preview ═══ -->
-  <div class="modal-overlay" id="pdfPreviewModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="previewModalTitle">
+  <div class="modal-overlay" id="pdfPreviewModal" role="dialog" aria-modal="true" aria-labelledby="previewModalTitle">
     <div class="modal-dialog pdf-preview-dialog">
       <div class="modal-header pdf-preview-header">
         <div class="modal-header-left">
@@ -861,7 +1072,7 @@
           <div class="spinner"></div>
           <p>Compiling Trial Rule 10 court documents in memory...</p>
         </div>
-        <iframe id="pdfPreviewFrame" class="pdf-preview-frame" title="PDF Court Pleading Preview" style="display:none;"></iframe>
+        <iframe id="pdfPreviewFrame" class="pdf-preview-frame" title="PDF Court Pleading Preview"></iframe>
       </div>
       <div class="modal-footer pdf-preview-footer">
         <div class="pdf-preview-compliance-tag">
@@ -872,8 +1083,8 @@
     </div>
   </div>
 
-  <!-- ═══ Modal: Manual Case Entry ═══ -->
-  <div class="modal-overlay" id="manualEntryModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="manualEntryModalTitle">
+  <!-- ═══ Modal: Guided Manual Case Entry ═══ -->
+  <div class="modal-overlay" id="manualEntryModal" role="dialog" aria-modal="true" aria-labelledby="manualEntryModalTitle">
     <div class="modal-dialog">
       <div class="modal-header">
         <div class="modal-icon-alert">
@@ -882,44 +1093,92 @@
             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
           </svg>
         </div>
-        <h3 id="manualEntryModalTitle">Add Case Manually</h3>
+        <div>
+          <h3 id="manualEntryModalTitle" data-i18n="modal_manual_title">Guided Manual Case Entry</h3>
+          <span class="modal-header-sub" data-i18n="modal_manual_subtitle">Manually add records missing from MyCase search results</span>
+        </div>
       </div>
       <div class="modal-body">
-        <p class="modal-lead">Enter case details if the MyCase scraper failed to extract them.</p>
+        <div class="modal-callout-warning manual-entry-warning">
+          <strong>Lifetime One-Shot Completeness Rule:</strong>
+          <span data-i18n="modal_manual_oneshot_warning">Be sure to include all counts and convictions from your original charging document. Omitting any count or conviction permanently forfeits your right to expunge it later under IC § 35-38-9-9(i).</span>
+        </div>
+
         <form id="manualEntryForm" class="profile-form">
           <div class="form-group">
-            <label for="manualCaseNumber">Case Number *</label>
+            <label for="manualCaseNumber" data-i18n="modal_manual_lbl_causenum">Indiana Cause Number *</label>
             <input type="text" id="manualCaseNumber" placeholder="e.g. 49D01-1605-FD-000123" required>
+            <span class="field-hint">Format: CountyCourt-YYMM-Type-Number (e.g. 49D01-1605-FD-000123)</span>
           </div>
+
           <div class="form-group">
-            <label for="manualCaseTitle">Case Title</label>
-            <input type="text" id="manualCaseTitle" placeholder="e.g. State of Indiana v. John Doe">
+            <label for="manualOffenseTier" data-i18n="modal_manual_lbl_tier">Statutory Offense Tier *</label>
+            <select id="manualOffenseTier" class="input-field manual-tier-select" required>
+              <option value="IC § 35-38-9-1">Section 1: Non-Conviction / Dismissal / Arrest Only (Full Seal)</option>
+              <option value="IC § 35-38-9-2" selected>Section 2: Misdemeanor Conviction (Mandatory Seal · 5-Yr Wait)</option>
+              <option value="IC § 35-38-9-3">Section 3: Level 6 / Class D Felony (Mandatory Seal · 8-Yr Wait)</option>
+              <option value="IC § 35-38-9-4">Section 4: Major Felony without Bodily Injury (Discretionary · 8-Yr / 3-Yr Post-Sentence Wait)</option>
+              <option value="IC § 35-38-9-5">Section 5: Serious Felony with Bodily Injury (10-Yr Wait · Prosecutor Consent Required)</option>
+            </select>
           </div>
+
           <div class="form-row">
-            <div class="form-group" style="flex:1;">
-              <label for="manualCaseType">Case Type (Code) *</label>
-              <input type="text" id="manualCaseType" placeholder="e.g. FD, CM" required>
+            <div class="form-group flex-1">
+              <label for="manualCaseType" data-i18n="modal_manual_lbl_casetype">Case Type Code</label>
+              <input type="text" id="manualCaseType" placeholder="e.g. CM, FD, F6, MR">
             </div>
-            <div class="form-group" style="flex:1;">
-              <label for="manualDispositionDate">Disposition/Filed Date *</label>
+            <div class="form-group flex-1-5">
+              <label for="manualDispositionDate" data-i18n="modal_manual_lbl_dispdate">Disposition / Sentencing Date *</label>
               <input type="date" id="manualDispositionDate" required>
             </div>
           </div>
+
           <div class="form-group">
-            <label for="manualCharges">Charges (Optional)</label>
-            <textarea id="manualCharges" placeholder="e.g. Count 1: Theft (D Felony)" rows="2"></textarea>
+            <label for="manualSentenceCompletedDate" data-i18n="modal_manual_lbl_sentencecomp">Sentence / Probation Completion Date (Optional)</label>
+            <input type="date" id="manualSentenceCompletedDate">
+            <span class="field-hint">Required for Section 4 &amp; 5 felonies (3-year post-discharge statutory waiting period)</span>
+          </div>
+
+          <div class="form-group">
+            <label for="manualCaseTitle" data-i18n="modal_manual_lbl_title">Case Caption / Title</label>
+            <input type="text" id="manualCaseTitle" placeholder="e.g. State of Indiana v. Jane Doe">
+          </div>
+
+          <div class="form-group">
+            <label for="manualCharges" data-i18n="modal_manual_lbl_charges">Specific Charges / Counts</label>
+            <textarea id="manualCharges" placeholder="e.g. Count 1: Operating While Intoxicated (Class A Misdemeanor)" rows="2"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="manualBalanceDue" data-i18n="modal_manual_lbl_fines">Unpaid Fines &amp; Fees ($)</label>
+              <input type="number" id="manualBalanceDue" step="0.01" min="0" value="0.00">
+            </div>
+            <div class="form-group flex-1 form-group-center-pt">
+              <label class="checkbox-label">
+                <input type="checkbox" id="manualRestitutionSatisfied" checked>
+                <span data-i18n="modal_manual_lbl_restitution">Restitution fully satisfied ($0 balance)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-callout-danger modal-callout-mt">
+            <label class="checkbox-label manual-ack-label">
+              <input type="checkbox" id="manualAckCompleteness" required>
+              <span data-i18n="modal_manual_lbl_ack">I confirm that I have entered all counts from the charging information and docket. I understand that omitting any conviction permanently bars it from future expungement under the IC § 35-38-9-9(i) lifetime one-shot rule.</span>
+            </label>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" id="btnManualCancel">Cancel</button>
-        <button class="btn btn-primary" id="btnManualSave">Save Case</button>
+        <button class="btn btn-primary" id="btnManualSave" data-i18n="modal_manual_btn_save">Save Case to Records</button>
       </div>
     </div>
   </div>
 
   <!-- ═══ Modal: Full Legal Notice & Mission ═══ -->
-  <div class="modal-overlay" id="legalNoticeModal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="legalNoticeModalTitle">
+  <div class="modal-overlay" id="legalNoticeModal" role="dialog" aria-modal="true" aria-labelledby="legalNoticeModalTitle">
     <div class="modal-dialog">
       <div class="modal-header">
         <div class="modal-icon-alert">

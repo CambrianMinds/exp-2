@@ -24,16 +24,22 @@
   <meta name="keywords"
     content="Indiana expungement, IC 35-38-9, Indiana second chance law, clean slate Indiana, expunge criminal record, pro se legal help, Indiana court forms">
   <meta name="author" content="CambrianMinds">
-    <link rel="canonical" href="https://cambrianminds.github.io/exp-2/">
+  <link rel="canonical" href="https://cambrianminds.github.io/exp-2/">
+  <link rel="alternate" hreflang="en" href="https://cambrianminds.github.io/exp-2/">
+  <link rel="alternate" hreflang="es" href="https://cambrianminds.github.io/exp-2/?lang=es">
+  <link rel="alternate" hreflang="x-default" href="https://cambrianminds.github.io/exp-2/">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
   <!-- OpenGraph / Social Sharing -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Indiana Expungement Assistant">
   <meta property="og:url" content="https://cambrianminds.github.io/exp-2/">
   <meta property="og:title" content="Indiana Expungement Assistant — Second Chance Law Self-Help Portal">
   <meta property="og:description"
     content="Free pro se document assistant for Indiana Code § 35-38-9. In-browser MyCase record extraction and 10 official court pleadings.">
   <meta property="og:image" content="assets/hero.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -56,6 +62,8 @@
         "url": "https://cambrianminds.github.io/exp-2/",
         "applicationCategory": "LegalApplication",
         "operatingSystem": "All modern web browsers (Chrome, Edge, Firefox, Safari)",
+        "inLanguage": ["en", "es"],
+        "softwareVersion": "1.2.0",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -258,7 +266,7 @@
       <div class="hero-cta-block">
         <div class="hero-primary-wrap">
           <a href="app/app.html" class="btn btn-primary hero-btn-main">
-            <span>Launch Free Document Generator</span>
+            <span data-i18n="btn_launch_app">Launch Free Document Generator</span>
             <span class="btn-arrow" aria-hidden="true">&rarr;</span>
           </a>
           <span class="hero-cta-subtext">No login or personal data stored · Ready in ~10 minutes</span>
@@ -330,7 +338,7 @@
 
         <div class="statutory-clocks-cta">
           <button type="button" class="btn btn-primary open-rules-modal-btn" id="openRulesFromClocksBtn">
-            <span>Open Interactive Eligibility Calculator</span>
+            <span data-i18n="btn_check_eligibility">Open Interactive Eligibility Calculator</span>
             <span class="btn-arrow" aria-hidden="true">&rarr;</span>
           </button>
         </div>
@@ -1132,9 +1140,9 @@
           <span class="utility-badge extracted-style-9">Statutory Rules
             Engine</span>
           <h3 id="rulesModalTitle"
-            class="extracted-style-10">Check
+            class="extracted-style-10" data-i18n="calc_title">Check
             Statutory Eligibility (IC § 35-38-9 Waiting Periods)</h3>
-          <p class="extracted-style-11">Run your offense level and
+          <p class="extracted-style-11" data-i18n="calc_subtitle">Run your offense level and
             sentencing date against IC § 35-38-9 waiting periods and mandatory grant criteria.</p>
         </div>
         <button id="rulesModalCloseBtn" class="modal-close-btn" aria-label="Close dialog">&times;</button>
@@ -1152,7 +1160,7 @@
                   <input type="radio" name="calcTier" id="calcTier1" value="tier1">
                   <div class="tier-content">
                     <div class="tier-heading">
-                      <span>Arrests, Dismissals &amp; Non-Convictions</span>
+                      <span data-i18n="opt_arrests">Arrests, Dismissals &amp; Non-Convictions</span>
                       <span class="badge-tier badge-mandatory">Mandatory · 1 Year</span>
                     </div>
                     <div class="tier-text">Dropped charges, acquittals, or arrests without charges filed within 1 year.</div>
@@ -1163,7 +1171,7 @@
                   <input type="radio" name="calcTier" id="calcTier2" value="tier2" checked>
                   <div class="tier-content">
                     <div class="tier-heading">
-                      <span>Misdemeanors &amp; Reduced Felonies</span>
+                      <span data-i18n="opt_misdemeanors">Misdemeanors &amp; Reduced Felonies</span>
                       <span class="badge-tier badge-mandatory">Mandatory · 5 Years</span>
                     </div>
                     <div class="tier-text">Class A, B, or C misdemeanors and Class D/Level 6 felonies reduced to misdemeanors.</div>
@@ -1174,7 +1182,7 @@
                   <input type="radio" name="calcTier" id="calcTier3" value="tier3">
                   <div class="tier-content">
                     <div class="tier-heading">
-                      <span>Class D &amp; Level 6 Felonies</span>
+                      <span data-i18n="opt_d_felonies">Class D &amp; Level 6 Felonies</span>
                       <span class="badge-tier badge-mandatory">Mandatory · 8 Years</span>
                     </div>
                     <div class="tier-text">Non-violent Class D and Level 6 felonies that did not result in bodily injury.</div>
@@ -1185,7 +1193,7 @@
                   <input type="radio" name="calcTier" id="calcTier4" value="tier4">
                   <div class="tier-content">
                     <div class="tier-heading">
-                      <span>Major Felonies (Non-Violent Levels 1–5)</span>
+                      <span data-i18n="opt_major_felonies">Major Felonies (Non-Violent Levels 1–5)</span>
                       <span class="badge-tier badge-discretionary">Discretionary · 8 Years</span>
                     </div>
                     <div class="tier-text">Major felony offenses. The trial court exercises judicial discretion.</div>
@@ -1196,7 +1204,7 @@
                   <input type="radio" name="calcTier" id="calcTier5" value="tier5">
                   <div class="tier-content">
                     <div class="tier-heading">
-                      <span>Serious Violent Felonies</span>
+                      <span data-i18n="opt_violent_felonies">Serious Violent Felonies</span>
                       <span class="badge-tier badge-discretionary">Prosecutor Consent · 10 Yrs</span>
                     </div>
                     <div class="tier-text">Offenses involving serious bodily injury. Requires prosecutor's written approval.</div>
@@ -1208,7 +1216,7 @@
             <div>
               <div class="step-header">
                 <span class="step-num">2</span>
-                <span id="dateStepLabel">Date of Conviction / Sentencing</span>
+                <span id="dateStepLabel" data-i18n="lbl_date_conviction">Date of Conviction / Sentencing</span>
               </div>
               <div class="form-group">
                 <label for="calcDate" id="calcDateLabel" class="form-label">Enter date of conviction / sentencing (NOT
@@ -1233,7 +1241,7 @@
             <div>
               <div class="step-header">
                 <span class="step-num">3</span>
-                <span>Statutory Pre-Filing Requirements</span>
+                <span data-i18n="lbl_statutory_reqs">Statutory Pre-Filing Requirements</span>
               </div>
               <p class="step-subhead extracted-style-12">
                 Standard calculations assume clean records with fines paid and no pending cases. Expand below to test special circumstances.
@@ -1248,18 +1256,18 @@
                 <div class="checklist-group calc-disclosure-body">
                   <label class="check-item">
                     <input type="checkbox" id="calcCheckFines" checked>
-                    <span>All court costs, probation fees, fines, and victim restitution are fully satisfied</span>
+                    <span data-i18n="req_1">All court costs, probation fees, fines, and victim restitution are fully satisfied</span>
                   </label>
                   <label class="check-item">
                     <input type="checkbox" id="calcCheckPending" checked>
-                    <span>There are NO pending criminal charges against you in any court</span>
+                    <span data-i18n="req_2">There are NO pending criminal charges against you in any court</span>
                   </label>
                   <div id="pendingAlertNote" class="extracted-style-13">
                     <strong>Absolute Statutory Bar:</strong> You cannot petition for expungement if any criminal charges are pending against you in any court. All pending cases must be resolved before filing.
                   </div>
                   <label class="check-item">
                     <input type="checkbox" id="calcCheckConvictions" checked>
-                    <span>No new criminal convictions within the applicable statutory waiting period</span>
+                    <span data-i18n="req_3">No new criminal convictions within the applicable statutory waiting period</span>
                   </label>
                   <div id="newConvictionContainer" class="extracted-style-14">
                     <label for="calcNewConvictionDate" class="form-label extracted-style-15">
@@ -1295,7 +1303,7 @@
               <!-- Visual Progress Meter -->
               <div class="progress-meter-container">
                 <div class="progress-meter-header">
-                  <span>Statutory Waiting Progress</span>
+                  <span data-i18n="lbl_progress">Statutory Waiting Progress</span>
                   <span id="resProgressText" class="extracted-style-19">100% Complete</span>
                 </div>
                 <div class="progress-meter-track">
@@ -1305,19 +1313,19 @@
 
               <div class="result-table">
                 <div class="result-row">
-                  <span class="result-label">Statutory Basis:</span>
+                  <span class="result-label" data-i18n="lbl_statutory_basis">Statutory Basis:</span>
                   <span id="resStatute" class="result-val">IC § 35-38-9-2</span>
                 </div>
                 <div class="result-row">
-                  <span class="result-label">Statutory Waiting Period:</span>
+                  <span class="result-label" data-i18n="lbl_waiting_period">Statutory Waiting Period:</span>
                   <span id="resWaiting" class="result-val">5 Years</span>
                 </div>
                 <div class="result-row">
-                  <span class="result-label">Time Elapsed:</span>
+                  <span class="result-label" data-i18n="lbl_time_elapsed">Time Elapsed:</span>
                   <span id="resElapsed" class="result-val">6.0 Years elapsed</span>
                 </div>
                 <div class="result-row">
-                  <span class="result-label">Judicial Standard:</span>
+                  <span class="result-label" data-i18n="lbl_judicial_standard">Judicial Standard:</span>
                   <span id="resStandard" class="result-val">Mandatory (Court Shall Grant)</span>
                 </div>
               </div>

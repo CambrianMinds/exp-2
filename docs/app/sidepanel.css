@@ -1068,6 +1068,32 @@ body {
   border-color: var(--color-gold-500);
 }
 
+.case-badge.barred {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+  font-weight: 800;
+}
+
+[data-theme="dark"] .case-badge.barred {
+  background-color: rgba(185, 28, 28, 0.25);
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
+.matrix-badge.badge-barred {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .matrix-badge.badge-barred {
+  background-color: rgba(185, 28, 28, 0.2);
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
 .btn-remove-case {
   background: transparent;
   border: none;
@@ -1996,7 +2022,7 @@ select.is-invalid {
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 1000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
@@ -2986,4 +3012,850 @@ select.is-invalid {
   align-items: center;
   gap: 0.4rem;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Enhanced Onboarding, Eligibility Feedback, Pre-Flight & Mobile Styles
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Primary Recommendation Card ── */
+.primary-recommendation-card {
+  background: linear-gradient(135deg, rgba(20, 108, 67, 0.08) 0%, rgba(212, 175, 55, 0.09) 100%);
+  border: 1.5px solid var(--color-emerald-600, #198754);
+  border-radius: var(--radius-md, 8px);
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.recommendation-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-star-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #198754;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.recommendation-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gold-700, #8c6d17);
+}
+
+.recommendation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+@media (min-width: 640px) {
+  .recommendation-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.recommendation-text h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
+}
+
+.recommendation-text p {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.recommendation-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* ── ISP Notice Banner ── */
+.isp-notice-banner {
+  display: flex;
+  gap: 0.85rem;
+  background: rgba(217, 119, 6, 0.08);
+  border-left: 4px solid #d97706;
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.isp-notice-icon {
+  color: #d97706;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.isp-notice-body h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #92400e;
+  margin: 0 0 0.25rem 0;
+}
+
+[data-theme="dark"] .isp-notice-body h5 {
+  color: #f59e0b;
+}
+
+.isp-notice-body p {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0 0 0.35rem 0;
+}
+
+.isp-link-p {
+  margin: 0 !important;
+  font-size: 0.82rem;
+}
+
+.isp-link-p a {
+  color: #d97706;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.isp-pricing-time-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 8px 0 10px 0;
+  padding: 8px 10px;
+  background: rgba(217, 119, 6, 0.08);
+  border-radius: 4px;
+  font-size: 0.77rem;
+  border: 1px dashed rgba(217, 119, 6, 0.35);
+}
+
+.isp-metric-item .metric-label {
+  color: #92400e;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+[data-theme="dark"] .isp-metric-item .metric-label {
+  color: #fbbf24;
+}
+
+.isp-actions-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn-isp-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #d97706;
+  color: #ffffff !important;
+  border: 1px solid #b45309;
+  padding: 5px 11px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.btn-isp-action:hover {
+  background-color: #b45309;
+  color: #ffffff !important;
+}
+
+.isp-mail-link {
+  color: #d97706;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .isp-mail-link {
+  color: #fbbf24;
+}
+
+.address-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 8px;
+}
+
+.address-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.address-entry .btn-copy-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background-color: var(--bg-surface, #ffffff);
+  border: 1px solid var(--border-medium, #cbd5e1);
+  border-radius: var(--radius-sm, 4px);
+  color: var(--text-secondary, #475569);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition, 0.15s ease);
+}
+
+.address-entry .btn-copy-address:hover {
+  background-color: var(--bg-subtle, #f1f5f9);
+  color: var(--color-navy-900, #0f172a);
+  border-color: #94a3b8;
+}
+
+.address-statutory-explanation {
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-left: 3px solid #2563eb;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-color, #1e293b);
+}
+
+.statutory-explanation-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #1d4ed8;
+  margin-bottom: 4px;
+  font-size: 0.82rem;
+}
+
+.statutory-explanation-bullets {
+  margin: 6px 0 0 16px;
+  padding: 0;
+  font-size: 0.75rem;
+  list-style-type: disc;
+}
+
+.statutory-explanation-bullets li {
+  margin-bottom: 4px;
+}
+
+[data-theme="dark"] .address-statutory-explanation {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .statutory-explanation-header {
+  color: #60a5fa;
+}
+
+.statutorily-barred-warning {
+  background: rgba(220, 38, 38, 0.08);
+  border-left: 4px solid #dc2626;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+
+/* ── Expungement Tiers Explainer Drawer ── */
+.expungement-explainer-drawer {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md, 8px);
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+}
+
+.explainer-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem;
+  cursor: pointer;
+  background: var(--bg-subtle);
+  user-select: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.explainer-summary-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text-primary);
+}
+
+.explainer-tag {
+  font-size: 0.74rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.explainer-body {
+  padding: 1.1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.explainer-tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .explainer-tiers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tier-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.9rem;
+  background: var(--bg-surface);
+}
+
+.tier-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.tier-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem 0;
+  color: var(--text-primary);
+}
+
+.tier-remedy {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0.55rem;
+}
+
+.tier-remedy.full-seal {
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+.tier-remedy.mandatory-seal {
+  background: rgba(22, 163, 74, 0.15);
+  color: #16a34a;
+}
+
+.tier-remedy.discretionary-seal {
+  background: rgba(217, 119, 6, 0.15);
+  color: #d97706;
+}
+
+.tier-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.tier-features li {
+  margin-bottom: 0.35rem;
+}
+
+.ineligible-categories-box {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(220, 38, 38, 0.06);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: var(--radius-sm, 6px);
+}
+
+.ineligible-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.ineligible-header h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #b91c1c;
+  margin: 0;
+}
+
+.ineligible-categories-box p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+}
+
+.ineligible-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ineligible-pill {
+  font-size: 0.74rem;
+  padding: 0.25rem 0.55rem;
+  background: rgba(220, 38, 38, 0.1);
+  color: #991b1b;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ── Pre-Flight Completeness Checklist ── */
+.preflight-checklist-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md, 8px);
+  padding: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.preflight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.preflight-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.preflight-header h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.15rem 0;
+  color: var(--text-primary);
+}
+
+.preflight-header p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.preflight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+
+.preflight-item:last-child {
+  border-bottom: none;
+}
+
+.preflight-checkbox {
+  margin-top: 0.25rem;
+  accent-color: var(--color-emerald-600, #198754);
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.preflight-label {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+/* ── Statutory Eligibility Matrix Card ── */
+.eligibility-matrix-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md, 8px);
+  padding: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.matrix-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.85rem;
+}
+
+.matrix-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.matrix-table-responsive {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm, 6px);
+}
+
+.matrix-table th {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.matrix-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.matrix-court-sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.matrix-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.badge-fullseal { background: rgba(59, 130, 246, 0.15); color: #2563eb; }
+.badge-mandatory { background: rgba(22, 163, 74, 0.15); color: #16a34a; }
+.badge-discretionary { background: rgba(217, 119, 6, 0.15); color: #d97706; }
+.badge-consent { background: rgba(220, 38, 38, 0.15); color: #dc2626; }
+.badge-neutral { background: var(--border-subtle); color: var(--text-muted); }
+
+.wait-met { color: #16a34a; font-weight: 600; font-size: 0.78rem; }
+.wait-waiting { color: #d97706; font-weight: 600; font-size: 0.78rem; }
+.bal-ok { color: #16a34a; font-size: 0.78rem; }
+.bal-warn { color: #dc2626; font-weight: 600; font-size: 0.78rem; }
+.fee-free { color: #2563eb; font-weight: 600; font-size: 0.78rem; }
+.fee-standard { color: var(--text-secondary); font-size: 0.78rem; }
+.statute-link-out { color: var(--color-blue-600, #2563eb); font-weight: 600; text-decoration: none; }
+.statute-link-out:hover { text-decoration: underline; }
+
+/* ── Lawyer Advisory Card ── */
+.lawyer-advisory-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md, 8px);
+  padding: 1.1rem;
+  margin-top: 1.25rem;
+}
+
+.lawyer-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.lawyer-card-header h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.15rem 0;
+}
+
+.lawyer-card-header p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.filing-method-block {
+  margin-bottom: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.lawyer-advisory-warning {
+  background: rgba(217, 119, 6, 0.08);
+  border-left: 3px solid #d97706;
+  padding: 0.75rem 0.9rem;
+  border-radius: 4px;
+  margin: 0.85rem 0;
+  font-size: 0.8rem;
+}
+
+.lawyer-advisory-warning ul {
+  margin: 0.35rem 0 0 1.2rem;
+  padding: 0;
+}
+
+.lawyer-resource-links {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.lawyer-link-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-blue-600, #2563eb);
+  text-decoration: underline;
+}
+
+/* ── Mobile Form UX & Touch Target Polish (44px Minimum) ── */
+@media (max-width: 640px) {
+  button.btn,
+  .tab-btn,
+  .btn-remove,
+  .btn-remove-case,
+  input[type="text"],
+  input[type="date"],
+  input[type="password"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    min-height: 44px;
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+  }
+
+  .form-row,
+  .form-row-city-state-zip {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .address-entry {
+    padding: 1rem;
+  }
+
+  .dropzone-inner {
+    padding: 1.5rem 1rem;
+  }
+
+  .dropzone-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dropzone-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ── Clean Architecture: Migrated Semantic Classes & Hidden Defaults ── */
+#resultsBadge,
+#batchPanel,
+#scanProgress,
+#uploadStatus,
+#resultsContent,
+#countySelectCard,
+#generateStatus,
+#pdfPreviewFrame,
+#pasteContainer,
+#priorFilingSection1Callout,
+#priorFilingDateBox,
+#confirmMultiCountyNotice,
+#confirmFeesNotice,
+#htmlUpload,
+#fileUpload {
+  display: none;
+}
+
+.ineligible-categories-box {
+  margin-top: 10px;
+}
+
+.upload-html-wrapper {
+  margin-top: 12px;
+}
+
+.btn-upload-html {
+  width: 100%;
+  border-style: dashed;
+  padding: 10px;
+}
+
+.prior-filings-box {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: var(--bg-card-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+#priorFilingSection1Callout {
+  padding: 12px 14px;
+  background: rgba(59, 130, 246, 0.12);
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.prior-filings-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.prior-filings-desc {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.prior-filings-radios {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.prior-filing-fields {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.prior-filing-col {
+  flex: 1;
+  min-width: 180px;
+}
+
+.prior-filing-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.prior-filing-input {
+  width: 100%;
+}
+
+.prior-filing-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+.service-method-row {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-method-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.service-method-select {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+
+.modal-subtext-tight {
+  margin-bottom: 6px;
+}
+
+#confirmCaseList {
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.modal-callout-mt {
+  margin-top: 10px;
+}
+
+.confirm-notice-text {
+  margin: 4px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.manual-entry-warning {
+  margin-bottom: 12px;
+}
+
+.manual-tier-select {
+  width: 100%;
+  padding: 8px;
+}
+
+.manual-ack-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-1-5 {
+  flex: 1.5;
+}
+
+.form-group-center-pt {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.nav-link-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-back-icon {
+  margin-right: 2px;
+}
+
+.empty-state-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+
 

@@ -7,3 +7,8 @@ export const AppState = {
   pendingScanResult: null
 };
 
+if (typeof window !== 'undefined') {
+  window.IndianaExpungement = window.IndianaExpungement || {};
+  window.IndianaExpungement.AppState = AppState;
+}
+

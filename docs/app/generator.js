@@ -1,5 +1,5 @@
 import { AppState } from './state.js';
-import { $, safeISOString } from './utils.js';
+import { $, safeISOString, recordLocalGenerationStat } from './utils.js';
 import { showToast, updateChecklist, switchTab } from './ui.js';
 import { generateCompletePacket, generateAppearanceForm } from './pdf-generator.js';
 import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './county-directory.js';
@@ -98,8 +98,11 @@ import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './count
     await executePacketGeneration();
   });
 
-  // Acknowledgment Checkbox Listeners
-  ['ackOneShot', 'ackAllCounties', 'ackNotLawyer', 'ackProSe'].forEach(id => {
+  // Acknowledgment & Preflight Checkbox Listeners
+  [
+    'ackOneShot', 'ackAllCounties', 'ackNotLawyer', 'ackProSe',
+    'chkPreflight92Counties', 'chkPreflightISP', 'chkPreflightFines', 'chkPreflightPending'
+  ].forEach(id => {
     $(`#${id}`)?.addEventListener('change', () => {
       updateChecklist();
     });
@@ -255,6 +258,16 @@ import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './count
       return;
     }
 
+    const preflightReady = (!$('#chkPreflight92Counties') || $('#chkPreflight92Counties').checked) &&
+                           (!$('#chkPreflightISP') || $('#chkPreflightISP').checked) &&
+                           (!$('#chkPreflightFines') || $('#chkPreflightFines').checked) &&
+                           (!$('#chkPreflightPending') || $('#chkPreflightPending').checked);
+
+    if (!preflightReady) {
+      showToast('Please confirm all 4 pre-flight completeness checklist items before generating.', 'error', 5000);
+      return;
+    }
+
     const courtEl = $('#confirmCourtCounty');
     if (courtEl) {
       const courtName = targetCountyCheck?.courtName || (targetCountyCheck?.countyName ? `${targetCountyCheck.countyName} County Court` : (AppState.petitionerProfile?.county ? `${AppState.petitionerProfile.county} County Court` : 'Indiana Circuit / Superior Court'));
@@ -400,13 +413,18 @@ import { getCountyInfo, STATEWIDE_AGENCIES, getAvailableCounties } from './count
 
       statusText.textContent = 'Generating complete expungement packet (Forms 00–08)...';
 
-      const pdfBytes = await generateCompletePacket(payload);
+      const pdfBytes = await generateCompletePacket(payload, (prog) => {
+        if (statusText) {
+          statusText.textContent = `Generating form ${prog.formIndex} of ${prog.totalForms}: ${prog.formName}...`;
+        }
+      });
       const blob = new Blob([pdfBytes], { type: 'application/pdf' });
       const countyName = (payload.county || 'expungement').replace(/\s+/g, '_');
       const petitionerLast = (payload.petitioner?.fullName || 'packet').split(/\s+/).pop();
       const filename = `${petitionerLast}_${countyName}_Expungement_Packet.pdf`;
 
       await downloadPetition(blob, filename);
+      recordLocalGenerationStat(payload.cases?.length || 1);
       showToast(`Complete court packet generated: ${filename}`, 'success', 6000);
       statusText.textContent = `Download started: ${filename}`;
     } catch (e) {

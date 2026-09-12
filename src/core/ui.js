@@ -47,20 +47,28 @@ export function updateChecklist() {
     $('#ackNotLawyer')?.checked &&
     $('#ackProSe')?.checked
   );
+  const preflightReady = Boolean(
+    (!$('#chkPreflight92Counties') || $('#chkPreflight92Counties').checked) &&
+    (!$('#chkPreflightISP') || $('#chkPreflightISP').checked) &&
+    (!$('#chkPreflightFines') || $('#chkPreflightFines').checked) &&
+    (!$('#chkPreflightPending') || $('#chkPreflightPending').checked)
+  );
 
   setChecklistItem('checkProfile', profileReady);
   setChecklistItem('checkCases', casesReady);
   setChecklistItem('checkBackendReady', true); // In-browser engine active
   setChecklistItem('checkAcknowledgments', acksReady);
+  setChecklistItem('checkPreflight', preflightReady);
 
-  // Enable generate and preview buttons only when ALL checks pass including legal acknowledgments
+  // Enable generate and preview buttons only when ALL checks pass including legal acknowledgments and preflight checklist
+  const allReady = profileReady && casesReady && acksReady && preflightReady;
   const generateBtn = $('#btnGenerate');
   if (generateBtn) {
-    generateBtn.disabled = !(profileReady && casesReady && acksReady);
+    generateBtn.disabled = !allReady;
   }
   const previewBtn = $('#btnPreview');
   if (previewBtn) {
-    previewBtn.disabled = !(profileReady && casesReady && acksReady);
+    previewBtn.disabled = !allReady;
   }
 
   updatePriorFilingsVisibility();

@@ -22,6 +22,7 @@ const IndianaExpungement = (() => {
     'F5': { level: 'felony', class: '5', severity: 2 },
     'F6': { level: 'felony', class: '6', severity: 1 },
     'DF': { level: 'felony', class: 'D', severity: 3 },  // Legacy alias
+    'MR': { level: 'felony', class: 'Murder', severity: 7, barred: true }, // Murder (IC § 35-42-1-1) - Statutorily barred
     // Misdemeanors
     'CM': { level: 'misdemeanor', class: 'A/B/C', severity: 0 },
     'MA': { level: 'misdemeanor', class: 'A', severity: 0 },
@@ -84,12 +85,15 @@ const IndianaExpungement = (() => {
     }
   ];
 
-  // Offenses that suggest bodily injury (affects § 3 eligibility)
+  // Offenses that suggest bodily injury (affects § 3 eligibility: court discretion under § 3(b))
   const BODILY_INJURY_INDICATORS = [
+    'BODILY INJURY',
+    'BATTERY RESULTING IN BODILY INJURY',
+    'DOMESTIC BATTERY',
     'CAUSING SERIOUS BODILY INJURY',
     'RESULTING IN DEATH',
     'AGGRAVATED BATTERY',
-    'ATTEMPTED MURDER',
+    'ATTEMPTED MURDER'
   ];
 
   // ─── Core Eligibility Functions ──────────────────────────────────────
@@ -135,30 +139,103 @@ const IndianaExpungement = (() => {
   }
 
   /**
-   * Parse a date string (MM/DD/YYYY or YYYY-MM-DD) into a Date object.
-   * Tolerates timestamps and avoids timezone conversion shifts.
+   * Parse a date string, timestamp, or Date object into a valid Date object.
+   * Tolerates:
+   * - MM/DD/YYYY (with or without timestamps, e.g. "05/10/2018 11:30:00 AM")
+   * - YYYY-MM-DD (e.g. "2018-05-10" or "2018-05-10T14:30:00.000Z")
+   * - Odyssey / ASP.NET serialized dates: "/Date(1525924800000)/" or "/Date(1525924800000-0500)/"
+   * - Epoch millisecond numbers or numeric strings
+   * - Textual dates: "May 10, 2018", "10-MAY-2018", "10 May 2018"
+   * Avoids timezone conversion shifts for calendar dates.
    */
   function parseDate(dateStr) {
     if (!dateStr) return null;
-    const str = dateStr.trim();
+    if (dateStr instanceof Date) {
+      return isNaN(dateStr.getTime()) ? null : dateStr;
+    }
+    if (typeof dateStr === 'number') {
+      const d = new Date(dateStr);
+      return isNaN(d.getTime()) ? null : d;
+    }
 
+    const str = String(dateStr).trim();
+    if (!str) return null;
+
+    // 1. ASP.NET / Odyssey WCF serialized JSON date: /Date(1525924800000)/ or /Date(1525924800000-0500)/
+    const aspMatch = str.match(/\/Date\((\d+)(?:[+-]\d+)?\)\//);
+    if (aspMatch) {
+      const d = new Date(parseInt(aspMatch[1], 10));
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    // 2. Pure epoch millisecond or second string
+    if (/^\d{10,13}$/.test(str)) {
+      const num = parseInt(str, 10);
+      const ms = str.length === 10 ? num * 1000 : num;
+      const d = new Date(ms);
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    // 3. MM/DD/YYYY (optionally followed by time/timestamp)
     let match = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
-    if (match) return new Date(parseInt(match[3]), parseInt(match[1]) - 1, parseInt(match[2]));
+    if (match) {
+      return new Date(parseInt(match[3], 10), parseInt(match[1], 10) - 1, parseInt(match[2], 10));
+    }
 
-    match = str.match(/^(\d{4})-(\d{2})-(\d{2})/);
-    if (match) return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+    // 4. YYYY-MM-DD (calendar date without timezone shift)
+    match = str.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T\s].*)?$/);
+    if (match) {
+      return new Date(parseInt(match[1], 10), parseInt(match[2], 10) - 1, parseInt(match[3], 10));
+    }
 
+    // 5. DD-MMM-YYYY or DD MMM YYYY (e.g. "10-MAY-2018" or "10 May 2018")
+    const monthNames = {
+      JAN: 0, FEB: 1, MAR: 2, APR: 3, MAY: 4, JUN: 5,
+      JUL: 6, AUG: 7, SEP: 8, OCT: 9, NOV: 10, DEC: 11
+    };
+    match = str.match(/^(\d{1,2})[-\s]([A-Za-z]{3,9})[-\s](\d{4})/);
+    if (match) {
+      const mStr = match[2].substr(0, 3).toUpperCase();
+      if (monthNames[mStr] !== undefined) {
+        return new Date(parseInt(match[3], 10), monthNames[mStr], parseInt(match[1], 10));
+      }
+    }
+
+    // 6. MMM DD, YYYY (e.g. "May 10, 2018")
+    match = str.match(/^([A-Za-z]{3,9})\s+(\d{1,2}),?\s+(\d{4})/);
+    if (match) {
+      const mStr = match[1].substr(0, 3).toUpperCase();
+      if (monthNames[mStr] !== undefined) {
+        return new Date(parseInt(match[3], 10), monthNames[mStr], parseInt(match[2], 10));
+      }
+    }
+
+    // 7. Standard Date constructor fallback
     const d = new Date(str);
     return isNaN(d.getTime()) ? null : d;
   }
 
   /**
    * Extract disposition date from a status string.
+   * Tolerates MM/DD/YYYY, YYYY-MM-DD, or Month DD, YYYY patterns.
    */
   function extractDispositionDate(statusStr) {
     if (!statusStr) return null;
-    const match = statusStr.match(/(\d{1,2}\/\d{1,2}\/\d{4})/);
-    return match ? parseDate(match[1]) : null;
+    const str = String(statusStr).trim();
+
+    // Try MM/DD/YYYY
+    const mdy = str.match(/(\d{1,2}\/\d{1,2}\/\d{4})/);
+    if (mdy) return parseDate(mdy[1]);
+
+    // Try YYYY-MM-DD
+    const ymd = str.match(/(\d{4}-\d{2}-\d{2})/);
+    if (ymd) return parseDate(ymd[1]);
+
+    // Try Month DD, YYYY
+    const textDate = str.match(/([A-Za-z]{3,9}\s+\d{1,2},?\s+\d{4})/);
+    if (textDate) return parseDate(textDate[1]);
+
+    return parseDate(str);
   }
 
   /**
@@ -175,13 +252,29 @@ const IndianaExpungement = (() => {
   }
 
   /**
-   * Check if a charge description falls under an ineligibility rule.
+   * Check if a case or charge description falls under an ineligibility rule (IC § 35-38-9).
    */
-  function checkIneligibility(charges) {
-    if (!charges) return null;
-    const upper = charges.toUpperCase();
+  function checkIneligibility(charges, caseData = {}) {
+    const cNum = caseData.case_number || caseData.caseNumber || '';
+    const typeCode = extractCaseTypeCode(caseData.case_type || cNum);
+    
+    // Automatic statutory bar for Murder (MR)
+    if (typeCode === 'MR' || /-MR-/i.test(cNum)) {
+      return {
+        keywords: ['MR', 'MURDER'],
+        rule: 'IC § 35-38-9-3(b)',
+        reason: 'Statutorily Barred: Murder (MR / IC § 35-42-1-1)',
+        description: 'Under IC § 35-38-9-3(b) and § 8(b), Indiana law strictly bars any offense resulting in death or homicide from expungement.',
+        mitigationType: 'strictly_excluded',
+        mitigationSteps: 'This offense cannot be expunged under Indiana law. A gubernatorial pardon is the only potential legal avenue.'
+      };
+    }
+
+    const textToScan = `${charges || ''} ${caseData.title || ''}`.toUpperCase();
+    if (!textToScan.trim()) return null;
+
     for (const rule of INELIGIBILITY_RULES) {
-      if (rule.keywords.some(keyword => upper.includes(keyword))) {
+      if (rule.keywords.some(keyword => textToScan.includes(keyword))) {
         return rule;
       }
     }
@@ -223,12 +316,99 @@ const IndianaExpungement = (() => {
   }
 
   /**
+   * Validates a single case record before processing.
+   * Identifies malformed cause numbers, missing dates, unsupported case types,
+   * and chronological anomalies.
+   *
+   * @param {Object} caseData - The case data record to validate
+   * @returns {{ isValid: boolean, errors: string[], warnings: string[], normalized: Object }}
+   */
+  function validateCaseRecord(caseData) {
+    const errors = [];
+    const warnings = [];
+
+    if (!caseData || typeof caseData !== 'object') {
+      return {
+        isValid: false,
+        errors: ['Case record is missing or invalid object.'],
+        warnings: [],
+        normalized: null
+      };
+    }
+
+    const caseNum = (caseData.case_number || caseData.caseNumber || '').trim();
+    if (!caseNum) {
+      errors.push('Missing case number / cause number.');
+    } else {
+      // Indiana case number format: XX(C|D|H|I|G)XX-YYYY-CC-NNNNNN
+      const isIndPattern = /^\d{1,2}[A-Za-z]\d{1,2}\s*[-–—]\s*\d{4}\s*[-–—]\s*[A-Za-z0-9]{2,3}\s*[-–—]\s*\d{3,7}$/i.test(caseNum);
+      if (!isIndPattern) {
+        warnings.push(`Cause number "${caseNum}" does not match standard Indiana Trial Rule 77 format (XXDXX-YYYY-CC-NNNNNN).`);
+      }
+    }
+
+    const typeCode = extractCaseTypeCode(caseData.case_type || caseNum);
+    if (!typeCode) {
+      warnings.push('Unable to determine Indiana case type code from case number or description.');
+    } else if (!CASE_TYPE_MAP[typeCode]) {
+      warnings.push(`Case type code "${typeCode}" is not recognized in standard Indiana court taxonomy.`);
+    }
+
+    const courtCode = extractCourtCode(caseNum);
+    const countyCode = courtCode ? extractCountyCode(courtCode) : null;
+    if (countyCode && !INDIANA_COUNTIES[countyCode]) {
+      warnings.push(`County FIPS code "${countyCode}" is not recognized in Indiana (01-92).`);
+    }
+
+    const filedDate = parseDate(caseData.filed);
+    const rawDisp = caseData.dispositionDate || caseData.ccs?.dispositionDate || extractDispositionDate(caseData.status);
+    const dispDate = parseDate(rawDisp);
+
+    if (caseData.filed && !filedDate) {
+      warnings.push(`Filed date "${caseData.filed}" could not be parsed.`);
+    }
+
+    if (rawDisp && !dispDate) {
+      warnings.push(`Disposition date "${rawDisp}" could not be parsed.`);
+    }
+
+    if (filedDate && dispDate && dispDate < filedDate) {
+      warnings.push(`Chronological anomaly: Disposition date (${dispDate.toLocaleDateString()}) is earlier than filed date (${filedDate.toLocaleDateString()}).`);
+    }
+
+    const typeInfo = typeCode ? CASE_TYPE_MAP[typeCode] : null;
+    const isCriminal = typeInfo && ['misdemeanor', 'felony'].includes(typeInfo.level);
+    if (isCriminal && !dispDate && !caseData.status?.toUpperCase().includes('PENDING')) {
+      warnings.push('Criminal case lacks a verified disposition date. Eligibility calculations require verification of final judgment date.');
+    }
+
+    return {
+      isValid: errors.length === 0,
+      errors,
+      warnings,
+      normalized: {
+        caseNumber: caseNum,
+        typeCode,
+        courtCode,
+        countyCode,
+        countyName: countyCode ? getCountyName(countyCode) : null,
+        filedDate,
+        dispositionDate: dispDate,
+        typeInfo
+      }
+    };
+  }
+
+  /**
    * Determine the applicable IC § 35-38-9 section for a given case.
    */
   function assessEligibility(caseData, asOf = new Date(), mostRecentConvictionDate = null) {
     const typeCode = extractCaseTypeCode(caseData.case_type || caseData.caseNumber);
     const typeInfo = CASE_TYPE_MAP[typeCode] || null;
-    const dispositionDate = extractDispositionDate(caseData.status) || parseDate(caseData.filed);
+
+    // Check direct disposition date, CCS disposition, status regex, and filed date fallback
+    const rawDisp = caseData.dispositionDate || caseData.ccs?.dispositionDate || extractDispositionDate(caseData.status) || caseData.filed;
+    const dispositionDate = parseDate(rawDisp);
     const elapsed = yearsElapsed(dispositionDate, asOf);
     const statusUpper = (caseData.status || '').toUpperCase();
     const isPending = statusUpper.includes('PENDING');
@@ -250,14 +430,25 @@ const IndianaExpungement = (() => {
       eligible: false,
       statute: null,
       statuteLabel: null,
+      statuteUrl: 'https://iga.in.gov/laws/2024/ic/titles/35#35-38-9',
       waitingPeriod: null,
       waitingPeriodMet: false,
       eligibilityDate: null,
       reason: '',
       warnings: [],
+      validationErrors: [],
+      dateParseFailed: false,
       filingFee: null,
       grantType: null
     };
+
+    // Detect unparseable or missing disposition dates on criminal records
+    const isCriminal = typeInfo && ['infraction', 'misdemeanor', 'felony', 'miscellaneous_criminal'].includes(typeInfo.level);
+    if (!dispositionDate && isCriminal) {
+      result.dateParseFailed = true;
+      result.validationErrors.push('Missing or unparseable disposition date');
+      result.warnings.push('Court record lacks a verifiable disposition or sentencing date. Manual verification is required before filing.');
+    }
 
     // ── Exclude non-criminal cases ──
     if (typeInfo && ['civil', 'domestic', 'guardianship', 'juvenile', 'adoption',
@@ -269,7 +460,7 @@ const IndianaExpungement = (() => {
     }
 
     // ── Check for ineligible offenses ──
-    const ineligibilityRule = checkIneligibility(charges);
+    const ineligibilityRule = checkIneligibility(charges, caseData);
     if (ineligibilityRule) {
       result.reason = `INELIGIBLE: ${ineligibilityRule.reason}`;
       result.statute = ineligibilityRule.rule;
@@ -277,9 +468,13 @@ const IndianaExpungement = (() => {
       result.exclusionReason = ineligibilityRule.description;
       result.mitigationType = ineligibilityRule.mitigationType;
       result.mitigationSteps = ineligibilityRule.mitigationSteps;
+      result.isStatutorilyBarred = true;
+      result.barredCategory = ineligibilityRule.reason;
 
       if (ineligibilityRule.mitigationType === 'consent_required') {
         result.warnings.push('Prosecutor consent is REQUIRED to expunge this offense.');
+      } else {
+        result.warnings.push(`Statutory Bar: Offense is permanently excluded from expungement under ${ineligibilityRule.rule}.`);
       }
       return result;
     }
@@ -299,6 +494,7 @@ const IndianaExpungement = (() => {
       }
       result.statute = 'IC § 35-38-9-1';
       result.statuteLabel = 'Arrest/Infraction Expungement (§ 1)';
+      result.statuteUrl = 'https://iga.in.gov/laws/2024/ic/titles/35#35-38-9-1';
       result.waitingPeriod = 1;
       result.waitingPeriodMet = elapsed >= 1;
       if (dispositionDate) {
@@ -316,6 +512,13 @@ const IndianaExpungement = (() => {
         return result;
       }
 
+      if (result.dateParseFailed) {
+        result.eligible = false;
+        result.waitingPeriodMet = false;
+        result.reason = 'MANUAL REVIEW REQUIRED: Unable to verify disposition date from court record. Please verify case disposition date.';
+        return result;
+      }
+
       result.eligible = result.waitingPeriodMet;
       result.reason = result.eligible
         ? `ELIGIBLE: ${elapsed} years elapsed (≥1 year required). No filing fee. Mandatory grant.`
@@ -327,6 +530,7 @@ const IndianaExpungement = (() => {
     if (typeInfo && typeInfo.level === 'misdemeanor' && isConviction) {
       result.statute = 'IC § 35-38-9-2';
       result.statuteLabel = 'Misdemeanor Expungement (§ 2)';
+      result.statuteUrl = 'https://iga.in.gov/laws/2024/ic/titles/35#35-38-9-2';
       result.waitingPeriod = 5;
       result.waitingPeriodMet = elapsed >= 5;
       if (dispositionDate) {
@@ -341,6 +545,13 @@ const IndianaExpungement = (() => {
         result.waitingPeriodMet = false;
         result.reason = 'INELIGIBLE: Case status is PENDING or OPEN. Under IC § 35-38-9-2(d)(3), no criminal charges may be pending.';
         result.warnings.push('Active pending charges cannot be expunged until final judgment or disposition.');
+        return result;
+      }
+
+      if (result.dateParseFailed) {
+        result.eligible = false;
+        result.waitingPeriodMet = false;
+        result.reason = 'MANUAL REVIEW REQUIRED: Unable to verify conviction date from court record. Please check case status and judgment date before filing.';
         return result;
       }
 
@@ -375,10 +586,18 @@ const IndianaExpungement = (() => {
         return result;
       }
 
+      if (result.dateParseFailed) {
+        result.eligible = false;
+        result.waitingPeriodMet = false;
+        result.reason = 'MANUAL REVIEW REQUIRED: Unable to verify conviction date from court record. Please check case status and judgment date before filing.';
+        return result;
+      }
+
       // §3 applies to Class D / Level 6 felonies (severity ≤ 3)
       if (typeInfo.severity <= 3) {
         result.statute = 'IC § 35-38-9-3';
         result.statuteLabel = 'Felony Expungement (§ 3)';
+        result.statuteUrl = 'https://iga.in.gov/laws/2024/ic/titles/35#35-38-9-3';
         result.waitingPeriod = 8;
         result.waitingPeriodMet = elapsed >= 8;
         if (dispositionDate) {
@@ -416,6 +635,7 @@ const IndianaExpungement = (() => {
       // §4 applies to higher-level felonies (Class A/B/C or Level 1-5) — discretionary
       result.statute = 'IC § 35-38-9-4';
       result.statuteLabel = 'Higher Felony Expungement (§ 4 - Discretionary)';
+      result.statuteUrl = 'https://iga.in.gov/laws/2024/ic/titles/35#35-38-9-4';
       result.waitingPeriod = 8;
       result.waitingPeriodMet = elapsed >= 8;
       if (dispositionDate) {
@@ -424,6 +644,25 @@ const IndianaExpungement = (() => {
       }
       result.filingFee = 157;
       result.grantType = 'discretionary';
+
+      // Check sentence completion date under IC § 35-38-9-4(c)(2) (at least 3 years after sentence completion)
+      const sentenceCompletedRaw = caseData.sentenceCompletedDate || caseData.ccs?.financials?.sentenceCompletedDate;
+      const sentenceCompletedDate = parseDate(sentenceCompletedRaw);
+      if (sentenceCompletedDate) {
+        result.sentenceCompletedDate = sentenceCompletedDate;
+        const sentenceElapsed = yearsElapsed(sentenceCompletedDate, asOf);
+        result.sentenceYearsElapsed = sentenceElapsed;
+        if (sentenceElapsed < 3) {
+          result.eligible = false;
+          result.sentencePeriodMet = false;
+          result.waitingPeriodMet = false;
+          result.reason = `NOT YET ELIGIBLE: Under IC § 35-38-9-4(c)(2), you must wait at least 3 years after sentence completion (only ${sentenceElapsed} year(s) elapsed since sentence completion).`;
+          result.warnings.push(`Sentence completion waiting period not met: At least 3 years must elapse after sentence completion (probation/commitment/restitution discharge). Sentence ended: ${sentenceCompletedDate.toLocaleDateString()}.`);
+          return result;
+        }
+      } else {
+        result.warnings.push('Statutory Sentence Rule (IC § 35-38-9-4(c)): Expungement requires waiting at least 8 years from conviction AND at least 3 years from sentence completion (probation, parole, restitution discharge), whichever is later. Confirm sentence completion date.');
+      }
 
       // Enforce the 8-year clean period (IC § 35-38-9-4(e)(2))
       result.eligible = result.waitingPeriodMet && (cleanPeriodYears >= 8);
@@ -543,7 +782,7 @@ const IndianaExpungement = (() => {
       }
 
       if (determineConvictionStatus(c, typeInfo)) {
-        const dispDate = extractDispositionDate(c.status) || parseDate(c.filed);
+        const dispDate = parseDate(c.dispositionDate) || parseDate(c.ccs?.dispositionDate) || extractDispositionDate(c.status) || parseDate(c.filed);
         if (dispDate && (!mostRecentConvictionDate || dispDate > mostRecentConvictionDate)) {
           mostRecentConvictionDate = dispDate;
         }
@@ -559,10 +798,12 @@ const IndianaExpungement = (() => {
         ineligible: 0,
         excluded: 0,
         pending: 0,
+        statutorilyBarred: 0,
         totalFilingFee: 0,
         byStatute: {}
       },
       crossCountyBlock: { isSafe: true },
+      statutorilyBarredBlock: { isSafe: true },
       pendingChargesBlock: pendingCriminalCases.length > 0 ? {
         isSafe: false,
         reason: 'Active Pending Criminal Charges (Statutory Filing Bar)',
@@ -570,6 +811,8 @@ const IndianaExpungement = (() => {
         pendingCases: pendingCriminalCases
       } : { isSafe: true }
     };
+
+    const barredCasesList = [];
 
     for (const [countyCode, group] of Object.entries(countyGroups)) {
       const countyReport = {
@@ -590,6 +833,16 @@ const IndianaExpungement = (() => {
         }
 
         countyReport.cases.push({ ...c, eligibility: assessment });
+
+        if (assessment.isStatutorilyBarred) {
+          report.summary.statutorilyBarred++;
+          if (assessment.mitigationType === 'strictly_excluded') {
+            const cNum = c.case_number || c.caseNumber || 'Unknown Case';
+            if (!barredCasesList.includes(cNum)) {
+              barredCasesList.push(cNum);
+            }
+          }
+        }
 
         if (assessment.eligible) {
           countyReport.eligibleCount++;
@@ -614,6 +867,15 @@ const IndianaExpungement = (() => {
       }
 
       report.counties[countyCode] = countyReport;
+    }
+
+    if (barredCasesList.length > 0) {
+      report.statutorilyBarredBlock = {
+        isSafe: false,
+        reason: 'Statutorily Barred Offense Detected',
+        message: `Under IC § 35-38-9-3(b) and § 8(b), Indiana law permanently bars certain severe offenses (e.g. Murder, sex offenses under IC § 11-8-8, human trafficking, public corruption) from expungement (${barredCasesList.join(', ')}). While other independent eligible cases may still be petitioned, these barred offenses cannot be expunged.`,
+        barredCases: barredCasesList
+      };
     }
 
     const evaluatedCases = [];
@@ -671,7 +933,8 @@ const IndianaExpungement = (() => {
     partitionByCounty,
     checkCrossCounty365DaySafety,
     analyzeAll,
-    getCountyName
+    getCountyName,
+    validateCaseRecord
   };
 
 })();

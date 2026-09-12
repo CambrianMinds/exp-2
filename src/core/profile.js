@@ -12,7 +12,9 @@ import { showToast, updateChecklist } from './ui.js';
     try {
       let result = null;
       try {
-        result = await chrome?.runtime?.sendMessage?.({ action: 'loadPetitionerProfile' });
+        if (typeof chrome !== 'undefined') {
+          result = await chrome?.runtime?.sendMessage?.({ action: 'loadPetitionerProfile' });
+        }
       } catch (e) {
         console.warn('Unable to load petitioner profile from extension runtime:', e);
       }
@@ -579,13 +581,22 @@ import { showToast, updateChecklist } from './ui.js';
           </svg>
           <span class="badge-text">Prior Address #${count}</span>
         </span>
-        <button type="button" class="btn-remove btn-remove-address" title="Remove this address entry">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-          Remove
-        </button>
+        <div class="address-card-actions">
+          <button type="button" class="btn-copy-address" title="Copy street, city, state, and ZIP from the previous address or current address">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <span>Copy Previous Address</span>
+          </button>
+          <button type="button" class="btn-remove btn-remove-address" title="Remove this address entry">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+            Remove
+          </button>
+        </div>
       </div>
 
       <div class="form-group">
@@ -661,6 +672,48 @@ import { showToast, updateChecklist } from './ui.js';
     });
     toInput?.addEventListener('blur', () => {
       validateAddressDates(entry);
+    });
+
+    // Copy previous address listener
+    entry.querySelector('.btn-copy-address')?.addEventListener('click', () => {
+      let sourceStreet = '';
+      let sourceCity = '';
+      let sourceState = 'IN';
+      let sourceZip = '';
+
+      // Check for preceding address card in the list
+      const prevEntry = entry.previousElementSibling?.classList.contains('address-entry')
+        ? entry.previousElementSibling
+        : null;
+
+      if (prevEntry) {
+        sourceStreet = prevEntry.querySelector('.address-street')?.value || '';
+        sourceCity = prevEntry.querySelector('.address-city')?.value || '';
+        sourceState = prevEntry.querySelector('.address-state')?.value || 'IN';
+        sourceZip = prevEntry.querySelector('.address-zip')?.value || '';
+      } else {
+        // Fall back to petitioner's primary current address
+        sourceStreet = $('#streetAddress')?.value || '';
+        sourceCity = $('#city')?.value || '';
+        sourceState = $('#state')?.value || 'IN';
+        sourceZip = $('#zipCode')?.value || '';
+      }
+
+      const streetInput = entry.querySelector('.address-street');
+      const cityInput = entry.querySelector('.address-city');
+      const stateSelect = entry.querySelector('.address-state');
+      const zipInput = entry.querySelector('.address-zip');
+
+      if (streetInput) streetInput.value = sourceStreet;
+      if (cityInput) cityInput.value = sourceCity;
+      if (stateSelect) stateSelect.value = sourceState;
+      if (zipInput) zipInput.value = formatZIP(sourceZip);
+
+      if (sourceStreet || sourceCity || sourceZip) {
+        showToast('Copied address details from previous entry.', 'info', 2500);
+      } else {
+        showToast('No prior address information available to copy.', 'warning', 2500);
+      }
     });
 
     // Remove button listener
@@ -762,7 +815,9 @@ import { showToast, updateChecklist } from './ui.js';
     };
 
     try {
-      await chrome?.runtime?.sendMessage?.({ action: 'savePetitionerProfile', profile: AppState.petitionerProfile });
+      if (typeof chrome !== 'undefined') {
+        await chrome?.runtime?.sendMessage?.({ action: 'savePetitionerProfile', profile: AppState.petitionerProfile });
+      }
     } catch (e) {
       console.warn('Unable to save petitioner profile to extension runtime:', e);
     }

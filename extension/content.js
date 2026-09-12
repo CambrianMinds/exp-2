@@ -370,7 +370,43 @@ const MyCaseScraper = (() => {
     return cases;
   }
 
-  // ─── CCS Deep-Scrape (In-Session Fetch) ──────────────────────────────
+  /**
+   * Helper to perform HTTP fetch with timeout and exponential backoff retry.
+   */
+  async function fetchWithRetry(url, options = {}, maxRetries = 2, baseDelay = 800) {
+    let lastError = null;
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const timeoutId = controller ? setTimeout(() => controller.abort(), 12000) : null;
+      try {
+        const fetchOpts = {
+          ...options,
+          signal: controller ? controller.signal : undefined
+        };
+        const response = await fetch(url, fetchOpts);
+        if (timeoutId) clearTimeout(timeoutId);
+
+        // If rate-limited (429) or server error (5xx), retry with backoff
+        if ((response.status === 429 || response.status >= 500) && attempt < maxRetries) {
+          const delay = baseDelay * Math.pow(2, attempt) + Math.floor(Math.random() * 300);
+          console.warn(`[Expungement] CCS fetch received status ${response.status}. Retrying in ${delay}ms (attempt ${attempt + 1}/${maxRetries})...`);
+          await new Promise(r => setTimeout(r, delay));
+          continue;
+        }
+
+        return response;
+      } catch (err) {
+        if (timeoutId) clearTimeout(timeoutId);
+        lastError = err;
+        if (attempt < maxRetries) {
+          const delay = baseDelay * Math.pow(2, attempt) + Math.floor(Math.random() * 300);
+          console.warn(`[Expungement] CCS fetch error (${err.message || 'timeout'}). Retrying in ${delay}ms (attempt ${attempt + 1}/${maxRetries})...`);
+          await new Promise(r => setTimeout(r, delay));
+        }
+      }
+    }
+    throw lastError || new Error('CCS fetch request failed after retries');
+  }
 
   /**
    * Fetch the Chronological Case Summary (CCS) for a specific case.
@@ -393,34 +429,44 @@ const MyCaseScraper = (() => {
       }
     }
 
-    // Stage 2: Direct Authenticated Session Fetch
+    // Stage 2: Direct Authenticated Session Fetch with Exponential Backoff
     try {
       const url = `https://public.courts.in.gov/mycase/Case/CaseSummary?SRCT=&CaseToken=${encodeURIComponent(caseToken)}&_=${Date.now()}`;
-      let response = await fetch(url, {
-        method: 'GET',
-        credentials: 'same-origin',
-        headers: {
-          'Accept': 'application/json, text/javascript, */*; q=0.01',
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
-        }
-      });
+      const headers = {
+        'Accept': 'application/json, text/javascript, */*; q=0.01',
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      };
 
-      // Stage 3 Fallback: Consolidated Register of Actions (ROA) Report route if primary endpoint is restricted
-      if (!response.ok || response.status === 404) {
-        const roaUrl = `https://public.courts.in.gov/mycase/Case/CaseSummaryReport?SRCT=&CaseToken=${encodeURIComponent(caseToken)}&_=${Date.now()}`;
-        response = await fetch(roaUrl, {
+      let response;
+      try {
+        response = await fetchWithRetry(url, {
           method: 'GET',
           credentials: 'same-origin',
-          headers: {
-            'Accept': 'application/json, text/javascript, */*; q=0.01',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
-        }).catch(() => response);
+          headers
+        });
+      } catch (networkErr) {
+        console.warn(`[Expungement] Primary CCS endpoint failed:`, networkErr);
+        response = null;
       }
 
-      if (!response.ok) {
-        console.warn(`[Expungement] CCS fetch failed for ${caseToken}: ${response.status}`);
+      // Stage 3 Fallback: Consolidated Register of Actions (ROA) Report route if primary endpoint is restricted or 404
+      if (!response || !response.ok || response.status === 404) {
+        const roaUrl = `https://public.courts.in.gov/mycase/Case/CaseSummaryReport?SRCT=&CaseToken=${encodeURIComponent(caseToken)}&_=${Date.now()}`;
+        try {
+          response = await fetchWithRetry(roaUrl, {
+            method: 'GET',
+            credentials: 'same-origin',
+            headers
+          });
+        } catch (roaErr) {
+          console.warn(`[Expungement] ROA fallback CCS fetch failed:`, roaErr);
+          return null;
+        }
+      }
+
+      if (!response || !response.ok) {
+        console.warn(`[Expungement] CCS fetch failed for ${caseToken}: ${response ? response.status : 'No response'}`);
         return null;
       }
 

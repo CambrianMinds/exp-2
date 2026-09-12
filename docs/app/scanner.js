@@ -1,5 +1,5 @@
 import { AppState } from './state.js';
-import { $, escapeHtml } from './utils.js';
+import { $, $$, escapeHtml, AuditLogger, downloadJsonFile, saveDraftSession, loadDraftSession, clearDraftSession } from './utils.js';
 import { showToast, updateChecklist, switchTab } from './ui.js';
 
 // URL detection helper for Indiana MyCase
@@ -19,11 +19,22 @@ export function isMyCaseUrl(url) {
  * @param {boolean} mergeMode   - Whether merge is enabled
  */
 export function showParityModal(cases, searchContext, mergeMode) {
+  let hasBarredCase = false;
   if (cases && Array.isArray(cases)) {
     cases.forEach(c => {
       if (c.ccs && Array.isArray(c.ccs.charges) && c.ccs.charges.length > 0) {
         if (!c.charges || c.charges.toUpperCase().includes('SEE CCS ENTRY')) {
           c.charges = c.ccs.charges.map(ch => `${ch.count ? 'Count ' + ch.count + ': ' : ''}${ch.offense} (${ch.level || ''})`).join('; ');
+        }
+      }
+
+      // Check for statutorily barred offenses at import time
+      if (window.IndianaExpungement?.checkIneligibility) {
+        const barred = window.IndianaExpungement.checkIneligibility(c.charges, c);
+        if (barred && barred.mitigationType === 'strictly_excluded') {
+          c._isStatutorilyBarred = true;
+          c._barredCategory = barred.reason;
+          hasBarredCase = true;
         }
       }
     });
@@ -44,8 +55,11 @@ export function showParityModal(cases, searchContext, mergeMode) {
       cases.slice(0, 20).forEach(c => {
         const item = document.createElement('tr');
         item.className = 'modal-case-item';
+        const barredTag = c._isStatutorilyBarred
+          ? ' <span class="badge-barred-mini" style="background:#fee2e2;color:#991b1b;border:1px solid #ef4444;font-size:0.65rem;padding:1px 4px;border-radius:3px;font-weight:700;">⛔ BARRED</span>'
+          : '';
         item.innerHTML = `
-          <td><span class="modal-case-num">${escapeHtml(c.case_number || 'Unknown')}</span></td>
+          <td><span class="modal-case-num">${escapeHtml(c.case_number || 'Unknown')}${barredTag}</span></td>
           <td><span class="modal-case-type">${escapeHtml(c.case_type || '')}</span></td>
           <td><span class="modal-case-charges">${escapeHtml(c.charges || 'None')}</span></td>
           <td><span class="modal-case-date">${escapeHtml(c.filed || '')}</span></td>
@@ -62,6 +76,10 @@ export function showParityModal(cases, searchContext, mergeMode) {
 
   const modal = $('#parityModal');
   if (modal) modal.style.display = 'flex';
+
+  if (hasBarredCase) {
+    showToast('⚠️ Statutorily barred offense detected (e.g. Murder/Sex Offense). Barred cases cannot be expunged under IC § 35-38-9.', 'warning', 6000);
+  }
 }
 
 /**
@@ -160,6 +178,12 @@ $('#btnParityConfirm')?.addEventListener('click', () => {
     showToast(`Parity confirmed. Found ${incomingCases.length} cases.`, 'success');
   }
 
+  if (AppState.currentReport?.summary?.statutorilyBarred > 0) {
+    setTimeout(() => {
+      showToast('⚠️ Note: 1 or more imported records are statutorily barred from expungement under IC § 35-38-9.', 'warning', 5500);
+    }, 1000);
+  }
+
   checkAndSuggestAlias(searchContext);
   updateBatchPanelUI();
   renderResults();
@@ -174,12 +198,14 @@ $('#btnParityConfirm')?.addEventListener('click', () => {
 
 export function persistScanResults() {
   try {
-    chrome?.runtime?.sendMessage?.({
-      action: 'saveScanResults',
-      cases: AppState.currentCases,
-      report: AppState.currentReport,
-      searchBatches: AppState.searchBatches
-    });
+    if (typeof chrome !== 'undefined') {
+      chrome?.runtime?.sendMessage?.({
+        action: 'saveScanResults',
+        cases: AppState.currentCases,
+        report: AppState.currentReport,
+        searchBatches: AppState.searchBatches
+      });
+    }
   } catch (_) { /* chrome.runtime not available (e.g. devtools reload) — ignore */ }
   try {
     localStorage.setItem('lastScanResults', JSON.stringify({
@@ -188,6 +214,12 @@ export function persistScanResults() {
       searchBatches: AppState.searchBatches
     }));
   } catch (_) { /* localStorage unavailable in this context — ignore */ }
+
+  saveDraftSession(AppState.currentCases, AppState.petitionerProfile);
+  AuditLogger.log('scan_results_persisted', {
+    caseCount: AppState.currentCases.length,
+    eligibleCount: AppState.currentReport?.summary?.eligible || 0
+  });
 }
 
 // ─── Multi-Search Batch & UI State ─────────────────────────────────
@@ -269,10 +301,33 @@ $('#btnScanAnotherPage')?.addEventListener('click', () => {
   }
 });
 
+// ─── Export Case Records & Audit Manifest ────────────────────────────
+$('#btnExportCases')?.addEventListener('click', () => {
+  if (!AppState.currentCases.length) {
+    showToast('No case data to export. Import court records first.', 'info');
+    return;
+  }
+  AuditLogger.log('cases_exported', { count: AppState.currentCases.length });
+  downloadJsonFile(AppState.currentCases, `mycase_records_${Date.now()}.json`);
+  showToast('Exported case records (JSON)', 'success');
+});
+
+$('#btnExportAudit')?.addEventListener('click', () => {
+  AuditLogger.log('manifest_exported');
+  const manifest = AuditLogger.generateManifest(AppState.currentCases, AppState.currentReport, AppState.petitionerProfile);
+  downloadJsonFile(manifest, `expungement_manifest_${Date.now()}.json`);
+  showToast('Exported audit log & statutory manifest (JSON)', 'success');
+});
+
 // ─── Manual Case Entry ─────────────────────────────────────────────
-$('#btnManualEntry')?.addEventListener('click', () => {
-  $('#manualEntryForm').reset();
-  $('#manualEntryModal').style.display = 'flex';
+function openManualEntryModal() {
+  $('#manualEntryForm')?.reset();
+  const modal = $('#manualEntryModal');
+  if (modal) modal.style.display = 'flex';
+}
+
+['#btnManualEntry', '#btnManualEntryEmpty', '#btnManualEntryDropzone', '.btn-open-manual-entry'].forEach(sel => {
+  $$(sel).forEach(btn => btn.addEventListener('click', openManualEntryModal));
 });
 
 $('#btnManualCancel')?.addEventListener('click', () => {
@@ -287,14 +342,24 @@ $('#btnManualSave')?.addEventListener('click', () => {
   }
   
   const caseNumber = $('#manualCaseNumber').value.trim().toUpperCase();
-  const caseType = $('#manualCaseType').value.trim().toUpperCase();
-  const filed = $('#manualDispositionDate').value;
-  const title = $('#manualCaseTitle').value.trim();
-  const charges = $('#manualCharges').value.trim();
+  const caseType = ($('#manualCaseType')?.value || '').trim().toUpperCase();
+  const offenseTier = $('#manualOffenseTier')?.value || '';
+  const dispositionDate = $('#manualDispositionDate')?.value || '';
+  const sentenceCompletedDate = $('#manualSentenceCompletedDate')?.value || '';
+  const title = $('#manualCaseTitle')?.value?.trim() || '';
+  const charges = $('#manualCharges')?.value?.trim() || '';
+  const balanceDue = parseFloat($('#manualBalanceDue')?.value || '0') || 0;
+  const restitutionSatisfied = $('#manualRestitutionSatisfied')?.checked ?? true;
+  const ackCompleteness = $('#manualAckCompleteness')?.checked;
 
-  // Validate basic format XXDXX-YYMM-CC-NNNNNN
+  if ($('#manualAckCompleteness') && !ackCompleteness) {
+    showToast('You must confirm that all counts and cases have been entered under the one-shot rule.', 'error', 4500);
+    return;
+  }
+
+  // Validate Indiana cause number format XXDXX-YYMM-CC-NNNNNN
   if (!caseNumber.includes('-')) {
-    showToast('Case number must be in the format XXDXX-YYMM-CC-NNNNNN', 'error', 4000);
+    showToast('Case number must be in the format XXDXX-YYMM-CC-NNNNNN (e.g. 49D01-1605-FD-000123)', 'error', 4500);
     return;
   }
   
@@ -302,16 +367,38 @@ $('#btnManualSave')?.addEventListener('click', () => {
 
   const newCase = {
     case_number: caseNumber,
-    case_type: caseType,
-    filed: filed,
-    title: title,
-    charges: charges,
+    case_type: caseType || (offenseTier ? offenseTier.replace(/^IC\s*§?\s*/i, '') : 'CM'),
+    filed: dispositionDate,
+    dispositionDate: dispositionDate,
+    sentenceCompletedDate: sentenceCompletedDate || null,
+    title: title || `State of Indiana v. ${AppState.petitionerProfile?.fullName || 'Petitioner'}`,
+    charges: charges || (offenseTier ? `Tier: ${offenseTier}` : 'Criminal Charge'),
     court: countyCode ? `County ${countyCode}` : 'Unknown Court',
-    status: 'Decided', // Assumed for manual entries
+    status: 'Decided',
+    financials: {
+      balanceDue: balanceDue,
+      balanceFormatted: `$${balanceDue.toFixed(2)}`,
+      restitutionSatisfied: restitutionSatisfied
+    },
     searchContext: 'Manual Entry',
     searchQueries: ['Manual Entry'],
-    isManualEntry: true
+    isManualEntry: true,
+    manualOffenseTier: offenseTier
   };
+
+  if (window.IndianaExpungement?.validateCaseRecord) {
+    const valResult = window.IndianaExpungement.validateCaseRecord(newCase);
+    if (!valResult.isValid && valResult.errors?.length) {
+      showToast(`Notice: ${valResult.errors[0]}`, 'warning', 4000);
+    }
+  }
+
+  if (window.IndianaExpungement?.checkIneligibility) {
+    const barredCheck = window.IndianaExpungement.checkIneligibility(charges, newCase);
+    if (barredCheck && barredCheck.mitigationType === 'strictly_excluded') {
+      showToast(`Notice: Case ${caseNumber} matches a statutorily barred category (${barredCheck.reason}) under IC § 35-38-9.`, 'warning', 6000);
+    }
+  }
 
   AppState.currentCases.push(newCase);
   
@@ -325,6 +412,7 @@ $('#btnManualSave')?.addEventListener('click', () => {
   updateChecklist();
   
   $('#manualEntryModal').style.display = 'none';
+  switchTab('results');
   showToast(`Successfully added case ${caseNumber} manually.`, 'success', 4000);
 });
 
@@ -1220,6 +1308,43 @@ export function renderResults() {
       });
     }
 
+    // Statutorily Barred Offense Statutory Bar Banner
+    const barredBlock = AppState.currentReport.statutorilyBarredBlock;
+    if (barredBlock && !barredBlock.isSafe) {
+      const banner = document.createElement('div');
+      banner.className = 'financial-warning-box statutorily-barred-warning';
+      banner.id = 'bannerStatutorilyBarred';
+      const barredCasesStr = (barredBlock.barredCases || []).join(', ');
+      banner.innerHTML = `
+        <div class="statutory-banner-header">
+          <span class="statutory-banner-badge" style="background:rgba(220,38,38,0.15); color:#dc2626; border-color:rgba(220,38,38,0.4);">Statutorily Barred Offense (IC § 35-38-9-3(b))</span>
+        </div>
+        <p class="statutory-banner-rule">
+          Indiana law permanently excludes certain severe offenses from expungement (${escapeHtml(barredCasesStr)}). While other eligible records can still be petitioned, barred offenses cannot be sealed or expunged.
+        </p>
+        <div class="statutory-banner-actions">
+          <button type="button" class="btn-banner-action" id="btnReviewBarredCases">
+            Review Barred Cases (${escapeHtml(barredCasesStr)})
+          </button>
+        </div>
+      `;
+      listEl.appendChild(banner);
+
+      banner.querySelector('#btnReviewBarredCases')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetCase = (barredBlock.barredCases || [])[0];
+        const allCards = listEl.querySelectorAll('.case-card');
+        for (const card of allCards) {
+          if (card.textContent.includes(targetCase)) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            card.style.outline = '3px solid #dc2626';
+            setTimeout(() => { card.style.outline = ''; }, 3500);
+            return;
+          }
+        }
+      });
+    }
+
     let casesToRender = [];
     if (selectedCountyCode && AppState.currentReport.counties[selectedCountyCode]) {
       casesToRender = AppState.currentReport.counties[selectedCountyCode].cases;
@@ -1237,6 +1362,8 @@ export function renderResults() {
       if (aElig !== bElig) return aElig - bElig;
       return (a.case_number || '').localeCompare(b.case_number || '');
     });
+
+    renderEligibilityMatrix(casesToRender);
 
     for (const c of casesToRender) {
       listEl.appendChild(createCaseCard(c));
@@ -1275,6 +1402,158 @@ function excludeCase(caseNum) {
   showToast(`Excluded ${caseNum} from filing. Eligibility recalculated.`, 'info', 3500);
 }
 
+// ─── Statutory Eligibility Matrix ──────────────────────────────────
+export function renderEligibilityMatrix(casesToRender) {
+  let container = $('#eligibilityMatrixCard');
+  const resultsContent = $('#resultsContent');
+  if (!resultsContent) return;
+
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'eligibilityMatrixCard';
+    container.className = 'eligibility-matrix-card';
+    const breakdownEl = $('#statuteBreakdown');
+    if (breakdownEl && breakdownEl.parentNode) {
+      breakdownEl.parentNode.insertBefore(container, breakdownEl.nextSibling);
+    } else {
+      resultsContent.appendChild(container);
+    }
+  }
+
+  if (!casesToRender || casesToRender.length === 0) {
+    container.style.display = 'none';
+    return;
+  }
+
+  container.style.display = 'block';
+
+  const rowsHtml = casesToRender.map(c => {
+    const el = c.eligibility || {};
+    const statute = el.statute || 'N/A';
+    const statuteUrl = el.statuteUrl || 'https://iga.in.gov/laws/2024/ic/titles/35#35-38-9';
+
+    // Relief Type
+    let reliefBadge = '<span class="matrix-badge badge-neutral">Civil / N/A</span>';
+    let tierDesc = 'Civil / Non-Criminal';
+    if (el.isStatutorilyBarred) {
+      reliefBadge = '<span class="matrix-badge badge-barred">❌ Statutorily Barred</span>';
+      tierDesc = 'Barred (IC § 35-38-9-3(b))';
+    } else if (statute === 'IC § 35-38-9-1') {
+      reliefBadge = '<span class="matrix-badge badge-fullseal">Full Sealing</span>';
+      tierDesc = 'Section 1: Non-Conviction';
+    } else if (statute === 'IC § 35-38-9-2') {
+      reliefBadge = '<span class="matrix-badge badge-mandatory">Mandatory Seal</span>';
+      tierDesc = 'Section 2: Misdemeanor';
+    } else if (statute === 'IC § 35-38-9-3') {
+      reliefBadge = '<span class="matrix-badge badge-mandatory">Mandatory Seal</span>';
+      tierDesc = 'Section 3: Level 6 Felony';
+    } else if (statute === 'IC § 35-38-9-4') {
+      reliefBadge = '<span class="matrix-badge badge-discretionary">Discretionary (Marked)</span>';
+      tierDesc = 'Section 4: Major Felony';
+    } else if (statute === 'IC § 35-38-9-5') {
+      reliefBadge = '<span class="matrix-badge badge-consent">Prosecutor Consent</span>';
+      tierDesc = 'Section 5: Serious Felony';
+    }
+
+    // Waiting Period
+    let waitHtml = '<span class="wait-met">No wait required</span>';
+    if (el.isStatutorilyBarred) {
+      waitHtml = '<span class="wait-waiting" style="color:#dc2626; font-weight:700;">Permanently Barred</span>';
+    } else if (el.waitingPeriod) {
+      if (el.yearsElapsed >= el.waitingPeriod) {
+        waitHtml = `<span class="wait-met">✓ Met (${el.yearsElapsed} yrs ≥ ${el.waitingPeriod} yrs)</span>`;
+      } else {
+        const remaining = (el.waitingPeriod - el.yearsElapsed).toFixed(1);
+        waitHtml = `<span class="wait-waiting">⏳ Waiting (${el.yearsElapsed} / ${el.waitingPeriod} yrs · ${remaining} yrs left)</span>`;
+      }
+    }
+
+    // Exclusions & Balance
+    const balance = c.financials?.balanceDue || c.ccs?.financials?.balanceDue || 0;
+    let balanceHtml = '<span class="bal-ok">✓ No Exclusions · $0 Balance</span>';
+    if (el.isStatutorilyBarred) {
+      balanceHtml = `<span class="bal-warn" style="color:#dc2626; font-weight:700;">⛔ ${escapeHtml(el.barredCategory || 'Statutorily Barred')}</span>`;
+    } else if (balance > 0) {
+      balanceHtml = `<span class="bal-warn">⚠️ $${balance.toFixed(2)} Balance Due</span>`;
+    } else if (el.exclusionReason) {
+      balanceHtml = `<span class="bal-warn">⚠️ ${escapeHtml(el.exclusionReason)}</span>`;
+    }
+
+    // Filing Fee & Waiver
+    let feeHtml = '<span class="fee-free">$0 (Free Filing)</span>';
+    if (statute !== 'IC § 35-38-9-1' && statute !== 'N/A') {
+      feeHtml = '<span class="fee-standard">$157 Standard · Form 08 Fee Waiver</span>';
+    }
+
+    const countyName = c.court || (c.case_number ? `County ${c.case_number.substring(0, 2)}` : 'Indiana');
+
+    return `
+      <tr>
+        <td class="matrix-cell-case">
+          <strong>${escapeHtml(c.case_number || 'Unknown')}</strong>
+          <span class="matrix-court-sub">${escapeHtml(countyName)}</span>
+        </td>
+        <td class="matrix-cell-tier">
+          <span class="tier-title">${escapeHtml(tierDesc)}</span>
+        </td>
+        <td class="matrix-cell-relief">${reliefBadge}</td>
+        <td class="matrix-cell-wait">${waitHtml}</td>
+        <td class="matrix-cell-bal">${balanceHtml}</td>
+        <td class="matrix-cell-fee">${feeHtml}</td>
+        <td class="matrix-cell-cite">
+          <a href="${escapeHtml(statuteUrl)}" target="_blank" rel="noopener" class="statute-link-out" title="View statutory text on Indiana General Assembly">
+            ${escapeHtml(statute)} ↗
+          </a>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="matrix-card-header">
+      <div class="matrix-header-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <div>
+          <h5 style="margin:0; font-size:0.95rem; font-weight:700;" data-i18n="matrix_title">Statutory Eligibility &amp; Relief Matrix (IC § 35-38-9)</h5>
+          <span style="font-size:0.75rem; color:var(--text-secondary);" data-i18n="matrix_subtitle">Summary of statutory waiting periods, legal remedies, filing fees, and exclusion checks</span>
+        </div>
+      </div>
+      <span class="badge badge-pill" style="font-size:0.75rem;">${casesToRender.length} Case${casesToRender.length === 1 ? '' : 's'} Evaluated</span>
+    </div>
+    <div class="matrix-table-responsive" style="overflow-x:auto; margin-top:8px;">
+      <table class="matrix-table" style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border-color); background:var(--bg-subtle, rgba(0,0,0,0.03));">
+            <th style="padding:8px 10px;" data-i18n="matrix_th_case">Case Number</th>
+            <th style="padding:8px 10px;" data-i18n="matrix_th_tier">Statutory Tier</th>
+            <th style="padding:8px 10px;" data-i18n="matrix_th_relief">Relief Type</th>
+            <th style="padding:8px 10px;" data-i18n="matrix_th_wait">Waiting Period</th>
+            <th style="padding:8px 10px;" data-i18n="matrix_th_balance">Exclusions &amp; Balance</th>
+            <th style="padding:8px 10px;" data-i18n="matrix_th_feewaiver">Filing Fee &amp; Waiver</th>
+            <th style="padding:8px 10px;" data-i18n="matrix_th_statute">Statute Citation</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  try {
+    const curLang = localStorage.getItem('user_lang') || 'en';
+    if (curLang === 'es' && window.IndianaI18n?.translateDOM) {
+      window.IndianaI18n.translateDOM('es');
+    }
+  } catch (_) {}
+}
+
 function createCaseCard(caseData) {
   const el = caseData.eligibility;
   const card = document.createElement('div');
@@ -1284,7 +1563,10 @@ function createCaseCard(caseData) {
   let badgeClass = 'excluded';
   let badgeText = 'EXCLUDED';
   if (el) {
-    if (el.eligible) {
+    if (el.isStatutorilyBarred) {
+      badgeClass = 'barred';
+      badgeText = 'STATUTORILY BARRED';
+    } else if (el.eligible) {
       badgeClass = 'eligible';
       badgeText = 'ELIGIBLE';
     } else if (el.statute === 'N/A') {
@@ -1304,6 +1586,12 @@ function createCaseCard(caseData) {
   const searchQueriesDisplay = caseData.searchQueries?.length
     ? caseData.searchQueries.join(' · ')
     : (caseData.searchContext || '');
+
+  const feeStatusText = el?.statute === 'IC § 35-38-9-1'
+    ? '$0 filing fee (Section 1 non-convictions are exempt from filing fees under IC § 35-38-9-1)'
+    : '$157 civil filing fee applies (Fee Waiver Request Form 08 can be included if indigent)';
+
+  const statuteUrl = el?.statuteUrl || 'https://iga.in.gov/laws/2024/ic/titles/35#35-38-9';
 
   card.innerHTML = `
     <div class="case-card-header">
@@ -1327,7 +1615,10 @@ function createCaseCard(caseData) {
       </div>
       <div class="detail-row">
         <span class="detail-label">Statute</span>
-        <span class="detail-value statute">${escapeHtml(el?.statute || 'N/A')}</span>
+        <span class="detail-value statute">
+          ${escapeHtml(el?.statute || 'N/A')}
+          <a href="${escapeHtml(statuteUrl)}" target="_blank" rel="noopener" class="statute-inline-link" style="margin-left:6px; font-size:0.75rem;">(View Text ↗)</a>
+        </span>
       </div>
       <div class="detail-row">
         <span class="detail-label">Years Elapsed</span>
@@ -1335,11 +1626,15 @@ function createCaseCard(caseData) {
       </div>
       <div class="detail-row">
         <span class="detail-label">Waiting Period</span>
-        <span class="detail-value">${el?.waitingPeriod ? `≥${el.waitingPeriod} years` : 'N/A'}</span>
+        <span class="detail-value">${el?.waitingPeriod ? `≥${el.waitingPeriod} years (${el?.yearsElapsed >= el?.waitingPeriod ? 'Met ✓' : 'Waiting'})` : 'N/A'}</span>
       </div>
       <div class="detail-row">
         <span class="detail-label">Grant Type</span>
         <span class="detail-value">${escapeHtml(el?.grantType || 'N/A')}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Filing Fee</span>
+        <span class="detail-value">${escapeHtml(feeStatusText)}</span>
       </div>
       <div class="detail-row">
         <span class="detail-label">Reason</span>

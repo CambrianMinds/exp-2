@@ -63,6 +63,14 @@ test.describe('Indiana Expungement Assistant E2E', () => {
     await page.check('#ackNotLawyer', { force: true });
     await page.check('#ackProSe', { force: true });
 
+    // Check pre-flight completeness checklist items if present
+    if (await page.locator('#chkPreflight92Counties').isVisible({ timeout: 1000 }).catch(() => false)) {
+      await page.check('#chkPreflight92Counties', { force: true });
+      await page.check('#chkPreflightISP', { force: true });
+      await page.check('#chkPreflightFines', { force: true });
+      await page.check('#chkPreflightPending', { force: true });
+    }
+
     // Generate button should now be enabled
     await expect(generateBtn).toBeEnabled();
     
@@ -259,6 +267,96 @@ test.describe('Indiana Expungement Assistant E2E', () => {
 
     await expect(page.locator('#tab-results')).toHaveClass(/active/);
     await expect(page.locator('.case-number')).toContainText('49G01-2001-F5-000100');
+  });
+
+  test('should verify ISP banner actionability, pricing, and direct portal link', async ({ page }) => {
+    await page.goto('/docs/app/app.html');
+
+    const gateCheck = page.locator('#gateAckCheck');
+    if (await gateCheck.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await gateCheck.check();
+      await page.click('#btnAcceptGate');
+    }
+
+    const ispBanner = page.locator('#ispNoticeBanner');
+    await expect(ispBanner).toBeVisible();
+    await expect(ispBanner).toContainText('$15.00');
+    await expect(ispBanner).toContainText('Instant PDF');
+    const portalLink = page.locator('#btnIspOnlinePortal');
+    await expect(portalLink).toHaveAttribute('href', 'https://www.in.gov/ai/appfiles/isp-lch/');
+  });
+
+  test('should verify address-history copy previous address helper and statutory explanation', async ({ page }) => {
+    await page.goto('/docs/app/app.html');
+
+    const gateCheck = page.locator('#gateAckCheck');
+    if (await gateCheck.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await gateCheck.check();
+      await page.click('#btnAcceptGate');
+    }
+
+    await page.click('#tabBtnProfile');
+    await expect(page.locator('#addressStatutoryExplanation')).toBeVisible();
+    await expect(page.locator('#addressStatutoryExplanation')).toContainText('IC § 35-38-9-8(b)(3)');
+
+    await page.fill('#streetAddress', '777 Test Blvd');
+    await page.fill('#city', 'Carmel');
+    await page.selectOption('#state', 'IN');
+    await page.fill('#zipCode', '46032');
+
+    await page.click('#btnAddAddress');
+    const addressEntries = page.locator('.address-entry');
+    const count = await addressEntries.count();
+    expect(count).toBeGreaterThan(0);
+
+    const firstEntry = addressEntries.first();
+    const copyBtn = firstEntry.locator('.btn-copy-address');
+    await expect(copyBtn).toBeVisible();
+    await copyBtn.click();
+
+    const copiedStreet = await firstEntry.locator('.address-street').inputValue();
+    expect(copiedStreet).toBe('777 Test Blvd');
+    const copiedCity = await firstEntry.locator('.address-city').inputValue();
+    expect(copiedCity).toBe('Carmel');
+  });
+
+  test('should surface matrix, one-shot warnings, and barred detection in manual entry', async ({ page }) => {
+    await page.goto('/docs/app/app.html');
+
+    const gateCheck = page.locator('#gateAckCheck');
+    if (await gateCheck.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await gateCheck.check();
+      await page.click('#btnAcceptGate');
+    }
+
+    await page.click('#tabBtnResults');
+    // Open manual entry modal from empty state
+    await page.click('#btnManualEntryEmpty');
+    const modal = page.locator('#manualEntryModal');
+    await expect(modal).toBeVisible();
+
+    // Verify lifetime one-shot warning is surfaced in manual entry
+    await expect(modal).toContainText('Lifetime One-Shot Completeness Rule');
+
+    // Fill out a statutorily barred Murder case
+    await page.fill('#manualCaseNumber', '49G01-1605-MR-000123');
+    await page.fill('#manualDispositionDate', '2018-05-10');
+    await page.fill('#manualCharges', 'Murder (IC 35-42-1-1)');
+    await page.check('#manualAckCompleteness');
+
+    await page.click('#btnManualSave');
+    await expect(modal).toBeHidden();
+
+    // Verify it transitions to results tab and surfaces matrix
+    await expect(page.locator('#tab-results')).toHaveClass(/active/);
+    await expect(page.locator('#eligibilityMatrixCard')).toBeVisible();
+    await expect(page.locator('#eligibilityMatrixCard')).toContainText('49G01-1605-MR-000123');
+    await expect(page.locator('#eligibilityMatrixCard')).toContainText('Statutorily Barred');
+
+    // Verify case card has STATUTORILY BARRED badge
+    const badge = page.locator('.case-badge.barred');
+    await expect(badge).toBeVisible();
+    await expect(badge).toContainText('STATUTORILY BARRED');
   });
 });
 
