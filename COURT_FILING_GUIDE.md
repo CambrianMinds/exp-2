@@ -41,15 +41,15 @@ The document generator compiles a standardized 10-pleading petition packet adher
 - Formal Trial Rule 10 case captions with county name, judicial circuit, cause number, and Trial Rule 7(A) designation.
 
 ### Packet Pleadings Checklist:
-1. **Form 00:** Petitioner Intake & Pre-Filing Statutory Certification (Verification checklist).
-2. **Form 01:** Verified Petition for Expungement of Arrest & Conviction Records (IC § 35-38-9).
-3. **Form 02:** Petitioner's Affidavit of Specific Character & Conduct.
-4. **Form 03:** Chronological Case Summary (CCS) Docket Attachments & Cause Schedule.
-5. **Form 04:** Certificate of Service upon County Prosecutor, County Sheriff, ISP, and BMV.
-6. **Form 05:** Verified Motion to Waive Prepayment of Court Filing Fees and Court Costs (Indigency Application).
-7. **Form 06:** Petitioner's Financial Affidavit Supporting Fee Waiver (Income/Expense declaration).
-8. **Form 07:** Proposed Order Granting Waiver of Court Filing Fees & Costs.
-9. **Form 08:** Proposed Order Granting Expungement and Directing Sealing of Criminal Records.
+1. **Form 00:** Instructions & Warnings Cover Sheet (Pro Se Filing Guide & Statutory Warnings).
+2. **Form 01:** Appearance Form (Indiana Trial Rule 3.1).
+3. **Form 02:** Notice of Exclusion of Confidential Information from Public Access (Form ACR / Access to Court Records Rule 5).
+4. **Form 03:** Confidential Information Supplement & 10-Year Residential Address History (Filed Under Seal).
+5. **Form 04:** Verified Petition for Expungement of Arrest & Conviction Records (IC § 35-38-9).
+6. **Form 05:** Notice of Filing of Petition for Expungement to Prosecuting Attorney (IC § 35-38-9-8).
+7. **Form 06:** Certificate of Service upon County Prosecutor, County Sheriff, ISP, and BMV.
+8. **Form 07:** Proposed Order Granting Expungement and Directing Sealing of Criminal Records.
+9. **Form 08:** Verified Motion & Order for Waiver of Court Filing Fees and Costs (In Forma Pauperis / Indigency Application, if applicable).
 
 ---
 

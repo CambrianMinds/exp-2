@@ -7,6 +7,7 @@ const HTML_DIRECTORIES = [
   path.resolve(__dirname, '../extension')
 ];
 const OUTPUT_JS_PATHS = [
+  path.resolve(__dirname, '../src/core/i18n.js'),
   path.resolve(__dirname, '../docs/app/i18n.js'),
   path.resolve(__dirname, '../extension/sidepanel/i18n.js')
 ];

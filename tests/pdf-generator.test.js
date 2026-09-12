@@ -123,4 +123,28 @@ describe('Indiana Expungement PDF Generator (Trial Rule 10 Compliance)', () => {
     expect(page.getWidth()).toBe(612);
     expect(page.getHeight()).toBe(792);
   });
+
+  it('generates packet for non-major county (Clark County, FIPS 10) with verified directory addresses', async () => {
+    const clarkPayload = {
+      ...samplePayload,
+      county: '10',
+      countyName: 'Clark',
+      courtName: 'Clark Circuit Court',
+      cases: [
+        {
+          caseNumber: '10C01-1804-CM-000123',
+          type: 'CM - Criminal Misdemeanor',
+          filed: '04/15/2018',
+          dispositionDate: '2018-05-10',
+          charges: 'Operating a Vehicle While Intoxicated',
+          statute: 'IC § 35-38-9-2',
+          eligibility: { eligible: true, statute: 'IC § 35-38-9-2', grantType: 'mandatory' }
+        }
+      ]
+    };
+    const pdfBytes = await pdfGenerator.generateCompletePacket(clarkPayload);
+    expect(pdfBytes).toBeInstanceOf(Uint8Array);
+    const loadedDoc = await PDFLib.PDFDocument.load(pdfBytes);
+    expect(loadedDoc.getPageCount()).toBeGreaterThanOrEqual(8);
+  });
 });

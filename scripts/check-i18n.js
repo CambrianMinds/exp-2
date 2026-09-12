@@ -11,11 +11,17 @@ for (const lang of Object.keys(translations)) {
   if (lang === 'en') continue;
   
   const langKeys = Object.keys(translations[lang]);
-  const missingKeys = enKeys.filter(key => !langKeys.includes(key));
+  const missingInLang = enKeys.filter(key => !langKeys.includes(key));
+  const missingInEn = langKeys.filter(key => !enKeys.includes(key));
   
-  if (missingKeys.length > 0) {
+  if (missingInLang.length > 0) {
     console.error(`Language '${lang}' is missing the following keys present in 'en':`);
-    console.error(missingKeys.join(', '));
+    console.error(missingInLang.join(', '));
+    allMatch = false;
+  }
+  if (missingInEn.length > 0) {
+    console.error(`Language 'en' is missing the following keys present in '${lang}':`);
+    console.error(missingInEn.join(', '));
     allMatch = false;
   }
 }

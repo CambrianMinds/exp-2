@@ -133,12 +133,21 @@ describe('IndianaExpungement Eligibility Rules Engine', () => {
     });
 
     it('evaluates Section 4 (Higher Felonies) correctly', () => {
-      // Met waiting period (10 years)
-      const case1 = { caseNumber: '49D01-2001-F3-001234', status: '01/01/2010, Decided', filed: '01/01/2010' };
+      // Met statutory waiting period (8 years under IC § 35-38-9-4(e))
+      const case1 = { caseNumber: '49D01-2001-F3-001234', status: '01/01/2018, Decided', filed: '01/01/2018' };
       const result1 = IndianaExpungement.assessEligibility(case1, asOfDate);
       expect(result1.statute).toBe('IC § 35-38-9-4');
+      expect(result1.waitingPeriod).toBe(8);
       expect(result1.eligible).toBe(true);
       expect(result1.grantType).toBe('discretionary');
+
+      // Not yet met waiting period (6 years elapsed)
+      const case2 = { caseNumber: '49D01-2001-F3-001234', status: '01/01/2020, Decided', filed: '01/01/2020' };
+      const result2 = IndianaExpungement.assessEligibility(case2, asOfDate);
+      expect(result2.statute).toBe('IC § 35-38-9-4');
+      expect(result2.waitingPeriod).toBe(8);
+      expect(result2.eligible).toBe(false);
+      expect(result2.reason).toContain('Must wait at least 8 years');
     });
   });
 

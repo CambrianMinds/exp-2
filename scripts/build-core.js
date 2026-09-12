@@ -10,12 +10,15 @@ const docsApp = path.resolve(__dirname, '../docs/app');
 const targetMap = {
   'eligibility.js': [extensionRoot, docsApp],
   'content.js': [extensionRoot, docsApp],
+  'content-main.js': [extensionRoot, docsApp],
   'county-directory.js': [extensionSidepanel, docsApp],
   'pdf-generator.js': [extensionSidepanel, docsApp],
   'profile.js': [extensionSidepanel, docsApp],
   'state.js': [extensionSidepanel, docsApp],
   'ui.js': [extensionSidepanel, docsApp],
   'utils.js': [extensionSidepanel, docsApp],
+  'scanner.js': [extensionSidepanel, docsApp],
+  'generator.js': [extensionSidepanel, docsApp],
   'i18n.js': [extensionSidepanel, docsApp]
 };
 

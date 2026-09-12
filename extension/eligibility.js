@@ -416,8 +416,8 @@ const IndianaExpungement = (() => {
       // §4 applies to higher-level felonies (Class A/B/C or Level 1-5) — discretionary
       result.statute = 'IC § 35-38-9-4';
       result.statuteLabel = 'Higher Felony Expungement (§ 4 - Discretionary)';
-      result.waitingPeriod = 10;
-      result.waitingPeriodMet = elapsed >= 10;
+      result.waitingPeriod = 8;
+      result.waitingPeriodMet = elapsed >= 8;
       if (dispositionDate) {
         result.eligibilityDate = new Date(dispositionDate);
         result.eligibilityDate.setFullYear(result.eligibilityDate.getFullYear() + result.waitingPeriod);
@@ -425,22 +425,22 @@ const IndianaExpungement = (() => {
       result.filingFee = 157;
       result.grantType = 'discretionary';
 
-      // Enforce the 10-year clean period
-      result.eligible = result.waitingPeriodMet && (cleanPeriodYears >= 10);
+      // Enforce the 8-year clean period (IC § 35-38-9-4(e)(2))
+      result.eligible = result.waitingPeriodMet && (cleanPeriodYears >= 8);
 
-      if (result.waitingPeriodMet && cleanPeriodYears < 10) {
+      if (result.waitingPeriodMet && cleanPeriodYears < 8) {
         result.cleanPeriodBroken = true;
         result.cleanPeriodYears = cleanPeriodYears;
         if (mostRecentConvictionDate) {
           result.eligibilityDate = new Date(mostRecentConvictionDate);
           result.eligibilityDate.setFullYear(result.eligibilityDate.getFullYear() + result.waitingPeriod);
         }
-        result.reason = `INELIGIBLE: Clean period broken. You have a subsequent conviction within the last 10 years (IC § 35-38-9-4(e)(2)).`;
-        result.warnings.push(`Clean period broken: Subsequent conviction resets your 10-year clean waiting clock.`);
+        result.reason = `INELIGIBLE: Clean period broken. You have a subsequent conviction within the last 8 years (IC § 35-38-9-4(e)(2)).`;
+        result.warnings.push(`Clean period broken: Subsequent conviction resets your 8-year clean waiting clock.`);
       } else {
         result.reason = result.eligible
           ? `POTENTIALLY ELIGIBLE: ${elapsed} years elapsed. Court has DISCRETION. Requires showing of rehabilitation.`
-          : `NOT YET ELIGIBLE: Only ${elapsed} year(s) elapsed. Must wait at least 10 years from conviction.`;
+          : `NOT YET ELIGIBLE: Only ${elapsed} year(s) elapsed. Must wait at least 8 years from conviction.`;
       }
       result.warnings.push('Higher-level felonies require court discretion and are NOT mandatory grants.');
       return result;

@@ -101,6 +101,10 @@ const MyCaseScraper = (() => {
    */
   function tryKnockoutExtraction(rootElement = document) {
     try {
+      if (typeof window !== 'undefined' && typeof window._ieaExtractKnockoutCases === 'function') {
+        const mainCases = window._ieaExtractKnockoutCases();
+        if (mainCases && mainCases.length > 0) return mainCases;
+      }
       // Knockout is only available in the live DOM
       if (rootElement !== document) return null;
       if (typeof ko === 'undefined' || !ko.dataFor) return null;
