@@ -56,7 +56,7 @@ export function showParityModal(cases, searchContext, mergeMode) {
         const item = document.createElement('tr');
         item.className = 'modal-case-item';
         const barredTag = c._isStatutorilyBarred
-          ? ' <span class="badge-barred-mini" style="background:#fee2e2;color:#991b1b;border:1px solid #ef4444;font-size:0.65rem;padding:1px 4px;border-radius:3px;font-weight:700;">⛔ BARRED</span>'
+          ? ' <span class="badge-barred-mini" style="background:#fee2e2;color:#991b1b;border:1px solid #ef4444;font-size:0.65rem;padding:1px 4px;border-radius:3px;font-weight:700;">BARRED</span>'
           : '';
         item.innerHTML = `
           <td><span class="modal-case-num">${escapeHtml(c.case_number || 'Unknown')}${barredTag}</span></td>
@@ -78,7 +78,7 @@ export function showParityModal(cases, searchContext, mergeMode) {
   if (modal) modal.style.display = 'flex';
 
   if (hasBarredCase) {
-    showToast('⚠️ Statutorily barred offense detected (e.g. Murder/Sex Offense). Barred cases cannot be expunged under IC § 35-38-9.', 'warning', 6000);
+    showToast('Statutorily barred offense detected (e.g. Murder/Sex Offense). Barred cases cannot be expunged under IC § 35-38-9.', 'warning', 6000);
   }
 }
 
@@ -180,7 +180,7 @@ $('#btnParityConfirm')?.addEventListener('click', () => {
 
   if (AppState.currentReport?.summary?.statutorilyBarred > 0) {
     setTimeout(() => {
-      showToast('⚠️ Note: 1 or more imported records are statutorily barred from expungement under IC § 35-38-9.', 'warning', 5500);
+      showToast('Note: 1 or more imported records are statutorily barred from expungement under IC § 35-38-9.', 'warning', 5500);
     }, 1000);
   }
 
@@ -1436,7 +1436,7 @@ export function renderEligibilityMatrix(casesToRender) {
     let reliefBadge = '<span class="matrix-badge badge-neutral">Civil / N/A</span>';
     let tierDesc = 'Civil / Non-Criminal';
     if (el.isStatutorilyBarred) {
-      reliefBadge = '<span class="matrix-badge badge-barred">❌ Statutorily Barred</span>';
+      reliefBadge = '<span class="matrix-badge badge-barred">Statutorily Barred</span>';
       tierDesc = 'Barred (IC § 35-38-9-3(b))';
     } else if (statute === 'IC § 35-38-9-1') {
       reliefBadge = '<span class="matrix-badge badge-fullseal">Full Sealing</span>';
@@ -1464,7 +1464,7 @@ export function renderEligibilityMatrix(casesToRender) {
         waitHtml = `<span class="wait-met">✓ Met (${el.yearsElapsed} yrs ≥ ${el.waitingPeriod} yrs)</span>`;
       } else {
         const remaining = (el.waitingPeriod - el.yearsElapsed).toFixed(1);
-        waitHtml = `<span class="wait-waiting">⏳ Waiting (${el.yearsElapsed} / ${el.waitingPeriod} yrs · ${remaining} yrs left)</span>`;
+        waitHtml = `<span class="wait-waiting">Waiting (${el.yearsElapsed} / ${el.waitingPeriod} yrs · ${remaining} yrs left)</span>`;
       }
     }
 
@@ -1472,11 +1472,11 @@ export function renderEligibilityMatrix(casesToRender) {
     const balance = c.financials?.balanceDue || c.ccs?.financials?.balanceDue || 0;
     let balanceHtml = '<span class="bal-ok">✓ No Exclusions · $0 Balance</span>';
     if (el.isStatutorilyBarred) {
-      balanceHtml = `<span class="bal-warn" style="color:#dc2626; font-weight:700;">⛔ ${escapeHtml(el.barredCategory || 'Statutorily Barred')}</span>`;
+      balanceHtml = `<span class="bal-warn" style="color:#dc2626; font-weight:700;">${escapeHtml(el.barredCategory || 'Statutorily Barred')}</span>`;
     } else if (balance > 0) {
-      balanceHtml = `<span class="bal-warn">⚠️ $${balance.toFixed(2)} Balance Due</span>`;
+      balanceHtml = `<span class="bal-warn">$${balance.toFixed(2)} Balance Due</span>`;
     } else if (el.exclusionReason) {
-      balanceHtml = `<span class="bal-warn">⚠️ ${escapeHtml(el.exclusionReason)}</span>`;
+      balanceHtml = `<span class="bal-warn">${escapeHtml(el.exclusionReason)}</span>`;
     }
 
     // Filing Fee & Waiver

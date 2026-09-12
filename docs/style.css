@@ -4116,9 +4116,11 @@ body:not(.statutory-banner-dismissed) .back-to-top {
   color: var(--color-gold-400);
 }
 
-.hero-kicker-badge .badge-icon {
+.hero-kicker-badge .badge-icon,
+.hero-kicker-badge .badge-icon-svg {
   font-size: 1rem;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .hero-trust-ribbon {
@@ -4150,9 +4152,11 @@ body:not(.statutory-banner-dismissed) .back-to-top {
   gap: 0.35rem;
 }
 
-.trust-icon {
+.trust-icon,
+.trust-icon-svg {
   font-size: 0.95rem;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .trust-sep {
